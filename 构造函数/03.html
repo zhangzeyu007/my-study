@@ -1,0 +1,45 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-02-01 12:11:33
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-02-01 12:22:19
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function SuperType() {
+            this.property = true
+        }
+        SuperType.prototype.getSuperValue = function () {
+            return this.property
+        }
+        function SubType() {
+            this.subproperty = false
+        }
+
+        SubType.prototype = new SuperType()
+        // 新方法
+        SubType.prototype.getSubValue = function () {
+            return this.subproperty
+        }
+        // 覆盖已有的方法
+        SubType.prototype.getSuperValue = function () {
+            return this.subproperty
+        }
+        let instance = new SubType()
+        console.log(instance);
+        console.log(instance.getSuperValue());
+
+    </script>
+</body>
+
+</html>

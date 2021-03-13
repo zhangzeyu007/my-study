@@ -1,0 +1,43 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-27 15:49:34
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-27 15:52:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function person(a, b, c, d) {
+            console.log(this.name);
+            return {
+                name: this.name,
+                a: a,
+                b: b,
+                c: b,
+                d: d
+            }
+        }
+
+        var egg = {
+            name: '蛋蛋',
+        }
+        Function.prototype.newBind = function (obj) {
+            var that = this
+            return function () {
+                that.call(obj);
+            }
+        }
+        person.newBind(egg)()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-27 10:53:21
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-27 11:16:59
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平居中元素</title>
+    <style>
+        /* div {
+            text-align: center;
+        } */
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        span {
+            text-align: center;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: goldenrod;
+            float: left;
+            position: relative;
+            left: 50%;
+            /* margin-left: -100px; */
+            transform: translateX(-50%);
+            text-align: center;
+            line-height: 200px;
+        }
+
+
+        .box2>span {
+            color: greenyellow;
+            position: absolute;
+            left: 0;
+            right: 0;
+            /* margin: 0 auto; */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>h1元素</h1>
+        <p>p元素</p>
+        <span>span元素</span>
+    </div>
+
+    <div>
+        <div class="box">
+            普通流元素
+        </div>
+    </div>
+    <div>
+        <div class="box1">
+            浮动元素
+        </div>
+    </div>
+
+    <div>
+        <div class="box2">
+            <span>绝对定位</span>
+        </div>
+    </div>
+
+</html>

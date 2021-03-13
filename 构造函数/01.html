@@ -1,0 +1,43 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-28 10:16:37
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-28 10:50:51
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        let Person = function (name, age, job) {
+            this.name = name
+            this.age = age
+            this.job = job
+            this.sayName = new Function("console.log(this.name)")
+        }
+
+        // let person1 = new Person('哈哈')
+        let person = new Person('的对抗赛', 29, 'dd')
+        person.sayName()
+
+        Person('我发的', 27, "的菜单")
+        console.log(window.sayName());
+
+        // console.log(person1 instanceof Object);
+        // console.log(person1 instanceof Person);
+
+        let o = new Object()
+        Person.call(o, 'Kinect', 25, '第三方')
+        o.sayName()
+    </script>
+</body>
+
+</html>

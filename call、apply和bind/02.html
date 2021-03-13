@@ -1,0 +1,56 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-27 11:27:19
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-27 12:39:54
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call 、apply 和bind</title>
+</head>
+
+<body>
+    <script>
+        function person(a, b, c, d) {
+            return {
+                name: this.name,
+                a: a,
+                b: b,
+                c: b,
+                d: d
+            }
+        }
+
+        var egg = {
+            name: '蛋蛋',
+        }
+
+        Function.prototype.newApply = function (obj, arr) {
+            var obj = obj || window, result
+            obj.p = this
+            if (!arr) {
+                result = obj.p()
+            } else {
+                var newArguments = []
+                for (let i = 0; i < arr.length; i++) {
+                    newArguments.push('arr[' + i + ']');
+                }
+                var result = eval('obj.p(' + newArguments + ')');
+            }
+            delete obj.p
+            return result
+        }
+
+        let bibi = person.newApply(egg, ['点赞', '收藏', '转发', '充电'])
+
+        console.log(bibi);
+
+    </script>
+</body>
+
+</html>

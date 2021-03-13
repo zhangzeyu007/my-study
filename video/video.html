@@ -1,0 +1,58 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-19 07:37:37
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-19 09:00:25
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <video src="./1968~2019最受欢迎电影.mp4" id="player" width="300" height="200">
+        </video>
+        <input id="btn" type="button" value="播放"></input>
+    </div>
+
+
+    <div>
+        <audio src="./可惜没如果 - 林俊杰.mp3" id="audio-player" controls>音频</audio>
+    </div>
+
+
+    <script>
+        let player = document.getElementById("player")
+        let audioPlayer = document.getElementById("audio-player")
+        let btn = document.getElementById("btn")
+        // 视频
+        btn.addEventListener("click", (event) => {
+            if (player.paused) {
+                player.play()
+                btn.value = "暂停"
+            } else {
+                player.pause()
+                btn.value = "播放"
+            }
+        })
+        player.addEventListener('progress', (event) => {
+            // console.log(event);
+        })
+        player.addEventListener('pause', (event) => {
+            // console.log(event);
+        })
+
+        //音频
+        console.log(audioPlayer.canPlayType("audio/mp4"));
+
+    </script>
+
+</body>
+
+</html>

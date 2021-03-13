@@ -1,0 +1,54 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-17 12:14:20
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-17 12:50:18
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        async function* chars() {
+            const encodedText = [240, 159, 152, 138].map(x => Uint8Array.of(x))
+            for (let char of encodedText) {
+                yield await new Promise((resolve) => {
+                    setTimeout(resolve, 1000, char)
+                })
+            }
+        }
+        const encodedTextStream = new ReadableStream({
+            async start(controller) {
+                for await (let chunk of chars()) {
+                    controller.enqueue(chunk)
+                }
+                controller.close()
+            }
+        })
+
+        const decodedTextStream = encodedTextStream.pipeThrough(new TextDecoderStream())
+
+        const ReadableStreamDefaultReader = decodedTextStream.getReader();
+
+        (async function () {
+            while (true) {
+                const { done, value } = await ReadableStreamDefaultReader.read()
+
+                if (done) {
+                    break
+                } else {
+                    console.log(value);
+                }
+            }
+        })()
+    </script>
+</body>
+
+</html>

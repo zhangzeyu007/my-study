@@ -1,0 +1,62 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-03-13 16:39:32
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-03-13 17:49:28
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{title}}
+        <heading :level="'1'" :title="title"></heading>
+    </div>
+    <script>
+
+        Vue.component('heading', {
+            props: {
+                level: {
+                    type: String,
+                    require: true
+                },
+                title: {
+                    type: String,
+                    default: ""
+                }
+            },
+            render(h) {
+
+                const vnode = h('h' + this.level, // 参数1 tagname
+                    { attrs: { title: this.title } },// 参数2
+                    this.$slots.default, // 参数: 子节点vnode 数组
+
+                )
+                console.log(vnode);
+                return vnode
+            }
+        })
+        const app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    title: '张泽雨'
+                }
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

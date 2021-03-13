@@ -1,0 +1,40 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-10 12:10:02
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-10 15:36:02
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间日期</title>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script>
+        function getTime() {
+            const now = new Date()
+            const day = now.getDate()
+            const month = now.getMonth() + 1
+            const hour = now.getHours()
+            const minute = now.getMinutes()
+            const seconds = now.getSeconds()
+            const nowDay = `${month}月${day}日${hour}时${minute}分${seconds}秒`
+            let dom = document.getElementById('app')
+            dom.innerHTML = nowDay
+        }
+        setInterval(() => {
+            this.getTime()
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

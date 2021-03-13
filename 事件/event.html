@@ -1,0 +1,64 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-10 07:52:31
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-10 09:09:32
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <div id="box"></div>
+    </div>
+    <script>
+        let div = document.getElementById('box')
+        console.log(div);
+
+        div.addEventListener("contexmenu", (e) => {
+            console.log(e);
+            console.log('contexmenu');
+        })
+        window.addEventListener("beforeunload", () => {
+            console.log('beforeunload');
+        })
+        window.addEventListener("DOMContentLoaded", () => {
+            console.log('DOMContentLoaded');
+        })
+        window.addEventListener("load", () => {
+            console.log('load');
+        })
+        document.addEventListener("readystatechange", () => {
+            console.log('readystatechange');
+        })
+        window.addEventListener("pageshow", () => {
+            console.log('pageshow');
+        })
+        window.addEventListener("pagehide", () => {
+            console.log('pagehide');
+        })
+        window.addEventListener("hashchange", () => {
+            console.log('hashchange');
+        })
+
+    </script>
+
+</body>
+
+</html>

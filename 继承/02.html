@@ -1,0 +1,50 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-02-01 12:35:08
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-02-02 08:14:52
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型式继承</title>
+</head>
+
+<body>
+
+
+    <script>
+        // function Object(o) {
+        //     function F() { }
+        //     F.prototype = o
+        //     return new F()
+        // }
+
+        let person = {
+            name: "zzy",
+            friends: [
+                'jj',
+                'kk'
+            ]
+        }
+        let anotherPerson = Object.create(person)
+        anotherPerson.name = '小明'
+        anotherPerson.friends.push('ggggg')
+        console.log(anotherPerson);
+
+        let person2 = Object.create(person)
+        person2.name = '黎明'
+
+        person2.friends.push('hot')
+
+        console.log(
+            person2
+        );
+    </script>
+</body>
+
+</html>

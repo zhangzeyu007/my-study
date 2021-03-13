@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>错误捕获</title>
+    <script type="text/javascript">
+       window.addEventListener('error', function(e){
+          console.log('error',e)
+       }, true)
+       window.onerror = function(e){
+        console.log(e)
+       }
+     
+    </script>
+ 
+</head>
+<body>
+     <!-- 及时运行错误 -->
+     <!-- try catch -->
+     <!-- 资源加载错误 -->
+    <script src='./ste.js'></script>
+    <script type="text/javascript">
+               imageObject.onerror =function (e)  {
+        console.log('Object onerror',e)
+       }
+    </script>
+
+</body>
+</html>

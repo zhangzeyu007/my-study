@@ -1,0 +1,35 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-13 09:46:47
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-17 12:16:11
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<div id="app">
+
+</div>
+
+<body>
+    <script>
+        const textEncoder = new TextEncoder()
+        const textDecoder = new TextDecoder()
+        let data = 'foo'
+        const fooArr = new Uint8Array(5)
+        const encodeText = textEncoder.encode("foo")
+        // console.log(fooArr);
+        // console.log(encodeText);
+        const decodeText = textDecoder.decode(encodeText)
+        console.log(decodeText);
+    </script>
+</body>
+
+</html>

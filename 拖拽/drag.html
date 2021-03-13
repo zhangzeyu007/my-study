@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            position: relative;
+        }
+
+        #box {
+            width: 500px;
+            height: 500px;
+            background-color: palegoldenrod;
+            margin-left: 200px;
+        }
+
+        #drag {
+            width: 100px;
+            height: 50px;
+            position: absolute;
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+<div id="drag"></div>
+<div id="box"></div>
+
+
+<body>
+    <script>
+        /**
+         * 1.开始拖拽 onmousedown
+         * 2.拖拽元素移动onmousemove
+         * 3.拖拽元素放置当前位置 onmouseup
+        */
+        window.onload = function () {
+            let drag = document.getElementById('drag')
+            drag.onmousedown = function (e) {
+                e = e || window.event;
+                let ol = e.clientX - drag.offsetLeft
+                let ot = e.clientY - drag.offsetTop
+                document.onmousemove = function (event) {
+                    event = event || window.event;
+                    let left = event.clientX - ol;
+                    let top = event.clientY - ot;
+                    // 修改drag的位置
+                    drag.style.left = left + 'px'
+                    drag.style.top = top + "px"
+                }
+                document.onmouseup = function (e) {
+                    document.onmousemove = null
+                    document.onmouseup = null
+                }
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

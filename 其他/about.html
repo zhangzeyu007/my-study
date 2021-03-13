@@ -1,0 +1,196 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-02 10:35:00
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-25 16:20:04
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            background-color: rosybrown;
+
+        }
+
+        .item1 {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            background-color: salmon;
+            vertical-align: middle;
+        }
+
+        .item2 {
+            display: inline-block;
+            width: 30px;
+            height: 100px;
+            background-color: seashell;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="item1"></span>
+        <sapn class="item2"></span>
+    </div>
+    <!-- 
+    <div class="main">
+        <div class="search">
+            <form action="">
+                <input type="text" placeholder="输入">
+                <div class="button"></div>
+            </form>
+        </div>
+        <span></span>
+    </div> -->
+
+    <script>
+        // class Foo {
+        //     async *[Symbol.asyncIterator]() { }
+        // }
+
+        // let f = new Foo()
+        // console.log(f[Symbol.asyncIterator]());
+
+
+        // class Emitter {
+        //     constructor(max) {
+        //         this.max = max
+        //         this.asyncIdex = 0
+        //     }
+        //     async *[Symbol.asyncIterator]() {
+        //         while (this.asyncIdex < this.max) {
+        //             yield new Promise((resolve) => {
+        //                 resolve(this.asyncIdex++)
+        //             })
+        //         }
+        //     }
+        // }
+
+        // async function asyncCount() {
+        //     let emitter = new Emitter(5)
+
+        //     for await (const x of emitter) {
+        //         console.log(x);
+        //     }
+        // }
+        // asyncCount() 
+
+
+        // function Foo(params) {
+
+        // }
+        // let f = new Foo()
+        // console.log(Foo[Symbol.hasInstance](f));
+        // let num = 0
+        // for (let i = 1; i <= 10; i++) {
+        //     if (i % 5 == 0) {
+        //        console.log(i);
+        //     }
+        //     num++
+        // }
+        // // console.log(num);
+
+
+        // with (location) {
+        //     let url = href
+        //     console.log(url);
+        // }
+        // let a = new String()
+        //     a.toLcaleString();
+        //     console.log(a);
+        // let str = "he"
+        // let res = str.padEnd(6,'..')
+        // console.log(res);
+
+
+        // let message = 'abcdefg'
+        // let stringIterator = message[Symbol.iterator]()
+        // console.log(stringIterator.next());
+        // console.log(stringIterator.next());
+        // console.log(stringIterator.next());
+        // console.log(stringIterator.next());
+
+        // const m = new Map([
+        //     ["key1", 'val1'],
+        //     ["key2", 'val2'],
+        // ])
+
+        // for (let key of m.keys()) {
+        //     console.log(key);
+        // }
+        // let contaion = false
+
+
+        // if (contaion) {
+        //     function outer() {
+        //         console.log('bbb');
+        //     }
+
+        // } else {
+        //     function outer() {
+        //         console.log('aaa');
+        //     }
+        // }
+
+        // outer()
+        // function ceateFun(proptypeName) {
+        //     return function (Object1, Object2) {
+        //         let value1 = Object1[proptypeName]
+        //         let value2 = Object2[proptypeName]
+        //         if (value1 < value2) {
+        //             return -1
+        //         } else if (value1 > value2) {
+        //             return 1;
+        //         } else {
+        //             return 0;
+        //         }
+        //     }
+        // }
+
+        // function MyObject(params) {
+
+        //     let num = 10
+        //     function privateFun() {
+        //         return false
+        //     }
+        //     this.publicMethod = function (params) {
+        //         num++;
+        //         return privateFun();
+        //     }
+
+        // }
+
+        // let myobj = new MyObject()
+
+
+
+        //     let hasPlugins = function (name) {
+        //         name = name.toLowerCase()
+        //         for (let plugin of window.navigator.plugins) {
+        //             console.log(plugin.name);
+        //             if (plugin.name.toLowerCase().indexOf(name) > -1) {
+        //                 return true
+        //             }
+        //         }
+        //         return false
+        //     }
+        //  alert(hasPlugins('Flash'))
+
+        // navigator.registerProtocolHandler('mailto', "http://somemailclient.com?cmd=%", "some Mail")
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-02-18 09:13:46
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-02-18 10:18:23
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>继承</title>
+</head>
+
+<body>
+    <script>
+        class Vehicle {
+            constructor() {
+                this.hasEngine = true
+            }
+            static identify() {
+                console.log('哈哈哈');
+            }
+        }
+        
+        class Bus extends Vehicle {
+            constructor() {
+                super()
+                console.log(this instanceof Vehicle);
+                console.log(this);
+            }
+            static name() {
+                super.identify()
+            }
+        }
+
+
+        new Bus()
+        Bus.name()
+    </script>
+</body>
+
+</html>

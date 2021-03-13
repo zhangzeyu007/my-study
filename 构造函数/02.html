@@ -1,0 +1,38 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-28 11:50:49
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-28 11:55:28
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function SubType() {
+            this.prototype = true
+        }
+        SubType.prototype = {
+            getSubValue() {
+                return this.subproperty;
+            },
+            someOtherMethod() {
+                return false;
+            }
+        }
+
+        let instance = new SubType()
+        console.log(instance.getSubValue());
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-26 09:41:39
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-26 10:44:17
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this的指向问题</title>
+</head>
+
+<body>
+    <script>
+        var name = '小红'
+        function a() {
+            var name = '小白'
+            console.log(this.name); // 指向全局的window
+        }
+
+        function d(i) {
+            return i();
+        }
+
+        var b = {
+            name: "小黄",
+            detail: function () {
+                console.log(this.name);
+            },
+            bibi: function () {
+                return function () {
+                    console.log(this.name);
+                }
+            }
+        }
+        var c = b.detail;
+        b.a = a
+        var e = b.bibi()
+
+        a() // 指向全局的window
+        c() // 小红
+        b.a() // 小黄
+        d(b.detail) // 小红
+        e() // 小红
+
+
+    </script>
+</body>
+
+</html>

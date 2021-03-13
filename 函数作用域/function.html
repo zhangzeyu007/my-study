@@ -1,0 +1,83 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-20 11:36:49
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-03-04 16:05:34
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数作用域</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 函数作用域
+        */
+
+        var b = '张泽'
+        function flay() {
+            var b = '找那个'
+        }
+        console.log(b);
+
+        /**
+         * 块级作用域
+        */
+        var a = 'apple'
+
+        if (true) {
+            var a = 'angle'
+        }
+
+        console.log(a);
+
+        for (var i = 0; i < 3; i++) {
+            break;
+        }
+        console.log(i); // 0是全局作用域var变量提升
+        k = 5
+
+        while (k > 1) {
+            k--;
+            var d = 10
+        }
+        console.log(k); // k d 都是全局作用域
+        console.log(d);
+
+        console.log('--------------------');
+        /**
+         * 作用域链 (变量执行次序)
+        */
+        var name1 = 'apple'
+        var name2 = 'body'
+
+        function logname() {
+            var name1 = 'angle'
+            console.log(name1 + '内部'); // angle
+            console.log(name2 + '内部');// body
+        }
+
+        logname()
+
+        console.log(name1); // apple
+        console.log('------------');
+        /**
+         * 声明提升
+        */
+        var book1 = 'apple'
+        function go() {
+            console.log(book1); // undifined
+            var book1 = 'angle';
+            console.log(book1); // angle
+        }
+        go()
+    </script>
+</body>
+
+</html>

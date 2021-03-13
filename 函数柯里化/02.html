@@ -1,0 +1,40 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-26 13:08:35
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-26 13:13:35
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 柯里化之前
+        function add(x, y) {
+            return x + y
+        }
+
+        console.log(add(1, 2));
+
+        // 柯里化之后
+        function addX(y) {
+            return function (x) {
+                return x + y
+            }
+        }
+
+        console.log(addX(2)(1));
+
+
+    </script>
+</body>
+
+</html>
