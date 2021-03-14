@@ -3,12 +3,17 @@
  * @Author: 海象
  * @Date: 2021-03-14 09:54:50
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-14 10:10:25
+ * @LastEditTime: 2021-03-14 11:09:54
  */
-
+const role = 'admin'
 
 const MyPlugin = {
     install(Vue, options) {
+        // 1. 添加全局方法或 property
+        Vue.myGlobalMethod = function () {
+            console.log('张泽雨');
+        }
+        // 2.添加组件
         Vue.component('heading', {
             props: {
                 level: {
@@ -46,6 +51,35 @@ const MyPlugin = {
 
                 )
                 return vnode
+            }
+        })
+        // 3. 注入组件选项
+        Vue.mixin({
+            created: function () {
+                // this 表示组件实例
+                this.hello()
+            },
+            mounted() {
+                // console.log('mixin的mounted')
+            },
+            methods: {
+                hello() {
+                    console.log('hello 泽雨');
+                }
+            }
+        })
+        // 4. 添加实例方法
+        Vue.prototype.$myMethod = function (methodOptions) {
+            console.log('我是中国的');
+        }
+
+        // 5. 指令
+        Vue.directive('permission', {
+            inserted(el, binding) {
+                console.log(binding);
+                if (role !== binding.value) {
+                    el.parentElement.removeChild(el)
+                }
             }
         })
     }

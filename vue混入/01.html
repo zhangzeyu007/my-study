@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-03-14 08:49:10
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-14 11:11:08
+ * @LastEditTime: 2021-03-14 10:42:34
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,10 +12,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>vue插件</title>
+    <title>vue混入</title>
     <script src="https://at.alicdn.com/t/font_2367833_no04azrjzy.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="./plugins/heading.js"></script>
     <style>
         .icon {
             width: 1em;
@@ -29,11 +28,38 @@
 
 <body>
     <div id="app">
-        <heading level="1" :title="title" icon="wenzhangguanli">{{title}}</heading>
-        <button v-permission="'user'">清空</button>
+        <comp></comp>
     </div>
 
     <script>
+        let myMixin = {
+            created: function () {
+                // this 表示组件实例
+                console.log('mixin调用');
+                console.log(this);
+                this.hello()
+            },
+            mounted() {
+                console.log('mixin的mounted')
+            },
+            methods: {
+                hello() {
+                    console.log('hello hhaha');
+                }
+            }
+        }
+
+        Vue.component('comp', {
+            template: '<div></div>',
+            created() {
+                console.log('组件调用');
+            },
+            mounted() {
+                console.log('mounted组件')
+            },
+            mixins: [myMixin]
+        })
+
 
         const app = new Vue({
             el: '#app',
@@ -43,10 +69,6 @@
                 }
             }
         })
-        // 全局方法调用
-        Vue.myGlobalMethod()
-        // 实例方法的调用
-        app.$myMethod()
 
     </script>
 </body>
