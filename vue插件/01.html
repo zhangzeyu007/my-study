@@ -1,0 +1,50 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-03-14 08:49:10
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-03-14 10:11:10
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue插件</title>
+    <script src="https://at.alicdn.com/t/font_2367833_no04azrjzy.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./plugins/heading.js"></script>
+    <style>
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <heading level="1" :title="title" icon="wenzhangguanli">{{title}}</heading>
+    </div>
+
+    <script>
+
+
+        const app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    title: '张泽雨'
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

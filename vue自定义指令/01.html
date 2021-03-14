@@ -1,0 +1,53 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-03-14 08:49:10
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-03-14 09:13:44
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自定义指令</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <input type="text" v-focus>
+        <button v-permission="'user'">清空</button>
+
+    </div>
+    <script>
+        const role = 'admin'
+        Vue.directive('focus', {
+            inserted(el) {
+                el.focus()
+            }
+        })
+        Vue.directive('permission', {
+            inserted(el, binding) {
+                console.log(binding);
+                if (role !== binding.value) {
+                    el.parentElement.removeChild(el)
+                }
+            }
+        })
+        const app = new Vue({
+            el: '#app',
+            data() {
+                return {
+
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,37 +1,14 @@
-<!--
+/*
  * @Description: 组件
  * @Author: 海象
- * @Date: 2021-03-13 16:39:32
+ * @Date: 2021-03-14 09:54:50
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-14 10:07:01
--->
-<!DOCTYPE html>
-<html lang="en">
+ * @LastEditTime: 2021-03-14 10:10:25
+ */
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>渲染函数</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://at.alicdn.com/t/font_2367833_no04azrjzy.js"></script>
-    <style>
-        .icon {
-            width: 1em;
-            height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
-        }
-    </style>
-</head>
 
-<body>
-    <div id="app">
-        <heading level="1" :title="title" icon="wenzhangguanli">{{title}}</heading>
-    </div>
-    <script>
-
+const MyPlugin = {
+    install(Vue, options) {
         Vue.component('heading', {
             props: {
                 level: {
@@ -68,24 +45,14 @@
                     children, // 参数3: 子节点vnode 数组
 
                 )
-
-                console.log(vnode);
                 return vnode
             }
         })
-
-        const app = new Vue({
-            el: '#app',
-            data() {
-                return {
-                    title: '张泽雨'
-                }
-            }
-        })
+    }
+}
 
 
-
-    </script>
-</body>
-
-</html>
+if (typeof window !== 'undifined' && window.Vue) {
+    // 使用插件使用Vue.use()
+    window.Vue.use(MyPlugin)
+}
