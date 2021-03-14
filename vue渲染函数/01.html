@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-03-13 16:39:32
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-13 17:49:28
+ * @LastEditTime: 2021-03-14 07:59:05
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,14 +12,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>渲染函数</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
 <body>
     <div id="app">
         {{title}}
-        <heading :level="'1'" :title="title"></heading>
+        <heading level="1" :title="title">{{title}}</heading>
     </div>
     <script>
 
@@ -38,7 +38,7 @@
 
                 const vnode = h('h' + this.level, // 参数1 tagname
                     { attrs: { title: this.title } },// 参数2
-                    this.$slots.default, // 参数: 子节点vnode 数组
+                    this.$slots.default, // 参数3: 子节点vnode 数组
 
                 )
                 console.log(vnode);
