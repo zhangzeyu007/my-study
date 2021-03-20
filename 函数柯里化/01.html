@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-01-26 11:53:44
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-20 10:47:25
+ * @LastEditTime: 2021-03-20 21:44:28
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>柯里化</title>
 </head>
 
 <body>
@@ -37,7 +37,6 @@
             let args = Array.prototype.slice.call(arguments)
             let inner = function () {
                 args.push(...arguments)
-
                 return inner
             }
             inner.toString = function () {

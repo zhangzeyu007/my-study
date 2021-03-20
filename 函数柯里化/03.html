@@ -1,0 +1,41 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-03-20 21:37:47
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-03-20 21:44:07
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柯里化</title>
+</head>
+
+<body>
+
+    <script>
+        // 柯里化 
+        // 通过闭包的方式记录参数
+        let add = function (x) {
+            return function (y) {
+                return x + y
+            }
+        }
+
+        let increment = add(1)
+        let addTen = add(10)
+
+        console.log(increment(2));
+        console.log(addTen(2));
+
+
+    </script>
+
+</body>
+
+</html>
