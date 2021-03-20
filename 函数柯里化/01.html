@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-01-26 11:53:44
  * @LastEditors: 海象
- * @LastEditTime: 2021-01-26 12:39:28
+ * @LastEditTime: 2021-03-20 10:47:25
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -35,7 +35,6 @@
         // console.log(whichEvent);
         function add() {
             let args = Array.prototype.slice.call(arguments)
-
             let inner = function () {
                 args.push(...arguments)
 
@@ -52,15 +51,13 @@
 
         console.log(add(1)(2)(3));
 
-
-
-
         const nameList1 = [
             { mid: "哈哈" },
             { mid: "那你" },
             { mid: "宽度" },
             { mid: "大幅度" }
         ]
+
         const nameList2 = [
             { abc: '和第三届开发' },
             { abc: '和第发' },
@@ -73,7 +70,7 @@
         const name_abc = curring("abc")
         console.log(nameList1.map(name_mid));
         console.log(nameList2.map(name_abc));
-        
+
     </script>
 </body>
 
