@@ -1,0 +1,71 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-03-20 09:27:07
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-03-20 10:34:55
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流防抖</title>
+</head>
+
+<body>
+    <div>
+        <button id="debounce">防抖</button>
+        <button id="throttle">节流</button>
+    </div>
+
+    <script>
+        /**
+         * 防抖
+        */
+        let num = 0
+        function ajax(content) {
+            console.log('ajax request' + content);
+            num = 0
+        }
+        let timers = null;
+        function debounce() {
+            clearTimeout(timers)
+            timers = setTimeout(() => {
+                ajax('防抖发送成功')
+            }, 1000)
+        }
+
+        let debounceBtn = document.getElementById('debounce')
+        debounceBtn.addEventListener('click', function () {
+            num += 1
+            console.log('点击' + num);
+            debounce()
+        })
+
+        /**
+         *节流
+        */
+        let flag = true;
+        function throttle() {
+            if (flag) {
+                flag = false
+                ajax('节流发送成功')
+                setTimeout(() => {
+                    flag = true
+                }, 2000)
+            }
+        }
+
+        let throttleBtn = document.getElementById('throttle')
+        throttleBtn.addEventListener('click', function () {
+            throttle()
+        })
+
+    </script>
+
+</body>
+
+</html>
