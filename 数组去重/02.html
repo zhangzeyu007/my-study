@@ -1,0 +1,118 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-03-21 14:43:30
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-03-21 14:53:32
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组去重的方法</title>
+</head>
+
+<body>
+    <script>
+        // 1.双循环遍历
+        let arr = [1, 5, 6, 1, 9, 9, 2, 1];
+        arr.map((item, index) => {
+            arr.map((i, index1) => {
+                if (index !== index1 && item === i) {
+                    arr.splice(index1, 1);
+                }
+            })
+        })
+        console.log(arr);
+
+        function unique1(array) {
+            for (let i = 0; i < array.length; i++) {
+                for (let j = i + 1; j < array.length; j++) {
+                    if (array[i] === array[j]) {
+                        arr.splice(j, 1);
+                    }
+                }
+            }
+            return arr;
+        }
+        console.log(unique1(arr));
+
+        //2. ES6的Set 
+        function unique2(arr) {
+            return Array.from(new Set(arr))
+        }
+        console.log(unique2(arr)); // [1, 5, 6, 9, 2]
+
+        let arr2 = [1, 5, 6, 1, 9, 9, 9, 9, 9, 2, 1];
+        function unique3(arr) {
+            return [...new Set(arr)]
+        }
+        console.log(unique3(arr2)); // [1, 5, 6, 9, 2]
+
+        // 3.利用indexOf()
+        function unique4(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error');
+                return;
+            }
+            let array = [];
+            arr.map(item => {
+                if (array.indexOf(item) === -1) {
+                    array.push(item)
+                }
+            })
+            return array;
+        }
+        console.log(unique4(arr)); // [1, 5, 6, 9, 2]
+
+        // 4.利用sort(),然后比较相邻元素是否相等
+        function unique5(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error!')
+                return;
+            }
+            arr = arr.sort()
+            let arrry = [arr[0]];
+            arr.map((item, index) => {
+                if (index > 0 && item !== arr[index - 1]) {
+                    arrry.push(item)
+                }
+            });
+            return arrry;
+        }
+        console.log(unique5(arr)); // [1, 2, 5, 6, 9]
+
+        // 5.利用filter(),当找到的下标不等于当前下标时就证明这个元素在前面出现过，排除掉
+        function unique6(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error!')
+                return;
+            }
+            return arr.filter((item, index) => {
+                return arr.indexOf(item) === index;
+            })
+        }
+
+        console.log(unique6(arr)); // [1, 5, 6, 9, 2]
+
+        // 6.利用reduce()方法
+        function unique7(arr) {
+            if (!Array.isArray(arr)) {
+                console.log('type error!')
+                return;
+            }
+            return arr.reduce((prev, cur, index) => prev.includes(cur) ? prev : [...prev, cur], []);
+        }
+
+        console.log(unique7(arr)); // [1, 5, 6, 9, 2]
+
+
+
+
+    </script>
+</body>
+
+</html>
