@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-03-27 10:32:33
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-27 10:38:59
+ * @LastEditTime: 2021-03-27 10:41:31
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -20,7 +20,7 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import('../views/About.vue')
   }
 ]
 
