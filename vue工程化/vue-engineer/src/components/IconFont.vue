@@ -3,12 +3,15 @@
  * @Author: 海象
  * @Date: 2021-03-27 15:16:08
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-27 15:32:51
+ * @LastEditTime: 2021-03-27 17:39:34
 -->
 
 <template>
   <div class="main">
     <div class="box"></div>
+    <h1>我在你的身边</h1>
+    <h2>我在你的身边</h2>
+    <h3>我在你的身边</h3>
   </div>
 </template>
 
@@ -25,7 +28,7 @@ export default {
   .box {
     width: 100px;
     height: 100px;
-    background-color: #6666;
+    background-color: $color;
   }
 }
 </style>
