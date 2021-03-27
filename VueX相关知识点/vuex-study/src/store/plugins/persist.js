@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-03-27 12:25:47
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-27 12:36:50
+ * @LastEditTime: 2021-03-27 12:42:14
  */
 
 export default store => {
@@ -24,5 +24,4 @@ export default store => {
             localStorage.removeItem('user')
         }
     })
-
 }

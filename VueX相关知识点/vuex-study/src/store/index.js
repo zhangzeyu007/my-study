@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-03-27 10:32:33
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-27 12:38:04
+ * @LastEditTime: 2021-03-27 12:41:43
  */
 import Vue from 'vue'
 import Vuex from 'vuex'
@@ -13,6 +13,7 @@ import persist from './plugins/persist'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  // 模块使用
   modules: {
     user
   },
