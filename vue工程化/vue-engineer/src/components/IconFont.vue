@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-03-27 15:16:08
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-27 17:39:34
+ * @LastEditTime: 2021-03-27 17:56:47
 -->
 
 <template>
@@ -28,6 +28,7 @@ export default {
   .box {
     width: 100px;
     height: 100px;
+    border-radius: 50%;
     background-color: $color;
   }
 }

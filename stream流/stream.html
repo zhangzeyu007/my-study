@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-01-17 12:14:20
  * @LastEditors: 海象
- * @LastEditTime: 2021-01-17 12:50:18
+ * @LastEditTime: 2021-03-27 17:58:14
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,6 @@
         })
 
         const decodedTextStream = encodedTextStream.pipeThrough(new TextDecoderStream())
-
         const ReadableStreamDefaultReader = decodedTextStream.getReader();
 
         (async function () {
