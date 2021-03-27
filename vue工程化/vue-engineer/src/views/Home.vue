@@ -3,12 +3,13 @@
  * @Author: 海象
  * @Date: 2021-03-27 13:02:21
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-27 17:39:54
+ * @LastEditTime: 2021-03-27 17:52:15
 -->
 <template>
   <div class="home">
+    <h1>scoped css 的使用 与深度选择器的使用</h1>
     {{ `${publicpath}` }}
-    <!-- <img alt="Vue logo" :src="`${publicpath}assets/logo.png`" /> -->
+    <img alt="Vue logo" :src="`${publicpath}assets/logo.png`" />
     <icon-font class="hello"></icon-font>
   </div>
 </template>
@@ -27,7 +28,9 @@ export default {
   },
 };
 </script>
+
 <style  scoped>
+/* scoped css 的使用 */
 .hello {
   border: 5px solid darkgreen;
 }
