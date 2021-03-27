@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-03-27 12:25:47
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-27 12:42:14
+ * @LastEditTime: 2021-03-27 12:47:36
  */
 
 export default store => {
@@ -17,6 +17,7 @@ export default store => {
     //如果用户相关状态发生变化 ,自动存入localstorge
     store.subscribe((mutation, state) => {
         // {type:'user/login'}
+        // console.log(mutation.type);
         if (mutation.type === 'user/login') {
             const user = JSON.stringify(state.user)
             localStorage.setItem('user', user)
