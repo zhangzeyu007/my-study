@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:23:22
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 08:28:50
+ * @LastEditTime: 2021-04-01 09:14:03
  */
 /**
  *  npm  init -y 初始化npm 配置文件
@@ -13,4 +13,6 @@
  *  npx webpack 执行构建
   *
 */
-console.log('hello webpack');
+import { str } from './a.js'
+console.log('hello webpack' + `${str}`);
+console.log(str);
