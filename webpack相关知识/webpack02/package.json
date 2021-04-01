@@ -9,15 +9,23 @@
   },
   "keywords": [],
   "author": "",
+  "browserslist": [
+    "last 2 versions",
+    "> 1%"
+  ],
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^10.2.5",
     "css-loader": "^5.2.0",
     "html-webpack-plugin": "^4.5.0",
     "less": "^3.12.2",
     "less-loader": "^7.0.2",
+    "postcss-loader": "^4.0.4",
     "style-loader": "^2.0.0",
     "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12"
   },
-  "dependencies": {}
+  "dependencies": {
+    "pixrem": "^5.0.0"
+  }
 }

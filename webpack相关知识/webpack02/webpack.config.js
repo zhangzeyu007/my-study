@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 12:07:33
+ * @LastEditTime: 2021-04-01 14:28:41
  */
 
 const path = require('path')
@@ -25,12 +25,13 @@ module.exports = {
     module: {
         rules: [
             {
+
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', 'less-loader']
+                use: ['style-loader', 'css-loader', "postcss-loader", 'less-loader']
             }
         ],
     },
