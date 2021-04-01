@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 15:31:35
+ * @LastEditTime: 2021-04-01 15:56:12
  */
 
 const path = require('path')
@@ -27,13 +27,16 @@ module.exports = {
     module: {
         rules: [
             {
-
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
                 test: /\.less$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'less-loader']
+            },
+            {
+                test: /\.js$/,
+                use: path.resolve(__dirname, './myLoader/replace-loader.js')
             }
         ],
     },
