@@ -3,11 +3,13 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 14:28:41
+ * @LastEditTime: 2021-04-01 15:31:35
  */
 
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
 // 零配置
 module.exports = {
     // 入口
@@ -27,11 +29,11 @@ module.exports = {
             {
 
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
                 test: /\.less$/,
-                use: ['style-loader', 'css-loader', "postcss-loader", 'less-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'less-loader']
             }
         ],
     },
@@ -39,6 +41,9 @@ module.exports = {
         new htmlWebpackPlugin({
             template: "./src/index.html",
             filename: "index.html"
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'index.css'
         })
     ]
 }
