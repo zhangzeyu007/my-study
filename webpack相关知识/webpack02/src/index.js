@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:23:22
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 15:52:39
+ * @LastEditTime: 2021-04-01 17:32:14
  */
 /**
  *  npm  init -y 初始化npm 配置文件
@@ -27,7 +27,7 @@
 
 import './index.css'
 import './index.less'
-console.log('hello webpack');
+console.log('hello 我是中国人');
 
 //自动补齐浏览器前缀
 //px to rem

@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 15:51:53
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 17:33:18
+ * @LastEditTime: 2021-04-01 16:41:31
  */
 
 // 自定义loader
@@ -12,10 +12,10 @@
 // 如果返回多种信息, this.callback
 // 如何处理异步逻辑 this.async
 // 多个自定义loader
-
 module.exports = function (source) {
-    const content = source.replace('我是中国人', '好好笑啊')
-    this.callback(null, content)
-    console.log('走了');
-    // return source.replace("我是中国人", "好好笑");
+    const callback = this.async()
+    setTimeout(() => {
+        const content = source.replace('hello', '你好' + this.query.name)
+        callback(null, content)
+    }, 3000)
 }

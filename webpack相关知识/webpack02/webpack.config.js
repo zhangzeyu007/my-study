@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 15:56:12
+ * @LastEditTime: 2021-04-01 17:38:54
  */
 
 const path = require('path')
@@ -23,6 +23,9 @@ module.exports = {
     },
     // 打包模式
     mode: "development",
+    resolveLoader: {
+        modules: ['node_modules', './myLoader']
+    },
     // loader的设置
     module: {
         rules: [
@@ -36,7 +39,15 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                use: path.resolve(__dirname, './myLoader/replace-loader.js')
+                use: [
+                    "replace-loader",
+                    {
+                        loader: path.resolve(__dirname, './myLoader/replace-loader-async.js'),
+                        options: {
+                            name: '张泽雨'
+                        }
+                    }
+                ]
             }
         ],
     },
