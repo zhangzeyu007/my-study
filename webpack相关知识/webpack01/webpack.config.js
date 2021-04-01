@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 10:43:32
+ * @LastEditTime: 2021-04-01 11:13:19
  */
 
 const path = require('path')
@@ -11,8 +11,9 @@ const path = require('path')
 // 零配置
 module.exports = {
     // 入口
+    entry: "./src/index.js",
     // 数组形式单入口,但是有两个chunk
-    entry: ['./src/index.js', "./src/list.js"],
+    // entry: ['./src/index.js', "./src/list.js"],
     // 多入口只能是对象形式
     // entry: {
     //     index: "./src/index.js",
@@ -27,5 +28,14 @@ module.exports = {
         filename: "[name].js"
     },
     // 打包模式
-    mode: "development"
+    mode: "development",
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
+        ],
+    },
+
 }
