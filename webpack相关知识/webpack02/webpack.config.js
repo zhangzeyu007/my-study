@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 11:45:09
+ * @LastEditTime: 2021-04-01 11:58:58
  */
 
 const path = require('path')
@@ -12,14 +12,6 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     // 入口
     entry: "./src/index.js",
-    // 数组形式单入口,但是有两个chunk
-    // entry: ['./src/index.js', "./src/list.js"],
-    // 多入口只能是对象形式
-    // entry: {
-    //     index: "./src/index.js",
-    //     list: "./src/list.js",
-    //     detail: "./src/detail.js"
-    // },
     // 出口
     output: {
         // 绝对路径
@@ -34,9 +26,6 @@ module.exports = {
         rules: [
             {
                 test: /\.css$/,
-                // css-loader => webpack 支持.css 模块的语法
-                // style-loader => 把 css的代码抽离出来 ,动态生成style标签,插入到html的头部
-                // 然后再把css放入进去
                 use: ['style-loader', 'css-loader'],
             },
         ],
