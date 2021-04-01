@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 11:58:58
+ * @LastEditTime: 2021-04-01 12:07:33
  */
 
 const path = require('path')
@@ -28,6 +28,10 @@ module.exports = {
                 test: /\.css$/,
                 use: ['style-loader', 'css-loader'],
             },
+            {
+                test: /\.less$/,
+                use: ['style-loader', 'css-loader', 'less-loader']
+            }
         ],
     },
     plugins: [

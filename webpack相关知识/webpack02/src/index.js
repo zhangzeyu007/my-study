@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:23:22
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 12:02:28
+ * @LastEditTime: 2021-04-01 12:37:37
  */
 /**
  *  npm  init -y 初始化npm 配置文件
@@ -24,5 +24,15 @@
   *
   * 
 */
+
 import './index.css'
+import './index.less'
 console.log('hello webpack');
+
+//自动补齐浏览器前缀
+//px to rem
+//css 压缩 postcss  === bable => JS
+//css 内容 => ast => 编译 postcss的插件来处理的
+//postcss-use 允许您在CSS中显式设置PostCSS插件，并仅对当前文件执行它们。 
+//postcss-initial添加了all: initial支持，这将重置所有继承的样式。
+//autoprefixer 使用“我可以使用”中的数据添加供应商前缀。
