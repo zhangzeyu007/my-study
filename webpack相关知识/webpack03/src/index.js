@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:23:22
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-02 10:00:08
+ * @LastEditTime: 2021-04-02 15:44:59
  */
 /**
  *  npm  init -y 初始化npm 配置文件
@@ -35,7 +35,10 @@ console.log(img);
 const pic = new Image()
 pic.src = img
 const tag = document.getElementById('app')
-
 tag.append(pic)
 
+// webpack-dev-server 创建本地服务器
+// 打包成功 ,自动启动一个浏览器窗口
+// 热更新
+// mock数据
 

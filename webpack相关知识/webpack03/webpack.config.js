@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-02 11:17:15
+ * @LastEditTime: 2021-04-02 16:11:16
  */
 
 const path = require('path')
@@ -25,7 +25,7 @@ module.exports = {
     // 打包模式
     mode: "development",
 
-    // 查找loader 处理文件路径位置
+    // 查找loader处理文件路径位置
     resolveLoader: {
         modules: ['node_modules']
     },
@@ -64,6 +64,17 @@ module.exports = {
                 }
             }
         ],
+    },
+    devtool: "source-map", // inline-source-map cheap-source-map none
+    devServer: {
+        contentBase: './dist',
+        open: true,
+        port: 8081,
+        proxy: {
+            "/api": {
+                target: ""
+            }
+        }
     },
     plugins: [
         new htmlWebpackPlugin({
