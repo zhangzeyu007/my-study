@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-02 08:56:15
+ * @LastEditTime: 2021-04-02 09:31:42
  */
 
 const path = require('path')
@@ -41,8 +41,13 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'less-loader']
             },
             {
-                test: /\.jpg$/,
-                use: ["file-loader"]
+                test: /\.(jpe?g|png|gif)$/,
+                use: {
+                    loader: "file-loader",
+                    options: {
+                        name: "image/[name].[ext]"
+                    }
+                }
             }
         ],
     },
