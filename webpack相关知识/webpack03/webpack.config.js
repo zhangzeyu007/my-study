@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-02 08:39:18
+ * @LastEditTime: 2021-04-02 08:56:15
  */
 
 const path = require('path')
@@ -24,6 +24,8 @@ module.exports = {
     },
     // 打包模式
     mode: "development",
+
+    // 查找loader 处理文件路径位置
     resolveLoader: {
         modules: ['node_modules']
     },
@@ -38,6 +40,10 @@ module.exports = {
                 test: /\.less$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'less-loader']
             },
+            {
+                test: /\.jpg$/,
+                use: ["file-loader"]
+            }
         ],
     },
     plugins: [

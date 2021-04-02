@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:23:22
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-02 08:32:21
+ * @LastEditTime: 2021-04-02 08:57:49
  */
 /**
  *  npm  init -y 初始化npm 配置文件
@@ -27,5 +27,15 @@
 
 import './index.css'
 import './index.less'
+import img from '../static/image/4.jpg'
 console.log('hello 我是中国人');
+console.log(img);
+// 处理 jpg jpeg png gif svg webx
+
+const pic = new Image()
+pic.src = img
+const tag = document.getElementById('app')
+
+tag.append(pic)
+
 
