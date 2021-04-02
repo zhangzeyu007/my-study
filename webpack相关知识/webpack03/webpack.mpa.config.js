@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-02 17:54:53
+ * @LastEditTime: 2021-04-02 17:58:14
  */
 
 const path = require('path')
@@ -16,7 +16,6 @@ const setMpa = () => {
     const entry = {}
     const htmlWebpackPlugins = [];
     const entryFiles = glob.sync(path.join(__dirname, "./src/*/index.js"))
-
     entryFiles.map((item, index) => {
         const entryFile = entryFiles[index]
         const match = entryFile.match(/src\/(.*)\/index\.js$/)
@@ -42,7 +41,7 @@ module.exports = {
     // 出口
     output: {
         // 绝对路径
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, './mpa'),
         // 多入口占位符
         filename: "[name].js"
     },
