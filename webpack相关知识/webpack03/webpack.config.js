@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-02 10:09:53
+ * @LastEditTime: 2021-04-02 11:17:15
  */
 
 const path = require('path')
@@ -43,11 +43,23 @@ module.exports = {
             {
                 test: /\.(jpe?g|png|gif)$/,
                 use: {
-                    loader: "file-loader",
+                    loader: "url-loader",
                     options: {
                         name: "[name].[ext]",
                         outputPath: "image/",
-                        publicPath: '../image/'
+                        publicPath: '../image/',
+                        limit: 1024 * 3 //阈值超过阈值的图片; 会独立文件, 没有超过会处理base64
+                    }
+                }
+            },
+            {
+                test: /\.(eot|woff|woff2)$/,
+                use: {
+                    loader: "url-loader",
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: "font/",
+                        publicPath: '../font/'
                     }
                 }
             }
