@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-02 09:31:42
+ * @LastEditTime: 2021-04-02 10:09:53
  */
 
 const path = require('path')
@@ -45,7 +45,9 @@ module.exports = {
                 use: {
                     loader: "file-loader",
                     options: {
-                        name: "image/[name].[ext]"
+                        name: "[name].[ext]",
+                        outputPath: "image/",
+                        publicPath: '../image/'
                     }
                 }
             }
