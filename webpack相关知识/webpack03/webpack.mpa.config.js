@@ -3,18 +3,42 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:56:12
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-02 17:15:51
+ * @LastEditTime: 2021-04-02 17:54:53
  */
 
 const path = require('path')
-const htmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const htmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const glob = require('glob')
+
+const setMpa = () => {
+    const entry = {}
+    const htmlWebpackPlugins = [];
+    const entryFiles = glob.sync(path.join(__dirname, "./src/*/index.js"))
+
+    entryFiles.map((item, index) => {
+        const entryFile = entryFiles[index]
+        const match = entryFile.match(/src\/(.*)\/index\.js$/)
+        console.log(match);
+        const pageName = match[1]
+        entry[pageName] = entryFile
+        htmlWebpackPlugins.push(new htmlWebpackPlugin({
+            template: `./src/${pageName}/index.html`,
+            filename: `${pageName}.html`,
+            chunks: [pageName]
+        }))
+    })
+    return {
+        entry,
+        htmlWebpackPlugins
+    }
+}
+const { entry, htmlWebpackPlugins } = setMpa()
 
 // 零配置
 module.exports = {
-    // 入口
-    entry: "./src/index.js",
+    entry,
     // 出口
     output: {
         // 绝对路径
@@ -65,23 +89,8 @@ module.exports = {
             }
         ],
     },
-    devtool: "source-map", // inline-source-map cheap-source-map none
-    devServer: {
-        contentBase: './dist',
-        open: true,
-        port: 8081,
-        // 代理配置
-        // proxy: {
-        //     "/api": {
-        //         target: ""
-        //     }
-        // }
-    },
     plugins: [
-        new htmlWebpackPlugin({
-            template: "./src/index.html",
-            filename: "index.html",
-        }),
+        ...htmlWebpackPlugins,
         new MiniCssExtractPlugin({
             filename: 'css/[name].css'
         }),

@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-01 08:23:22
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-02 15:44:59
+ * @LastEditTime: 2021-04-02 17:06:38
  */
 /**
  *  npm  init -y 初始化npm 配置文件
@@ -41,4 +41,5 @@ tag.append(pic)
 // 打包成功 ,自动启动一个浏览器窗口
 // 热更新
 // mock数据
+
 
