@@ -1,0 +1,61 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-04-07 17:12:51
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-04-07 19:29:51
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            background-color: azure;
+            margin-left: 10px;
+            float: left;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: azure;
+        }
+
+        /* 伪元素清除浮动 */
+        .main::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        /* overflow 清除浮动 */
+        .main {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="box">我的</div>
+        <div class="box">我的</div>
+        <div class="box">我的</div>
+        <div class="box">我的</div>
+        <div class="box">我的</div>
+        <div class="box">我的</div>
+        <div class="box">我的</div>
+        <div class="box">我的</div>
+        <div class="box">我的</div>
+    </div>
+    <div class="box2"></div>
+</body>
+
+</html>

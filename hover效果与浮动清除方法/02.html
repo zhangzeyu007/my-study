@@ -1,0 +1,65 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-04-07 19:30:12
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-04-08 07:40:46
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tip {
+            margin-top: 200px;
+            margin-left: 400px;
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: azure;
+        }
+
+        .tip:hover::after {
+            content: ' ';
+            width: 10px;
+            height: 10px;
+            transform: rotate(225deg);
+            position: absolute;
+            border: 1px solid;
+            bottom: -20px;
+            border-left: none;
+            border-top: none;
+            background-color: white;
+        }
+
+        .tip:hover::before {
+            content: attr(data-target);
+            position: absolute;
+            border: 1px solid;
+            border-radius: 5px;
+            bottom: -140px;
+            left: -200px;
+            width: 400px;
+            overflow: hidden;
+            background-color: white;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .tip:hover {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='tip'
+        data-target="我是一个小小的描述我是一个小小的发送第三方放大送的范德萨的股份发送公司刚刚三等功描述我是一个小小的描述我是一个小小的描述我是一个小小的描述我是一个小小的描述我是一个小小的描述我是一个小小的描述我是一个小小的描述">
+        <div>我的合同</div>
+    </div>
+</body>
+
+</html>

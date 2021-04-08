@@ -1,0 +1,74 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-04-08 07:45:37
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-04-08 08:19:58
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圣杯布局</title>
+    <style>
+        div {
+            text-align: center;
+        }
+
+        #header {
+            background-color: coral;
+        }
+
+        #content .left {
+            width: 300px;
+            background-color: blanchedalmond;
+        }
+
+        #content .right {
+            width: 200px;
+            background-color: cadetblue;
+        }
+
+        #content .center {
+            width: 100%;
+            background-color: cyan;
+        }
+
+        #footer {
+            clear: both;
+            content: '';
+            display: block;
+            background-color: crimson;
+        }
+
+        #content .column {
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>实现圣杯布局</h1>
+    <div id="header">Header</div>
+    <div id="content">
+        <div class="center column">center</div>
+        <div class="left column">left</div>
+        <div class="right column">Right</div>
+    </div>
+    <div id="footer">footer</div>
+
+    <script>
+        /**
+         * 圣杯布局
+         * 目的
+         * 1.两侧内容固定,中间内容自适应
+         * 2.三栏布局, 中间一栏先加载渲染出来
+         *
+        */
+    </script>
+</body>
+
+</html>

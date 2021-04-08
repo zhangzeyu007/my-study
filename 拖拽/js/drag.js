@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-01-19 12:34:34
  * @LastEditors: 海象
- * @LastEditTime: 2021-01-19 16:00:52
+ * @LastEditTime: 2021-04-07 10:11:22
  */
 
 const empty = document.querySelector('div.empty')
@@ -34,10 +34,11 @@ empty.addEventListener('dragenter', (e) => {
     h1.innerHTML = username
     e.target.style.color = "red"
 }, false)
-
+// 拖入进来
 empty.addEventListener("dragover", (e) => {
     e.preventDefault()
 }, false)
+// dragleave拖出
 
 empty.addEventListener('drop', (e) => {
     e.preventDefault()
