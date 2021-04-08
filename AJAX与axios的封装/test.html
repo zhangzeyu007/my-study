@@ -1,0 +1,70 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-01-07 17:23:23
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-01-13 10:22:08
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<input type="test" id="text">
+<ul id="result">
+</ul>
+
+<body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" type="text/javascript">
+        import { ajax } from "./ajax/index.js"
+
+        console.log('啊啊啊');
+        const url = "https://m.douban.com/rexxar/api/v2/skynet/playlists?from_rexxar=true&for_mobile=1"
+
+        // const xhr = ajax(url, {
+        //     methods: "POST", params: { a: 10 }, success(data, xhr) {
+        //         console.log(data);
+        //         console.log(xhr);
+        //     },
+        //     httpCodeError(status, xhr) {
+        //         console.log(status);
+        //         console.log(xhr);
+        //     },
+        //     error(xhr) {
+        //         console.log("error", xhr);
+        //     }
+        //     ,
+        //     abort(xhr) {
+        //         console.log('abort', xhr);
+        //     },
+        //     timeout(xhr) { 
+        //         console.log(xhr);
+        //     }
+        // })
+
+        ajax(url, {
+            method: "GET",
+            parm: {
+                age: 18,
+                responseType: "json"
+            }
+        }).then(response => {
+            console.log(response);
+        }).catch(
+            error => {
+                console.log(error);
+            }
+        )
+
+         document.cookie = encodeURIComponent('name') + "=" + encodeURIComponent('heheh')
+
+    </script>
+</body>
+
+</html>
