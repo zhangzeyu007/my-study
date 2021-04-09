@@ -1,0 +1,77 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-04-09 10:19:37
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-04-09 10:47:44
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header {
+            background-color: indianred;
+            text-align: center;
+        }
+
+        .wrapper {
+            padding: 0 100px;
+        }
+
+        .wrapper div {
+            text-align: center;
+        }
+
+        .center {
+            width: 100%;
+            float: left;
+            background-color: gold;
+        }
+
+        .left {
+            width: 100px;
+            float: left;
+            position: relative;
+            margin-left: -100%;
+            left: -100px;
+            background-color: hotpink;
+        }
+
+        .right {
+            width: 100px;
+            float: left;
+            position: relative;
+            margin-left: -100px;
+            right: -100px;
+            background-color: red;
+        }
+
+        footer {
+            background-color: green;
+            text-align: center;
+        }
+
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <header>头部</header>
+    <div class="clearfix wrapper">
+        <div class="center">内容</div>
+        <div class="left">左区域</div>
+        <div class="right">右区域</div>
+    </div>
+    <footer>底部</footer>
+</body>
+
+</html>
