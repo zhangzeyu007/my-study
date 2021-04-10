@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-03-13 16:39:32
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-14 10:07:01
+ * @LastEditTime: 2021-04-10 10:46:13
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,6 @@
         <heading level="1" :title="title" icon="wenzhangguanli">{{title}}</heading>
     </div>
     <script>
-
         Vue.component('heading', {
             props: {
                 level: {
@@ -62,13 +61,10 @@
 
                 // 拼接子节点
                 children = children.concat(this.$slots.default)
-
                 const vnode = h('h' + this.level, // 参数1 tagname
                     { attrs: { title: this.title } },// 参数2
                     children, // 参数3: 子节点vnode 数组
-
                 )
-
                 console.log(vnode);
                 return vnode
             }
