@@ -3,16 +3,30 @@
  * @Author: 海象
  * @Date: 2021-04-10 09:59:31
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-10 10:01:50
+ * @LastEditTime: 2021-04-10 10:31:52
 -->
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <h1>插槽与作用域插槽</h1>
+    <current-slots>
+      <template v-slot:default="slotPrpops">
+        {{ slotPrpops.user.age }}
+      </template>
+      <!-- 具名插槽 -->
+      <template v-slot:book="{ user }">
+        {{ user.age }}
+      </template>
+    </current-slots>
   </div>
 </template>
 
 <script>
+import currentSlots from "../components/currentSlots.vue";
+
 export default {
   name: "Home",
+  components: {
+    currentSlots,
+  },
 };
 </script>
