@@ -1,0 +1,111 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-04-11 18:24:55
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-04-11 19:06:22
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>移动端 1px 像素问题及解决办法</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        /* 第一种方法 */
+        .test1 {
+            border: 1px solid #999
+        }
+
+        @media screen and (-webkit-min-device-pixel-ratio: 2) {
+            .border {
+                border: 0.5px solid #999
+            }
+        }
+
+        @media screen and (-webkit-min-device-pixel-ratio: 3) {
+            .border {
+                border: 0.333333px solid #999
+            }
+        }
+
+        /* 第二种方法 */
+        /* background-image 渐变实现 */
+        /* 原理：将原本1个物理像素的边框大小利用线性渐变分割成几个部分（百分比控制），实现小于1像素效果。 */
+        .border {
+            background-image:
+                linear-gradient(180deg, red, red 50%, transparent 50%),
+                linear-gradient(270deg, red, red 50%, transparent 50%),
+                linear-gradient(0deg, red, red 50%, transparent 50%),
+                linear-gradient(90deg, red, red 50%, transparent 50%);
+            background-size: 100% 1px, 1px 100%, 100% 1px, 1px 100%;
+            background-repeat: no-repeat;
+            background-position: top, right top, bottom, left top;
+        }
+
+        /* 第三种方法 */
+        /* transform: scale(0.5) 方案 - 推荐: 很灵活 */
+        .test2 {
+            height: 1px;
+            background: #000;
+            -webkit-transform: scaleY(0.5);
+            -webkit-transform-origin: 0 0;
+            overflow: hidden;
+        }
+
+        /* 用::after和::befor,设置border-bottom：
+        1px solid #000,然后在缩放-webkit-transform: scaleY(0.5);
+        可以实现两根边线的需求 */
+        .test3::after {
+            content: '';
+            width: 100%;
+            border-bottom: 1px solid #000;
+            transform: scaleY(0.5);
+        }
+
+        .test3::after {
+            content: '';
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid #000;
+            border-radius: 4px;
+            transform: scale(0.5, 0.5);
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 文章 https://www.jianshu.com/p/31f8907637a6 -->
+    <!-- 
+物理像素：
+移动设备出厂时，不同设备自带的不同像素，也称硬件像素 
+逻辑像素：
+即css中记录的像素。
+
+-->
+    <!-- 第一种方法 -->
+    <div class="test1"></div>
+    <div class="border"></div>
+    <div class="test2"></div>
+    <div class="test3"></div>
+    <script type="text/javascript">
+        if (window.devicePixelRatio && devicePixelRatio >= 2) {
+            var main = document.getElementById('main');
+            main.style.border = '.5px solid #000000';
+        }
+    </script>
+</body>
+
+</html>
