@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-11 12:28:46
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-11 13:05:08
+ * @LastEditTime: 2021-04-11 13:17:24
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -32,18 +32,28 @@
 
         .main2 .item {
             border: 2px solid pink;
+
         }
 
+        /* 单元格的大小是固定的，但是容器的大小不确定。如果希望每一行（或每一列）
+        容纳尽可能多的单元格，这时可以使用auto-fill关键字表示自动填充 */
         .main3 {
             display: grid;
             grid-template-columns: repeat(auto-fill, 100px);
             grid-template-rows: 200px;
+            grid-row-gap: 20px;
+            grid-column-gap: 20px;
+            border:1px solid darkseagreen;
         }
 
         .main3 .item {
             border: 2px solid orange;
+            justify-items: center;
+            align-items: center;
         }
 
+        /* minmax()函数产生一个长度范围，表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值 */
+        /* minmax(100px, 1fr)表示列宽不小于100px，不大于1fr */
         .main4 {
             display: grid;
             grid-template-columns: 1fr 1fr minmax(100px, 1fr);
@@ -52,6 +62,7 @@
 
         .main4 .item {
             border: 2px solid green;
+
         }
     </style>
 </head>
@@ -71,6 +82,24 @@
     </div>
 
     <div class="main3">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
         <div class="item"></div>
         <div class="item"></div>
         <div class="item"></div>
