@@ -1,0 +1,60 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-04-12 09:43:49
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-04-12 11:00:13
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tip button {
+            background-color: aquamarine;
+            width: 100px;
+            height: 40px;
+        }
+
+        .tip:hover::before {
+            content: attr(data-target);
+            display: block;
+            position: absolute;
+            bottom: -45px;
+            width: 100px;
+            border: 1px solid darkgoldenrod;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .tip:hover::after {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            left: 50px;
+            bottom: -13px;
+            border-bottom: 10px solid red;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+        }
+
+        .tip:hover {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tip" data-target="你好啊">
+        <button>按钮</button>
+    </div>
+
+</body>
+
+</html>
