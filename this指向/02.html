@@ -1,0 +1,39 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-04-13 17:00:47
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-04-13 17:12:21
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 箭头函数的 this 指向他所在的函数级作用域(默认情况指向window)
+        // 不可使用call()改变this的指向
+        // 没有参数不能使用 arguments 访问箭头函数参数 
+        // 箭头函数对象调用也指向全局window的原因是变量num是全局的,箭头函数的指向是不可以改变的 
+        let num = () => {
+            console.log(this);
+        }
+        // 第一次调用
+        num();
+        let p = {
+            name: 'zzy',
+            num
+        }
+        // 第二次调用
+        p.num()
+    </script>
+</body>
+
+</html>
