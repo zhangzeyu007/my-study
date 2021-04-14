@@ -1,0 +1,136 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-04-14 17:22:08
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-04-14 18:36:18
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平垂直居中方法</title>
+    <style>
+        /*  flex水平垂直居中 */
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box1 div {
+            width: 50px;
+            height: 50px;
+            background-color: palevioletred;
+        }
+
+        /*  table水平居中垂直居中 */
+        .box2 {
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+            background-color: orange;
+            display: table;
+        }
+
+        .box2 div {
+            display: table-cell;
+            border: 1px solid #000;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        /* grid 水平居中对齐 */
+        .box3 {
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+            background-color: orange;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box3 div {
+            width: 50px;
+            height: 50px;
+            background-color: darkred;
+        }
+
+        /* 定位方法的水平垂直居中 */
+        .box4 {
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+            background-color: orange;
+            position: relative;
+
+        }
+
+        .box4 div {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: darkred;
+        }
+
+        /* 浮动float水平垂直居中 */
+        .box5 {
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+            background-color: orange;
+            line-height: 200px;
+
+
+        }
+
+        .box5 div {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background-color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- flex水平垂直居中 -->
+    <h1>flex水平垂直居中</h1>
+    <div class="box1">
+        <div></div>
+    </div>
+    <!-- table水平居中垂直居中 -->
+    <h1>table水平居中垂直居中</h1>
+    <div class="box2">
+        <div>222</div>
+        <div>222</div>
+        <div>333</div>
+    </div>
+    <!-- grid 水平居中对齐 -->
+    <h1>grid 水平居中对齐</h1>
+    <div class="box3">
+        <div></div>
+    </div>
+    <!-- 定位方法的水平垂直居中 -->
+    <h1>定位方法的水平垂直居中</h1>
+    <div class="box4">
+        <div></div>
+    </div>
+    <!-- 浮动float水平垂直居中 -->
+    <h1>浮动float水平垂直居中</h1>
+    <div class="box5">
+        <div></div>
+    </div>
+</body>
+
+</html>
