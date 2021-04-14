@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-03-14 09:54:50
  * @LastEditors: 海象
- * @LastEditTime: 2021-03-14 11:09:54
+ * @LastEditTime: 2021-04-14 14:11:58
  */
 const role = 'admin'
 
@@ -72,7 +72,6 @@ const MyPlugin = {
         Vue.prototype.$myMethod = function (methodOptions) {
             console.log('我是中国的');
         }
-
         // 5. 指令
         Vue.directive('permission', {
             inserted(el, binding) {
