@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-13 19:45:05
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-13 20:37:05
+ * @LastEditTime: 2021-04-21 09:29:08
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +19,24 @@
 
 <body>
 
+    <script>
+        const promise = new JJPromise((resolve, reject) => {
+            resolve('好俗')
+        })
+
+        promise.then((res) => {
+            console.log(res);
+        })
+
+        const test = new Promise((resolve, reject) => {
+            resolve('好帅')
+        })
+
+        test.then(res => {
+            console.log(res);
+        })
+
+    </script>
 </body>
 
 </html>

@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-13 19:50:06
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-13 20:36:44
+ * @LastEditTime: 2021-04-21 09:28:27
  */
 const RESOLVE = 'resolved'
 const REJECT = 'rejected'
@@ -45,10 +45,3 @@ class JJPromise {
 
 
 
-const promise = new JJPromise((resolve, reject) => {
-    resolve('好俗')
-})
-
-promise.then((res) => {
-    console.log(res);
-})
