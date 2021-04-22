@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-21 17:41:55
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-21 22:45:12
+ * @LastEditTime: 2021-04-22 12:54:10
  */
 
 class zzPromise {
@@ -44,14 +44,10 @@ class zzPromise {
     }
     then(onFulfilled, onRejected) {
         if (typeof onFulfilled != 'function') {
-            onFulfilled = () => {
-
-            }
+            onFulfilled = () => this.value
         }
         if (typeof onRejected != "function") {
-            onRejected = () => {
-
-            }
+            onRejected = () => this.value
         }
         return new zzPromise((resolve, reject) => {
             if (this.status === zzPromise.PENDING) {
@@ -59,17 +55,26 @@ class zzPromise {
                     onFulfilled: value => {
                         try {
                             let result = onFulfilled(value);
-                            resolve(result)
+                            if (result instanceof zzPromise) {
+                                result.then(resolve, reject)
+                            } else {
+                                resolve(result)
+                            }
+
                         } catch (error) {
-                            onRejected(error)
+                            reject(error)
                         }
                     },
                     onRejected: value => {
                         try {
                             let result = onRejected(value);
-                            resolve(result)
+                            if (result instanceof zzPromise) {
+                                result.then(resolve, reject)
+                            } else {
+                                resolve(result)
+                            }
                         } catch (error) {
-                            onRejected(error)
+                            reject(error)
                         }
                     }
 
@@ -79,20 +84,27 @@ class zzPromise {
                 setTimeout(() => {
                     try {
                         let result = onFulfilled(this.value)
-                        resolve(result)
+                        if (result instanceof zzPromise) {
+                            result.then(resolve, reject)
+                        } else {
+                            resolve(result)
+                        }
                     } catch (error) {
-                        onRejected(error)
+                        reject(error)
                     }
                 }, 0)
             }
-
             if (this.status === zzPromise.REJECTED) {
                 setTimeout(() => {
                     try {
                         let result = onRejected(this.value)
-                        resolve(result)
+                        if (result instanceof zzPromise) {
+                            result.then(resolve, reject)
+                        } else {
+                            resolve(result)
+                        }
                     } catch (error) {
-                        onRejected(error)
+                        reject(error)
                     }
                 }, 0)
             }

@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-21 22:24:08
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-21 22:28:27
+ * @LastEditTime: 2021-04-22 12:19:17
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@
     <script>
         let p = new Promise((resolve, reject) => {
             resolve('解决')
-        }).then((value) => {
+        }).then().then((value) => {
             console.log(value);
             return '向军'
         }, reason => {
