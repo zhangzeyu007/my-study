@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-21 17:41:55
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-22 12:54:10
+ * @LastEditTime: 2021-04-22 14:11:18
  */
 
 class zzPromise {
@@ -51,8 +51,10 @@ class zzPromise {
         }
         return new zzPromise((resolve, reject) => {
             if (this.status === zzPromise.PENDING) {
+                debugger
                 this.callbacks.push({
                     onFulfilled: value => {
+                        console.log('走啊');
                         try {
                             let result = onFulfilled(value);
                             if (result instanceof zzPromise) {
@@ -60,7 +62,6 @@ class zzPromise {
                             } else {
                                 resolve(result)
                             }
-
                         } catch (error) {
                             reject(error)
                         }
@@ -79,8 +80,10 @@ class zzPromise {
                     }
 
                 })
+                console.log(this.callbacks);
             }
             if (this.status === zzPromise.FULFILLED) {
+                console.log('哈哈');
                 setTimeout(() => {
                     try {
                         let result = onFulfilled(this.value)

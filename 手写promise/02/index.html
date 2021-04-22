@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-21 17:41:46
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-22 12:55:44
+ * @LastEditTime: 2021-04-22 14:00:16
 -->
 
 <!DOCTYPE html>
@@ -22,7 +22,6 @@
 
         let p = new zzPromise((resolve, reject) => {
             resolve("解决");
-
         }).then()
             .then(
                 value => {
@@ -33,6 +32,8 @@
                     return 'p3'
                 }
             );
+
+        console.log(p);
 
 
 
