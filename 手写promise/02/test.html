@@ -1,0 +1,39 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-04-21 22:24:08
+ * @LastEditors: 海象
+ * @LastEditTime: 2021-04-21 22:28:27
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let p = new Promise((resolve, reject) => {
+            resolve('解决')
+        }).then((value) => {
+            console.log(value);
+            return '向军'
+        }, reason => {
+            console.log(reason);
+            return '泽雨'
+        }).then((value) => {
+            console.log("success:" + value);
+        }, reason => {
+
+            console.log(reason);
+            return '啧啧啧第三'
+        })
+        console.log(p);
+    </script>
+</body>
+
+</html>

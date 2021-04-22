@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-21 17:41:46
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-21 20:27:23
+ * @LastEditTime: 2021-04-21 22:43:17
 -->
 
 <!DOCTYPE html>
@@ -20,12 +20,28 @@
 <body>
     <script>
         let p = new zzPromise((resolve, reject) => {
-            console.log(a);
-            resolve('解决')
-            reject('reject')
-        })
+            setTimeout(() => {
+                resolve('解决')
+                // console.log('向军大叔');
+                // reject('拒绝')
+            }, 1000)
 
-        console.log(p);
+        }).then(result => {
+            console.log(result);
+            return '泽雨'
+        }, reason => {
+            console.log(reason);
+            return 'p2'
+        }).then(value => {
+            console.log('success:' + value);
+        },
+            reason => {
+                console.log(reason);
+            })
+
+
+        console.log('自自在在');
+
     </script>
 </body>
 
