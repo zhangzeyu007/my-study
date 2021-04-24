@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-21 17:41:55
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-22 19:40:31
+ * @LastEditTime: 2021-04-23 12:34:30
  */
 
 class zzPromise {
@@ -22,7 +22,7 @@ class zzPromise {
     }
     resolve(value) {
         if (this.status === zzPromise.PENDING) {
-            this.status = zzPromise.FUILLED
+            this.status = zzPromise.FULFILLED
             this.value = value
             setTimeout(() => {
                 this.callbacks.map(callbacks => {
@@ -83,7 +83,7 @@ class zzPromise {
         })
     }
     parse(result, resolve, reject) {
-        if (promise === result) {
+        if (zzPromise === result) {
             throw new TypeError('chaining cycle detected')
         }
         try {
