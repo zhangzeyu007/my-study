@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-25 22:51:37
  * @LastEditors: 海象
- * @LastEditTime: 2021-04-26 10:55:59
+ * @LastEditTime: 2021-04-26 19:17:04
  */
 // 柱状图
 (function () {
@@ -726,6 +726,8 @@
 
     var YCData = [
         [{ name: "拉萨" }, { name: "潍坊", value: 100 }],
+        [{ name: "拉萨" }, { name: "长春", value: 100 }],
+        [{ name: "长春" }, { name: "杭州", value: 100 }],
         [{ name: "拉萨" }, { name: "哈尔滨", value: 100 }],
         [{ name: "银川" }, { name: "上海", value: 100 }],
         [{ name: "银川" }, { name: "西安", value: 100 }],
