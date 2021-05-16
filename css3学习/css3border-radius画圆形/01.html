@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>border-ridus</title>
     <style>
       .main {
         width: 200px;
@@ -17,9 +17,27 @@
         border-top-right-radius: 50%;
         border-bottom-right-radius: 50%;
       }
+      .demo {
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ccc;
+        background-color: #f66;
+        margin: 50px auto;
+        border-top-left-radius: 100px 50px;
+      }
+      .demo01 {
+        width: 100px;
+        height: 200px;
+        border: 1px solid #ccc;
+        background-color: #f66;
+        margin: 50px auto;
+        border-radius: 100px 0px 0px 100px;
+      }
     </style>
   </head>
   <body>
     <div class="main"></div>
+    <div class="demo"></div>
+    <div class="demo01"></div>
   </body>
 </html>
