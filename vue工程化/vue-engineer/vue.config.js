@@ -32,7 +32,6 @@ module.exports = {
             config.name = 'vue实现'
         } else {
             config.name = 'vue'
-            
         }
     },
     chainWebpack: config => {
