@@ -53,9 +53,9 @@ export default {
   color: red;
 }
 
-/deep/.hello h2 {
-  color: bisque;
-}
+// /deep/.hello h2 {
+//   color: bisque;
+// }
 ::v-deep h3 {
   color: greenyellow;
 }
