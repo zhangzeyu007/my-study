@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>伪类选择器</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      /* 动态伪类选择器 */
+      a:link {
+        color: black;
+      }
+      a:visited {
+        color: brown;
+      }
+      a:hover {
+        color: cadetblue;
+      }
+      a:active {
+        color: green;
+      }
+      /* 状态伪类选择器 */
+      input:enabled {
+        background-color: green;
+      }
+      input:disabled {
+        background-color: yellow;
+      }
+
+      #main {
+        border: 1px solid #ccc;
+        width: 300px;
+        margin: 50px auto;
+        padding: 10px;
+      }
+      #main li {
+        float: left;
+        list-style: none;
+        border: 1px solid orange;
+        margin-right: 4px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+      }
+      #main a {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        background-color: palegreen;
+        text-decoration: none;
+      }
+      /* 结构伪类选择器 */
+      #main li:first-child {
+        background-color: palevioletred;
+      }
+      #main li:last-child {
+        background-color: palevioletred;
+      }
+      /* 子元素 */
+      #main li:nth-child(4) {
+        background-color: plum;
+      }
+      /* 偶数 */
+      #main li:nth-child(2n) {
+        background-color: yellow;
+      }
+      /* 奇数 */
+      #main li:nth-child(2n + 1) {
+        background-color: purple;
+      }
+      /* 从第5开始到最后 */
+      #main li:nth-child(n + 5) {
+        background-color: rgb(245, 127, 127);
+      }
+      /* 限定选择指定元素 */
+      #main li:nth-of-type(3) {
+        background-color: orangered;
+      }
+      #main li:first-of-type {
+        background-color: orangered;
+      }
+      /* 不限定选择指定元素 */
+      #main li:nth-child(3) {
+        background-color: red;
+      }
+      /* 只有一个子元素的时候才会被选中 */
+      #main li:only-child {
+        background-color: palegoldenrod;
+      }
+      #main li:only-of-type {
+        background-color: palegoldenrod;
+      }
+      /* li元素内部为空的被选择中 */
+      #main li:empty {
+        background-color: blanchedalmond;
+      }
+      .clearfix {
+        content: "";
+        clear: both;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="http://www.baidu.com">我的链接</a><br />
+    <input type="text" /> <br />
+    <input type="text" disabled />
+
+    <div id="main" class="clearfix">
+      <ul class="clearfix">
+        <p></p>
+        <li><a href="">1</a></li>
+        <li><a href="">1</a></li>
+        <li><a href="">1</a></li>
+        <li><a href="">1</a></li>
+        <li><a href="">1</a></li>
+        <li><a href="">1</a></li>
+        <li><a href="">1</a></li>
+        <li><a href="">1</a></li>
+        <li></li>
+        <li><a href="">1</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

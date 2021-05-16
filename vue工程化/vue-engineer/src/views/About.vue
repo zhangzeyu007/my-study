@@ -1,10 +1,4 @@
-<!--
- * @Description: 组件
- * @Author: 海象
- * @Date: 2021-03-27 13:02:21
- * @LastEditors: 海象
- * @LastEditTime: 2021-03-27 17:51:29
--->
+
 <template>
   <!-- module css 的使用方法 -->
   <div class="about">
@@ -16,6 +10,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
