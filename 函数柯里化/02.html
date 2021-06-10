@@ -7,34 +7,36 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>柯里化</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
+      /**
+       * ! 柯里化是函数式编程中的一种过程，可以将接受具有多个参数的函数转化为一个的嵌套函数队列，
+       * ! 然后返回一个新的函数以及期望下一个的内联参数。
+       * ! 它不断返回一个新函数（期望当前参数，就像我们之前说的那样）直到所有参数都用完为止。
+       * ! 这些参数会一直保持“存活”不会被销毁（利用闭包的特性）以及当柯里化链中最后的函数返回并执行时，
+       * !所有参数都用于执行。
+       */
+      //柯里化之前
+      function add(x, y) {
+        return x + y;
+      }
 
-        // 柯里化之前
-        function add(x, y) {
-            return x + y
-        }
+      console.log(add(1, 2));
 
-        console.log(add(1, 2));
+      // 柯里化之后
+      function addX(y) {
+        return function (x) {
+          return x + y;
+        };
+      }
 
-        // 柯里化之后
-        function addX(y) {
-            return function (x) {
-                return x + y
-            }
-        }
-
-        console.log(addX(2)(1));
-
-
+      console.log(addX(2)(1));
     </script>
-</body>
-
+  </body>
 </html>
