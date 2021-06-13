@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES5继承</title>
+  </head>
+  <body>
+    <script>
+      function Person(name) {
+        this.name = name;
+      }
+
+      Person.prototype.printName = function () {
+        console.log(this.name);
+      };
+
+      function Bob() {
+        Person.call(this, "Bob");
+        this.hobby = "Histroy";
+      }
+
+      Bob.prototype = Object.create(Person.prototype, {
+        constructor: {
+          value: Bob,
+          enumerable: false,
+          configurable: true,
+          writable: true,
+        },
+      });
+
+      Bob.prototype.printHobby = function () {
+        console.log(this.hobby);
+      };
+
+      console.dir(new Bob());
+    </script>
+  </body>
+</html>
