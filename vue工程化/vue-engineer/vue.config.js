@@ -11,10 +11,10 @@ const cdnDependencies = require('./dependencies.cdn')
 function addStyleResource(rule) {
     rule.use('style-resource').loader('style-resources-loader')
         .options({
-        patterns: [
-            path.resolve(__dirname, './src/static/style/import.scss')
-        ]
-    })
+            patterns: [
+                path.resolve(__dirname, './src/static/style/import.scss')
+            ]
+        })
 }
 // CDN 相关
 const isCDN = process.env.VUE_APP_CDN == 'ON'
@@ -24,6 +24,7 @@ const cdn = {
     css: cdnDependencies.map(e => e.css).filter(e => e),
     js: cdnDependencies.map(e => e.js).filter(e => e)
 }
+console.log(cdn);
 module.exports = {
     // publicPath: process.env.NODE_ENV === "production" ? '/cart/' : '/c',
     devServer: {},
