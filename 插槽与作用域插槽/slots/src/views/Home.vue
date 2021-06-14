@@ -23,12 +23,14 @@
 </template>
 
 <script>
+
 import currentSlots from "../components/currentSlots.vue";
 
 export default {
   name: "Home",
   components: {
     currentSlots,
-  },
-};
+  }
+}
+
 </script>

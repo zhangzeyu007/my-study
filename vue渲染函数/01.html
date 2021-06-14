@@ -7,81 +7,81 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>渲染函数</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://at.alicdn.com/t/font_2367833_no04azrjzy.js"></script>
     <style>
-        .icon {
-            width: 1em;
-            height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
-        }
+      .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="app">
-        <heading level="1" :title="title" icon="wenzhangguanli">{{title}}</heading>
+      <heading level="1" :title="title" icon="wenzhangguanli"
+        >{{title}}</heading
+      >
     </div>
     <script>
-        Vue.component('heading', {
-            props: {
-                level: {
-                    type: String,
-                    require: true
+      Vue.component("heading", {
+        props: {
+          level: {
+            type: String,
+            require: true,
+          },
+          title: {
+            type: String,
+            default: "",
+          },
+          icon: {
+            type: String,
+          },
+        },
+        render(h) {
+          // 子节点数组
+          let children = [];
+          // icon属性处理逻辑
+          if (this.icon) {
+            children.push(
+              h(
+                "svg",
+                {
+                  class: "icon",
                 },
-                title: {
-                    type: String,
-                    default: ""
-                },
-                icon: {
-                    type: String
-                }
-            },
-            render(h) {
-                // 子节点数组
-                let children = []
-                // icon属性处理逻辑
-                if (this.icon) {
-                    children.push(h(
-                        'svg',
-                        {
-                            class: "icon"
-                        },
-                        [h('use', { attrs: { 'xlink:href': '#icon-' + this.icon } })]
-                    ))
-                }
+                [h("use", { attrs: { "xlink:href": "#icon-" + this.icon } })]
+              )
+            );
+          }
 
-                // 拼接子节点
-                children = children.concat(this.$slots.default)
-                const vnode = h('h' + this.level, // 参数1 tagname
-                    { attrs: { title: this.title } },// 参数2
-                    children, // 参数3: 子节点vnode 数组
-                )
-                console.log(vnode);
-                return vnode
-            }
-        })
+          // 拼接子节点
+          children = children.concat(this.$slots.default);
+          const vnode = h(
+            "h" + this.level, // 参数1 tagname
+            { attrs: { title: this.title } }, // 参数2
+            children // 参数3: 子节点vnode 数组
+          );
+          console.log(vnode);
+          return vnode;
+        },
+      });
 
-        const app = new Vue({
-            el: '#app',
-            data() {
-                return {
-                    title: '张泽雨'
-                }
-            }
-        })
-
-
-
+      const app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            title: "张泽雨",
+          };
+        },
+      });
     </script>
-</body>
-
+  </body>
 </html>
