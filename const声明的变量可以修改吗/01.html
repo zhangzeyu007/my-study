@@ -17,18 +17,15 @@
   <body>
     <script>
       /*
-     基本数据类型：string, number, boolean, null, undefined。
+      基本数据类型：string, number, boolean, null, undefined。
       基本数据类型的变量是保存在栈区中的，基本数据类型的值直接在栈内存中存储，
       值与值之间是独立存在的，修改一个变量不会影响其他的变量。
       引用类型：object
       用数据类型的值是同时保存在栈内存和堆内存的对象，栈区保存了对象在堆区的地址
       const声明的只是栈区内容不变，基本数据类型保存在栈区中不可改变；引用数据类型在栈区保存的地址不可改变。
-        */
+    */
       const a = { b: 10 };
-
       a.b = 20;
-
-      console.log(a);
       b = 20;
 
       let value = null;

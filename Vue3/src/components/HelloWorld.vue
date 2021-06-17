@@ -27,8 +27,7 @@
   <TransitionTest></TransitionTest>
   <!-- 编程方式发送和监听事件 -->
   <button @click="sendMsg">emit event</button>
-  <!--  -->
-  <Todo></Todo>
+
 </template>
 
 <script>
