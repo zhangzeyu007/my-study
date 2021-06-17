@@ -47,6 +47,34 @@
         };
       }
       console.log(test(1)(2));
+
+      /**
+       * ! 柯里化函数避免我们重复传参，实现复用
+       */
+      function volume(l, w, h) {
+        return l * w * h;
+      }
+      volume(200, 30, 100); // 2003000
+      volume(32, 45, 100); // 144000
+      volume(2322, 232, 100); // 53870400
+
+      /**
+       * 柯里化后
+       */
+      function volume(h) {
+        return (w) => {
+          return (l) => {
+            return l * w * h;
+          };
+        };
+      }
+
+      //固定高度
+      const itemHeight = volume(100);
+      //计算其他不同情况
+      itemHeight(30)(200);
+      itemHeight(45)(32);
+      itemHeight(232)(2322);
     </script>
   </body>
 </html>
