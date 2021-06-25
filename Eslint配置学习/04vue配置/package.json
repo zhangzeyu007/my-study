@@ -1,0 +1,13 @@
+{
+  "name": "test4",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "eslint": "eslint --ext .js,.vue src"
+  },
+  "devDependencies": {
+    "eslint": "^7.29.0",
+    "eslint-plugin-vue": "^7.11.1"
+  }
+}

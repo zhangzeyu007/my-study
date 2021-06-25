@@ -7,70 +7,66 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vue混入</title>
     <script src="https://at.alicdn.com/t/font_2367833_no04azrjzy.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <style>
-        .icon {
-            width: 1em;
-            height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
-        }
+      .icon {
+        width: 1em;
+        height: 1em;
+        vertical-align: -0.15em;
+        fill: currentColor;
+        overflow: hidden;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="app">
-        <comp></comp>
+      <comp></comp>
     </div>
 
     <script>
-        let myMixin = {
-            created: function () {
-                // this 表示组件实例
-                console.log('mixin调用');
-                console.log(this);
-                this.hello()
-            },
-            mounted() {
-                console.log('mixin的mounted')
-            },
-            methods: {
-                hello() {
-                    console.log('hello hhaha');
-                }
-            }
-        }
+      let myMixin = {
+        created: function () {
+          // this 表示组件实例
+          console.log("mixin调用");
+          console.log(this);
+          this.hello();
+        },
+        mounted() {
+          console.log("mixin的mounted");
+        },
+        methods: {
+          hello() {
+            console.log("hello hhaha");
+          },
+        },
+      };
 
-        Vue.component('comp', {
-            template: '<div></div>',
-            created() {
-                console.log('组件调用');
-            },
-            mounted() {
-                console.log('mounted组件')
-            },
-            mixins: [myMixin]
-        })
+      Vue.component("comp", {
+        template: "<div></div>",
+        created() {
+          console.log("组件调用");
+        },
+        mounted() {
+          console.log("mounted组件");
+        },
+        mixins: [myMixin],
+      });
 
-
-        const app = new Vue({
-            el: '#app',
-            data() {
-                return {
-                    title: '张泽雨'
-                }
-            }
-        })
-
+      const app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            title: "张泽雨",
+          };
+        },
+      });
     </script>
-</body>
-
+  </body>
 </html>

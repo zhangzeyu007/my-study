@@ -6,13 +6,13 @@
  * @LastEditTime: 2021-03-27 17:20:08
 -->
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <div id="nav">
+            <router-link to="/">Home</router-link> |
+            <router-link to="/about">About</router-link>
+        </div>
+        <router-view />
     </div>
-    <router-view />
-  </div>
 </template>
 <style >
 #app {
@@ -43,5 +43,4 @@
   color: #42b983;
 }
 </style>>
-
 

@@ -10,7 +10,7 @@
     <h1>scoped css 的使用 与深度选择器的使用</h1>
     {{ `${publicpath}` }}
     <img alt="Vue logo" :src="`${publicpath}assets/logo.png`" />
-    <icon-font class="hello"></icon-font>
+    <icon-font class="hello" />
   </div>
 </template>
 
@@ -18,13 +18,13 @@
 import IconFont from "../components/IconFont.vue";
 export default {
   name: "Home",
+  components: {
+    IconFont,
+  },
   data() {
     return {
       publicpath: process.env.BASE_URL,
     };
-  },
-  components: {
-    IconFont,
   },
 };
 </script>

@@ -1,3 +1,5 @@
 {
-    "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+"eslint.options": {},
+"eslint.format.enable": true
 }

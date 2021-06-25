@@ -14,9 +14,10 @@
       <!-- <router-link to="/about">About</router-link> -->
     </li>
   </ul>
-  <router-view v-slot="{ Component }"> 
+  <router-view v-slot="{ Component }"
+    > 
     <keep-alive>
-      <component :is="Component"/>
+      <component :is="Component" />
     </keep-alive>
   </router-view>
 </template>

@@ -7,20 +7,20 @@
 -->
 
 <template>
-  <div class="main">
-    <div class="box"></div>
-    <h1>我在你的身边</h1>
-    <h2>我在你的身边</h2>
-    <h3>我在你的身边</h3>
-  </div>
+    <div class="main">
+        <div class="box" />
+        <h1>我在你的身边</h1>
+        <h2>我在你的身边</h2>
+        <h3>我在你的身边</h3>
+    </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {};
-  },
-};
+    data() {
+        return {}
+    }
+}
 </script>
 <style lang="scss" scoped>
 .main {

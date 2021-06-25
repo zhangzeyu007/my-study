@@ -49,6 +49,7 @@ class zzPromise {
         if (typeof onRejected != "function") {
             onRejected = () => this.value
         }
+
         return new zzPromise((resolve, reject) => {
             if (this.status === zzPromise.PENDING) {
                 this.callbacks.push({
