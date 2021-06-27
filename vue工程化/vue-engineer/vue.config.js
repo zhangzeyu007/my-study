@@ -10,6 +10,27 @@ const cdnDependencies = require('./dependencies.cdn')
 const terserPlugin = require('terser-webpack-plugin')
 
 const resolve = dir => path.join(__dirname, dir)
+ //  自定义设置
+  const customOptions = {
+      mozjpeg: {
+        progressive: true,
+        quality: 50
+      },
+      optipng: {
+        enabled: true,
+      },
+      pngquant: {
+        quality: [0.5, 0.65],
+        speed: 4
+      },
+      gifsicle: {
+        interlaced: false,
+      },
+      // 不支持WEBP就不要写这一项
+      webp: {
+        quality: 75
+      }
+  }
 
 function addStyleResource(rule) {
     rule.use('style-resource').loader('style-resources-loader')
@@ -28,7 +49,7 @@ const cdn = {
 }
 // console.log(cdn);
 module.exports = {
-    // publicPath: process.env.NODE_ENV === "production" ? '/cart/' : '/c',
+    publicPath: '/',
     productionSourceMap: false,
     devServer: {},
     // css:{
@@ -126,6 +147,23 @@ module.exports = {
             .rule('svg').exclude.add(resolve('src/static/icons'))
         config.module.rule('icons').test(/\.(svg)(\?.*)?$/).include.add(resolve('src/static/icons')).end()
             .use('svg-sprite-loader').loader('svg-sprite-loader').options({ symbolId: 'icon-[name]' })
+
+            config.module.rule('images') 
+        .test(/\.(gif|png|jpe?g|svg)$/i)
+        .use('image-webpack-loader')
+        .loader('image-webpack-loader')
+        .options(customOptions)
+        .end() 
+             config.plugin('html')
+            .tap(args => {
+                args[0].title = process.env.VUE_APP_TITLE
+                if (isCDN) {
+                    args[0].cdn = cdn
+                }
+                args[0].debugTool = process.env.VUE_APP_DEBUG_TOOL
+                args[0].appType = process.env.VUE_APP_TYPE
+                return args
+            })
     },
     
 }
