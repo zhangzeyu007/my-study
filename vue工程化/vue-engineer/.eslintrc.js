@@ -6,15 +6,14 @@ module.exports = {
     },
     globals: {
         process: true,
-        require: true,
         module: true,
     },
     extends: [
         'plugin:vue/strongly-recommended',
-        'eslint:recommended',
+        'eslint:recommended'
     ],
     parserOptions: {
-        ecmaVersion: 2018,
+        ecmaVersion: 2015,
         parser: 'babel-eslint',
         sourceType: 'module'
     },

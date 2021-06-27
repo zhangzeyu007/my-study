@@ -24,12 +24,12 @@ export default {
 </script>
 <style lang="scss" scoped>
 .main {
-  margin: 90px 90px;
-  .box {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background-color: $color;
-  }
+    margin: 90px 90px;
+    .box {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: $color;
+    }
 }
 </style>
