@@ -7,6 +7,11 @@ const getYearMonthDay = date => {
     return {year, month, day}
 }
 
+const getDate = (year, month, day) => {
+    return new Date(year, month, day)
+}
+
 export  {
-    getYearMonthDay
+    getYearMonthDay,
+    getDate
 }
