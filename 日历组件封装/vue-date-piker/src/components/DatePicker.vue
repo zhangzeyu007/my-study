@@ -1,6 +1,6 @@
 <template>
     <div v-click-outside>
-        <input type="text" :value="formatDate" @focus="focus" @blur="blur">
+        <input type="text" :value="formatDate" @focus="focus">
         <div v-if="isVisible" class="pannel">
             <div class="pannel-nav">
                 <span @click="prevYear">&lt;</span>
@@ -35,7 +35,7 @@
                                 select: isSelect(visibeDays[(i - 1) * 7 + (j - 1)]),
                             },
                         ]"
-                        @click="chooseDate(visibeDays[(i - 1) * 7 + (j - 1)])"
+                        @click.stop="chooseDate(visibeDays[(i - 1) * 7 + (j - 1)])"
                     >
                         {{ visibeDays[(i - 1) * 7 + (j - 1)].getDate() }}
                     </span>
@@ -61,13 +61,12 @@ export default {
                         // 判断一下是否当前面板已经显示出来了
                         if (!vnode.context.isVisible) {
                             vnode.context.focus()
-                            console.log('focus')
+
                         }
                     } else {
                         if (vnode.context.isVisible) {
-                            console.log('关闭')
                             vnode.context.blur()
-                            console.log('blur')
+
                         }
                     }
                 }
@@ -117,7 +116,6 @@ export default {
                 // 依次循环出42天
                 arr.push(new Date(startDay + i * 60 * 60 * 1000 * 24))
             }
-
             return arr
         }
     },
@@ -125,11 +123,13 @@ export default {
     // console.log(this.visibeDays)
     },
     methods: {
+        blur() {
+
+            console.log('被调用')
+            this.isVisible = false
+        },
         focus() {
             this.isVisible = true
-        },
-        blur() {
-            // this.isVisible = false
         },
         // 是不是当月
         isCurrentMonth(date) {
