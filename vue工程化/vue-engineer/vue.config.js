@@ -52,16 +52,8 @@ module.exports = {
     publicPath: '/',
     productionSourceMap: false,
     devServer: {},
-    // css:{
-    // // 是否使用css分离插件 ExtractTextPlugin
-    // extract: true, // 注释css热更新生效
-    // // 开启 CSS source maps?
-    // sourceMap: true,
-    // // css预设器配置项
-    // loaderOptions: {},
-    // // 启用 CSS modules for all css / pre-processor files.
-    // requireModuleExtension: false
-    // },
+    //放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。
+    assetsDir: 'static',
     configureWebpack: config => {
         if (process.env.NODE_ENV === "development") {
             config.name = 'vue实现'
