@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <date-picker :value="now" />
+        <date-picker v-model="now"  />
     </div>
 </template>
 
