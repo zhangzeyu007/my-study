@@ -6,32 +6,29 @@
  * @LastEditTime: 2021-04-10 10:50:02
 -->
 
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>闭包</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        /**
-         *! 1.指的是那些引用了另一个函数作用域变量的函数,通常是在嵌套函数中实现的.
-         *! 2.闭包最⼤的作⽤就是隐藏变量，闭包的⼀⼤特性就是内部函数总是可以访问其所在的外部函数中声明的参数和变量，
-         *! 即 使在其外部函数被返回寿命终结）了之后基于此特性，JavaScript可以实现私有变量、特权变量、储存变量等
-        */
-        for (var i = 0; i < 5; i++) {
-            (function (x) {
-                setTimeout(() => {
-                    console.log(x++);
-                }, 4000)
-            })(i)
-        }
+      /**
+       *! 1.指的是那些引用了另一个函数作用域变量的函数,通常是在嵌套函数中实现的.
+       *! 2.闭包最⼤的作⽤就是隐藏变量，闭包的⼀⼤特性就是内部函数总是可以访问其所在的外部函数中声明的参数和变量，
+       *! 即 使在其外部函数被返回寿命终结）了之后基于此特性，JavaScript可以实现私有变量、特权变量、储存变量等
+       *! 嵌套函数, 内部函数就是闭包
+       */
+      for (var i = 0; i < 5; i++) {
+        (function (x) {
+          setTimeout(() => {
+            console.log(x++);
+          }, 4000);
+        })(i);
+      }
     </script>
-
-</body>
-
+  </body>
 </html>

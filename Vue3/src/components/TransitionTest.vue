@@ -1,8 +1,10 @@
 <template>
+ <div>
   <button @click="show = !show">点击</button>
   <transition name="fade">
     <p v-if="show">Toggle</p>
   </transition>
+ </div>
 </template>
 
 <script>

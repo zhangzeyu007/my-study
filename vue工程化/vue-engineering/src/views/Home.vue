@@ -13,8 +13,8 @@
 
 <script>
 import IconFont from '../components/IconFont.vue'
-
 import '../assets/icons/404.svg'
+
 export default {
     name: 'Home',
     components: {
@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style   scoped>
+<style scoped>
 
 /* scoped css 的使用 */
 .hello {

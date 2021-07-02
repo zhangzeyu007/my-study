@@ -9,11 +9,11 @@ class Bus {
     constructor() {
         this.callbacks = {}
     }
-    $on(name, fn) {
+    $emit(name, fn) {
         this.callbacks[name] = this.callbacks[name] || []
         this.callbacks[name].push(fn)
     }
-    $emit(name, args) {
+    $on(name, args) {
         if (this.callbacks[name]) {
             this.callbacks[name].forEach(cb => cb(args))
         }

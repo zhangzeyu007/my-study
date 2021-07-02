@@ -104,10 +104,11 @@ export default {
             )
             // 获取当前月份的第一天
             let currentFirstDay = utils.getDate(year, month, 1)
+            console.log(currentFirstDay);
             // 先生成一个当前 2019 5 18 2019 5 1
             // 获取当前是周几 把天数往前移动几天
             let week = currentFirstDay.getDate()
-            // console.log(week)
+            console.log(week)
             //  当前开始的天数
             let startDay = currentFirstDay - week * 60 * 60 * 1000 * 24
             // 循环42天
@@ -124,8 +125,6 @@ export default {
     },
     methods: {
         blur() {
-
-            console.log('被调用')
             this.isVisible = false
         },
         focus() {
