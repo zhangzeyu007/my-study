@@ -15,7 +15,7 @@ module.exports = {
     productionSourceMap: false,
     devServer: {},
         //放置生成的静态资源 (js、css、img、fonts) 的 (相对于 outputDir 的) 目录。
-    assetsDir: 'static',
+    assetsDir: '',
     configureWebpack: config => {
       if (process.env.NODE_ENV === "development") {
             config.name = 'vue实现'
