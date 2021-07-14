@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件冒泡与事件捕获</title>
+    <style>
+      #div1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      #div2 {
+        width: 200px;
+        height: 200px;
+        background-color: black;
+        position: absolute;
+        left: 200px;
+        top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <div id="div2"></div>
+    </div>
+    <script>
+      let div1 = document.getElementById("div1");
+      let div2 = document.getElementById("div2");
+
+      div1.addEventListener("click", function () {
+        alert("1");
+      });
+
+      div2.addEventListener("click", function (e) {
+        // alert("1");
+        console.log(e);
+        /**
+         * ! 阻止事件冒泡
+         */
+        e.stopPropagation();
+      });
+    </script>
+  </body>
+</html>

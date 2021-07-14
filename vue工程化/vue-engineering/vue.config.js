@@ -25,14 +25,12 @@ module.exports = {
             config.optimization = {
             minimizer: [
                 new terserPlugin({
-                    terserOptions: {
-                        compress: {
-                            warnings: false,
-                            drop_console: true,
-                            drop_debugger: true,
-                            pure_funcs: ['console.log']
-                        }
-                    }
+                // 开启缓存
+                cache: true,
+                // 开启多进程打包
+                parallel: true,
+                // 如果需要 sourceMap 这里一定要设置为 true
+                sourceMap: true,
                 })
             ]
         }
