@@ -29,6 +29,10 @@
        * ! 会把这个内存地址赋值给新变量，也就是说这两个变量都指向了堆内存中的同一个对象，
        * !他们中任何一个作出的改变都会反映在另一个身上
        * */
+      let a = new Date();
+
+      console.log(Object.prototype.toString.call(a));
+      console.log(typeof arr);
     </script>
   </body>
 </html>
