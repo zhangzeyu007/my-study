@@ -18,6 +18,7 @@
     <input type="file" id="file">
     <script>
         let fileList = document.getElementById("file")
+        
         fileList.addEventListener("drop", (event) => {
             let files = event.target.files
             console.log(event);
@@ -34,6 +35,7 @@
                 }
             }
         })
+
         function blobSlice(file, start, end) {
             return file.slice(start, end)
         }
