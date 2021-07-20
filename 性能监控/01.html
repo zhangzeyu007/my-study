@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getsec(time) {
+        return time / 1000 + "s";
+      }
+      window.onload = function () {
+        var per = window.performance.timing;
+        console.log(
+          "DNS查询耗时" + getsec(per.domainLookupEnd - per.domainLookupStart)
+        );
+        console.log("TCP链接耗时" + getsec(per.connectEnd - per.connectStart));
+        console.log(
+          "request请求响应耗时" + getsec(per.responseEnd - per.responseStart)
+        );
+        console.log(
+          "dom渲染耗时" + getsec(per.domComplete - per.domInteractive)
+        );
+        console.log("白屏时间" + getsec(firstPaint - pageStartTime));
+        console.log(
+          "domready可操作时间" +
+            getsec(per.domContentLoadedEventEnd - per.fetchStart)
+        );
+      };
+    </script>
+  </body>
+</html>

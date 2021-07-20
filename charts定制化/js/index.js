@@ -291,7 +291,6 @@
 })();
 
 // 折线图2
-
 (function () {
     // 实例化对象
     var myChart = echarts.init(document.querySelector(".line2 .chart"))
