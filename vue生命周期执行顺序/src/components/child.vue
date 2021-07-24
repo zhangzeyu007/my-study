@@ -9,7 +9,7 @@ export default {
   },
 
   created () {
-    console.log('create child')
+    console.log('create child----****')
   },
 
   beforeMount () {

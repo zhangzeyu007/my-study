@@ -6,6 +6,7 @@ class HttpRequest {
     this.baseURL = 'http://zj.jxeduyun.com/Web/'
     this.pending = {}
   }
+  
   // 获取预设的配置
   getInsideConfig() {
     return {

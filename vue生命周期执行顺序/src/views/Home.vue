@@ -19,7 +19,7 @@ export default {
   },
 
   created () {
-    console.log('created parent')
+    console.log('created parent---*****')
   },
 
   beforeMount () {
