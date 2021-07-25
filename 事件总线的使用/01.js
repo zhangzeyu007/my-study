@@ -9,6 +9,7 @@ class Bus {
     constructor() {
         this.callbacks = {}
     }
+
     $emit(name, fn) {
         this.callbacks[name] = this.callbacks[name] || []
         this.callbacks[name].push(fn)
@@ -18,6 +19,7 @@ class Bus {
             this.callbacks[name].forEach(cb => cb(args))
         }
     }
+    
 }
 
 Vue.prototype.$bus = new Bus()
