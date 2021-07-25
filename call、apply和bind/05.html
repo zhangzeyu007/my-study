@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <script>
+      function Animal() {
+        // this 指向小cat
+        this.eat = function (params) {
+          console.log("吃东西");
+        };
+      }
+      function Bird() {
+        this.fly = function () {
+          console.log("飞翔");
+        };
+      }
+
+      function Cat(params) {
+        // this 指向小cat
+        Animal.call(this);
+        Bird.call(this);
+		
+        this.sayName = function (params) {
+          console.log("输出自己的名字");
+        };
+      }
+
+      let cat = new Cat();
+
+      cat.eat();
+    </script>
+  </body>
+</html>

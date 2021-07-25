@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>call bind apply</title>
+  </head>
+  <body>
+    <script>
+      // call bind apply
+      // call 是一个方法 是函数的方法
+      function fun() {
+        console.log(this.name);
+        console.log("hello world");
+      }
+
+      let cat = {
+        name: "密码",
+      };
+
+      let dog = {
+        name: "旺财",
+        sayName() {
+          console.log("我是" + this.name);
+        },
+        eat(food, food2) {
+          console.log("我喜欢吃" + food + "-" + food2);
+        },
+      };
+      // call可以调用函数, call 可以改变函数this的指向
+      fun.call(cat);
+      dog.sayName.call(cat);
+      dog.eat("骨头");
+      // 第二个参数
+      dog.eat.call(eat, "鱼", "零食");
+      // 参数是数组
+      dog.eat.apply(eat, ["鱼", "零食"]);
+      // bind 不会自动调用函数
+      let fun = dog.eat.bind(eat, "鱼", "零食");
+      fun();
+    </script>
+  </body>
+</html>
