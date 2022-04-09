@@ -1,0 +1,54 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柯里化</title>
+</head>
+
+<body>
+
+    <script>
+ // 柯里化 
+  let list = [
+    {
+        name:'lucy'
+    },
+    {
+        name:'jack'
+    }
+]
+
+function curry(fn,len = fn.length) {
+    return _curry.call(this,fn,len)
+}
+
+function _curry(fn,len,...args) {
+    return function (...params) {
+        let _args = [...args,...params];
+        if(_args.length >= len){
+            return fn.apply(this,_args);
+        }else{
+            return _curry.call(this,fn,len,..._args)
+        }
+    }
+}
+   let  prop = curry(function(key,obj){
+             return obj[key];
+         })
+
+       list.map(item=>{ 
+          console.log(prop('name' ,item));
+       })
+
+
+
+    </script>
+
+</body>
+
+</html>
