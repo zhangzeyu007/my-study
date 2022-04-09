@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue3.0 响应式原理</title>
+</head>
+<body>
+    <script>
+
+		// 模拟vue中data的选项
+        let data = {
+			name:'zhangzeyu',
+			msg:'哈哈哈',
+			arr:[11,22]
+		}
+// 模拟vue实例
+    let vm = new Proxy(data,{
+		get(target,key){
+		console.log('get,key',key,target[key])
+		return target[key]
+		}, 
+		set(target,key, newValue){
+		  console.log("set,key",key,newValue)
+          if ( target[key] ===newValue){
+			  return 
+		  } 
+		 return target[key] = newValue
+		}
+	})
+
+	     
+    </script>
+</body>
+
+</html>

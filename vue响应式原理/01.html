@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue2.0 响应式原理</title>
+</head>
+<body>
+    <script>
+
+		// 模拟vue中data的选项
+        let data = {
+			name:'zhangzeyu',
+			msg:'哈哈哈'
+		}
+		// 模拟vue的实例
+		let vm = {}
+
+		Object.keys(data).forEach(k => {
+			// 数据劫持, 访问或者设置vm的成员的时候,就会触发getter和setter
+			Object.defineProperty(vm,k,{
+				enumerable:true,
+				configurable:true,
+				get(value){
+			    console.log('get方法',data[k]);
+				return  data[k]
+				},
+				set(newVal){
+                 console.log('set方法',newVal);
+				 data[k] = newVal;
+				}
+			})
+		})
+
+    </script>
+</body>
+
+</html>
