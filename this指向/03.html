@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-04-09 15:26:56
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-04-15 17:15:40
+ * @FilePath: \my-study\this指向\03.html
+-->
 
 
 <!DOCTYPE html>
@@ -10,9 +18,25 @@
 </head>
 
 <body>
-    <script>
-   
 
+<script>
+   var obj1 = {
+       name:"zzy"
+   }
+     var obj2 = {
+       name:"hhah"
+   }
+
+
+   var getName = function() {   
+   alert(this.name)
+}
+
+window.name = 'window'
+
+getName()
+getName.call(obj1)
+getName.call(obj2)
 
     </script>
 </body>
