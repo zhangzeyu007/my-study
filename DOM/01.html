@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-04-17 16:35:07
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-04-17 17:00:11
+ * @LastEditTime: 2022-04-17 20:27:30
  * @FilePath: \my-study\DOM\01.html
 -->
 
@@ -21,11 +21,24 @@
 </head>
 
 <body>
-    <div  id="title">第二种方法</div>
+    <div  id="title" name="sos">第二种方法</div>
     <div class="title2">我是你的</div>
+     <div id="description"></div>
+     <div id="myList1">
+        <h2>woo</h2>
+        <h1>杭州woo</h1>
+     </div>
     <input/>
+  
     <img src="" alt="">
     <a href=""></a>
+    <ul id="list">
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+        <li>1</li>
+    </ul>
 </body>
 
 <script>
@@ -56,7 +69,48 @@
     let isXML=document.implementation.hasFeature('XML','2.0')
     let isCSS = document.implementation.hasFeature('CSS','2.0')
     console.log(isXML);
-    console.log(isCSS);
+    console.log(isCSS); 
+
+    // 文档写入
+    document.write('<h1>我是文档写入</h1>')
+    // 打开关闭网页的输入流
+    document.open()
+    document.close()
+
+    // 取得属性
+    let  Element = document.getElementById('title')
+    let titleArr = Element.getAttribute('id')
+    console.log(titleArr);
+
+    // 设置属性
+    Element.setAttribute('id','someOhterId')
+    console.log(Element);
+    console.log(Element.attributes);
+    let id =Element.attributes.getNamedItem('id').nodeValue
+    console.log(id);
+    let oldAttr =  Element.attributes.removeNamedItem('id')
+    console.log(oldAttr);
+    console.log(Element);
+   // 创建元素
+   let div = document.createElement('div')
+   let node = document.getElementById('description').lastChild
+   var list=document.getElementById("myList1");
+
+   div.id = 'ohter'
+   div.className = 'box'
+   console.log(div);
+   document.body.appendChild(div)
+   document.body.removeChild(div)
+   list.insertBefore(Element,list.childNodes[0])
+   let h1 = document.getElementsByTagName("h1")[0];  //获取一级标题的引用
+   let h2 = document.createElement("h2");  //创建二级标题元素并引用
+   // 替换
+   list.replaceChild(h2,h1)
+
+  // 元素后代
+   let childNodes = document.getElementById('list').childNodes
+   console.log(childNodes);
+
 
 </script>
 
