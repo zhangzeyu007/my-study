@@ -1,0 +1,67 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-04-17 12:44:31
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-04-17 13:17:37
+ * @FilePath: \my-study\高阶函数\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高阶函数</title>
+</head>
+
+<body>
+    <script>
+        // 函数类型判断
+          var isType = function(type) {
+            return function(obj){
+                return Object.prototype.toString.call(obj)  === '[object '+ type +']';
+          }
+        }
+
+        let isArray = isType('Array')
+        let isString = isType('String')
+        let isObject = isType('Object')
+
+        console.log(isArray([  1, 2, 3, 4]));
+        console.log(isString('我是一个字符串'));
+        console.log(isObject({name: '张泽雨'}))
+
+        // 类型
+        var Type = {}
+
+        for(let i = 0, type; type = ['String','Object','Array'] [i++];){
+           (function(type){
+            Type['is'+type] = function(obj){
+                    return Object.prototype.toString.call(obj)  === '[object '+ type +']';
+                }
+            })(type)
+        }        
+       console.log(Type.isArray([]));
+       console.log(Type.isString('我是一个字符串'));
+
+
+       var getSingle = function(fn){
+        let result;
+        return function(){
+            return result || (result = fn.apply(this, arguments))
+        }
+       }
+
+       var getScript = getSingle(function(){
+        return document.createElement('script');
+       })
+
+       var script1 = getScript()
+       var script2 = getScript()
+
+       alert(script1 === script2)
+    </script>
+</body>
+
+</html>
