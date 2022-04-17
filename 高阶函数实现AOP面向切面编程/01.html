@@ -3,10 +3,9 @@
  * @Author: 张泽雨
  * @Date: 2022-04-17 13:24:44
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-04-17 13:43:13
+ * @LastEditTime: 2022-04-17 13:56:57
  * @FilePath: \my-study\高阶函数实现AOP面向切面编程\01.html
 -->
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,11 +33,11 @@
             return ret;
         }
     }
-
-
+    
     var func = function(){
         console.log('2')
     }
+    
     func = func.before(function() {
      console.log('1')
     }).after(function(){
@@ -46,6 +45,7 @@
     })
 
     func()
+
     </script>
 </body>
 

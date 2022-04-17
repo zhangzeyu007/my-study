@@ -1,0 +1,63 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-04-17 16:35:07
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-04-17 17:00:11
+ * @FilePath: \my-study\DOM\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM接口api</title>
+    <style>
+   
+    </style>
+</head>
+
+<body>
+    <div  id="title">第二种方法</div>
+    <div class="title2">我是你的</div>
+    <input/>
+    <img src="" alt="">
+    <a href=""></a>
+</body>
+
+<script>
+    // 文档信息
+    let URL = document.URL
+    console.log(URL);
+    let domain = document.domain
+    console.log(domain);
+    let referer = document.referer
+    console.log(referer);
+
+    // 定位元素
+    let title = document.getElementById('title')
+    console.log(title);
+    let title2 = document.getElementsByClassName('title2')
+    console.log(title2);
+    let input = document.getElementsByTagName('input')
+    console.log(input);
+    let img = document.getElementsByTagName('img')
+    console.log(img);
+    // 特殊集合
+    let images = document.images
+    console.log(images);
+    let  links = document.links
+    console.log(links);
+
+    // DOM兼容性检测
+    let isXML=document.implementation.hasFeature('XML','2.0')
+    let isCSS = document.implementation.hasFeature('CSS','2.0')
+    console.log(isXML);
+    console.log(isCSS);
+
+</script>
+
+</html>
