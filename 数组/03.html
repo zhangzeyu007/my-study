@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-04-26 16:01:12
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-04-26 16:09:21
+ * @LastEditTime: 2022-04-26 17:34:23
  * @FilePath: \my-study\数组\03.html
 -->
 
@@ -29,10 +29,46 @@
       arr2 = arr2.concat([4, 5], [6, 7]);
       arr2 = arr2.concat([4, 5], [6, 7], [[8, 9]]);
       console.log(arr2);
+      console.log("--------------------------------");
 
-	  // 数组的队列操作 push pop shift unshift
+      // 数组的队列操作 push pop shift unshift
+      let arr3 = [];
 
-	  
+      arr3.push(1, 2, 3);
+      arr3.unshift();
+      arr3.shift();
+      console.log(arr3);
+      console.log("--------------------------------");
+
+      // 使用slice() 截取数组 splice() 截取数组 fill()填充 copyWithin() 复制到数组指定位置
+      let arr4 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      arr4.fill(0, 3, 6);
+      arr4.copyWithin(3, 0, 3);
+      console.log(arr4);
+      console.log("--------------------------------");
+
+      // 数组的排序 sort() reverse() 
+      let arr5 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      arr5.sort((a, b) => a - b);
+      arr5.reverse();
+      console.log(arr5);
+      console.log("--------------------------------");
+
+      // 数组的拼接 join() toString() toLocaleString() Json.stringify() 
+      let arr8 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        console.log(arr8.join("-"));
+        console.log(arr8.toString());
+      console.log("--------------------------------");
+
+      // 数组索引 indexOf() lastIndexOf() includes()
+	    let a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+		console.log(a.indexOf(3));
+		console.log(a.lastIndexOf(3));
+	    console.log(a.indexOf(100));
+		console.log(a.includes(9));
+
+
+
     </script>
   </body>
 </html>
