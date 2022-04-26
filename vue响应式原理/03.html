@@ -1,0 +1,47 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-04-25 14:54:25
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-04-25 17:59:10
+ * @FilePath: \my-study\vue响应式原理\03.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue3.0 响应式原理</title>
+  </head>
+  <body>
+    <script>
+      const parent = {
+        get value() {
+          return "19Qingfeng";
+        },
+      };
+
+      const handler = {
+        get(target, key, receiver) {
+        
+          return Reflect.get(target, key, receiver);
+
+        },
+      };
+
+      const proxy = new Proxy(parent, handler);
+
+      const obj = {
+        name: "wang.haoyu",
+      };
+
+      // 设置obj继承与parent的代理对象proxy
+      Object.setPrototypeOf(obj, proxy);
+
+      // log: false
+     console.log(proxy);
+	 Object.prototype.hasOwnProperty.call()
+    </script>
+  </body>
+</html>

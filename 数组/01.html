@@ -3,33 +3,80 @@
  * @Author: 张泽雨
  * @Date: 2021-02-02 10:38:00
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-04-15 23:06:23
+ * @LastEditTime: 2022-04-26 14:43:14
  * @FilePath: \my-study\数组\01.html
 -->
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>数组</title>
-    <style>
-    </style>
-</head>
+    <style></style>
+  </head>
 
-<body>
+  <body>
     <script>
-     let a = ['a','b','c']
-	 let b = []
-    for (let i = 0;i< a.length; i++) {
-              b[i] =a[i]
-	}
-	let c = Array.from(b)
-	console.log(c);
-		
-	 
-    </script>
-</body>
+      // 创建数组的方式
+      // 1.数组字面量
+      let arr1 = [1, [2, 3]];
+      let arr2 = [{ name: "张三" }, { name: "李四" }];
+      let arr3 = [, ,];
+      let arr4 = [0, ...arr1, 8];
+      console.log(arr1);
+      console.log(arr2);
+      console.log(arr3);
+      console.log(arr4);
+      console.log(
+        "----------------------------------------------------------------"
+      );
+      // 2.构造函数
+      let a = new Array(10);
+      let b = new Array(1, 2, 3);
+      let c = Array.of(10);
+      let d = Array.of(6, 7, 8);
+      let f = [];
+      for (let i = 0; i < d.length; i++) {
+        f[i] = d[i];
+      }
+      let e = Array.from(f);
 
+      console.log(a);
+      console.log(b);
+      console.log(c);
+      console.log(d);
+      console.log(e);
+      console.log(
+        "----------------------------------------------------------------"
+      );
+
+      // 读写数组元素
+      let o = {};
+      o[1] = "one";
+      console.log(o);
+      console.log(o[1]); //one
+      let g = [];
+      g[-1.23] = "negative";
+      g["1000"] = "large";
+      g[1.0] = 1;
+      console.log(g);
+      console.log(
+        "----------------------------------------------------------------"
+      );
+
+      // 数组长度
+      console.log([].length); // 0
+      console.log([1, 2, 3, 4, 5].length);
+      console.log(
+        "----------------------------------------------------------------"
+      );
+      // 添加和删除数组元素
+      let arr = [1, 2, 3, 4, 5];
+      delete arr[1];
+      console.log(1 in arr);
+      console.log(arr);
+      console.log(arr.length);
+    </script>
+  </body>
 </html>

@@ -1,0 +1,94 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-04-26 14:44:28
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-04-26 16:00:32
+ * @FilePath: \my-study\数组\02.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      // 迭代数组
+      // 1.forEach
+      // 2.for of
+
+      let letters = [..."Hello world"];
+      let string = "";
+      let everyOther = "";
+      for (let letter of letters) {
+        string += letter;
+      }
+      console.log(string);
+      console.log(
+        "----------------------------------------------------------------"
+      );
+
+      for (let [index, letter] of letters.entries()) {
+        if (index % 2 === 0) {
+          everyOther += letter;
+        }
+      }
+      console.log(everyOther);
+
+      var arr = ["a", "b", "c"];
+      var iterator = arr.entries();
+      console.log(iterator.next());
+
+      console.log(
+        "----------------------------------------------------------------"
+      );
+      // 数组方法
+      // 数组的迭代方法
+      // 1.forEach
+      // 2.map
+      // 3.filter
+      let arr1 = [1, undefined, 3, null, 5];
+      console.log(arr1);
+      arr1 = arr1.filter((item) => item);
+      console.log(arr1);
+      console.log(
+        "----------------------------------------------------------------"
+      );
+      // 1.find()
+      // 2.findIndex()
+      // 3.every()
+      // 4.some()
+      let a = [1, 2, 3, 4, 5];
+
+      console.log(a.findIndex((item) => item === 2));
+      console.log(a.find((item) => item % 5 === 0));
+      console.log(a.every((item) => item < 10));
+      console.log(a.some(isNaN));
+      console.log(
+        "----------------------------------------------------------------"
+      );
+	  
+      // reduce
+      // 1.reduce() // 从低到高
+      // 2.reduceRight() // 从高到低
+      let arr2 = [1, 2, 3, 4, 5];
+      let arr3 = [1, 2, 3, 4, 5];
+
+      arr2 = arr2.reduce((pre, cur) => {
+        console.log(pre + "--------" + cur);
+        return pre + cur;
+      });
+      console.log(arr2);
+      arr3 = arr3.reduceRight((pre, cur) => {
+        console.log(pre + "--------" + cur);
+        return pre + cur;
+      });
+      console.log(arr3);
+    </script>
+  </body>
+</html>

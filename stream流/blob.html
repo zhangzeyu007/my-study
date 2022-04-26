@@ -2,8 +2,8 @@
  * @Description: 组件
  * @Author: 海象
  * @Date: 2021-01-18 08:19:59
- * @LastEditors: 海象
- * @LastEditTime: 2021-04-19 22:19:32
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-04-26 13:45:33
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -19,12 +19,12 @@
     <script>
         let fileList = document.getElementById("file")
         
-        fileList.addEventListener("drop", (event) => {
-            let files = event.target.files
+        fileList.addEventListener("change", (event) => {
             console.log(event);
+            let files = event.target.files
             let reader = new FileReader()
             let blob = blobSlice(files[0], 0, 64)
-            // console.log(blob);
+            console.log(blob);
             if (blob) {
                 reader.readAsBinaryString(blob)
                 reader.onerror = function () {
@@ -39,7 +39,7 @@
         function blobSlice(file, start, end) {
             return file.slice(start, end)
         }
-        console.log(new Blob(['foo']));
+        // console.log(new Blob(['foo']));
     </script>
 </body>
 

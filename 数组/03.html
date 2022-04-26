@@ -1,0 +1,38 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-04-26 16:01:12
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-04-26 16:09:21
+ * @FilePath: \my-study\数组\03.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      // flat 扁平化 flatMap 打平数组
+      let arr1 = [1, 2, [3, 5, [6, 7]]];
+      console.log(arr1.flat(2));
+      console.log(arr1.flatMap((x) => x));
+
+      // concat() 添加数组
+      let arr2 = [1, 2, 3];
+      arr2 = arr2.concat([4, 5]);
+      arr2 = arr2.concat([4, 5], [6, 7]);
+      arr2 = arr2.concat([4, 5], [6, 7], [[8, 9]]);
+      console.log(arr2);
+
+	  // 数组的队列操作 push pop shift unshift
+
+	  
+    </script>
+  </body>
+</html>
