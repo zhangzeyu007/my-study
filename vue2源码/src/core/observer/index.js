@@ -142,7 +142,7 @@ export function observe (value: any, asRootData: ?boolean): Observer | void {
 /**
  * Define a reactive property on an Object.
  */
-// 定义属性拦截
+// todo 定义属性拦截
 // Vue.util.defineReactive = defineReactive
 export function defineReactive (
   obj: Object,
@@ -151,7 +151,7 @@ export function defineReactive (
   customSetter?: ?Function,
   shallow?: boolean
 ) {
-  // 小管家：每个key一个
+  //todo 小管家：每个key一个
   const dep = new Dep()
 
   const property = Object.getOwnPropertyDescriptor(obj, key)
@@ -166,18 +166,18 @@ export function defineReactive (
     val = obj[key]
   }
 
-  // 如果val是对象还会递归它
+  //todo 如果val是对象还会递归它
   let childOb = !shallow && observe(val)
   Object.defineProperty(obj, key, {
     enumerable: true,
     configurable: true,
     get: function reactiveGetter () {
       const value = getter ? getter.call(obj) : val
-      // 依赖收集
+      // todo依赖收集
       if (Dep.target) {
         dep.depend()
         if (childOb) {
-          // 如果存在对象嵌套，则存在子ob实例，需要建立大管家和当前watcher之间的关系
+          //todo 如果存在对象嵌套，则存在子ob实例，需要建立大管家和当前watcher之间的关系
           childOb.dep.depend()
           if (Array.isArray(value)) {
             dependArray(value)
@@ -186,6 +186,7 @@ export function defineReactive (
       }
       return value
     },
+
     set: function reactiveSetter (newVal) {
       const value = getter ? getter.call(obj) : val
       /* eslint-disable no-self-compare */
@@ -204,6 +205,7 @@ export function defineReactive (
         val = newVal
       }
       childOb = !shallow && observe(newVal)
+      // todo: 小管家通知
       dep.notify()
     }
   })
