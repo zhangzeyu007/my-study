@@ -1,3 +1,11 @@
+/*
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2021-07-13 13:19:11
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-03 17:30:22
+ * @FilePath: \my-study\webpack优化与配置\性能优化\code-split\webpack.config.js
+ */
 const path = require('path')
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
@@ -58,7 +66,7 @@ module.exports = {
                // node_modules 中的文件会被打包到 vendors 组的 chunk 中
               // 我们将得到 verndors~xxx.js 这样的文件
              // 但不是所有的模块都会被打包的, 他们还要满足上面定义的那些规则
-                    // 模块大小, 引用次数等
+             // 模块大小, 引用次数等
                 defaultVendors: {
                     test: /[\\/]node_modules[\\/]/,
                     priority: -10,  // 打包优先级
