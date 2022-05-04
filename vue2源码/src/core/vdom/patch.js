@@ -440,7 +440,7 @@ export function createPatchFunction(backend) {
     }
   }
 
-  // 递归遍历的时候
+  // TODO 递归遍历的时候 (重排算法)
   function updateChildren(
     parentElm,
     oldCh,
@@ -448,14 +448,17 @@ export function createPatchFunction(backend) {
     insertedVnodeQueue,
     removeOnly
   ) {
+    // todo 4个指针
     let oldStartIdx = 0;
     let newStartIdx = 0;
     let oldEndIdx = oldCh.length - 1;
     let oldStartVnode = oldCh[0];
+    // todo 4个节点
     let oldEndVnode = oldCh[oldEndIdx];
     let newEndIdx = newCh.length - 1;
     let newStartVnode = newCh[0];
     let newEndVnode = newCh[newEndIdx];
+
     let oldKeyToIdx, idxInOld, vnodeToMove, refElm;
 
     // removeOnly is a special flag used only by <transition-group>
@@ -487,6 +490,7 @@ export function createPatchFunction(backend) {
         oldStartVnode = oldCh[++oldStartIdx];
         newStartVnode = newCh[++newStartIdx];
       } else if (sameVnode(oldEndVnode, newEndVnode)) {
+        // todo 老的开始和新的结束相同, 除了打补丁之外还要移动到队尾
         patchVnode(
           oldEndVnode,
           newEndVnode,
@@ -494,6 +498,7 @@ export function createPatchFunction(backend) {
           newCh,
           newEndIdx
         );
+        // todo 移动到队尾
         oldEndVnode = oldCh[--oldEndIdx];
         newEndVnode = newCh[--newEndIdx];
       } else if (sameVnode(oldStartVnode, newEndVnode)) {
@@ -527,13 +532,16 @@ export function createPatchFunction(backend) {
         oldEndVnode = oldCh[--oldEndIdx];
         newStartVnode = newCh[++newStartIdx];
       } else {
+        // todo 4种猜想之后没有找到相同,不得不开始循环查找
         if (isUndef(oldKeyToIdx))
+          // todo 查找在老的孩子数组中的索引
           oldKeyToIdx = createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx);
         idxInOld = isDef(newStartVnode.key)
           ? oldKeyToIdx[newStartVnode.key]
           : findIdxInOld(newStartVnode, oldCh, oldStartIdx, oldEndIdx);
         if (isUndef(idxInOld)) {
           // New element
+          // todo 没有找到则创建新元素
           createElm(
             newStartVnode,
             insertedVnodeQueue,
@@ -544,6 +552,7 @@ export function createPatchFunction(backend) {
             newStartIdx
           );
         } else {
+          // todo 找到了除了打补丁,还要移动到队首
           vnodeToMove = oldCh[idxInOld];
           if (sameVnode(vnodeToMove, newStartVnode)) {
             patchVnode(
@@ -562,6 +571,7 @@ export function createPatchFunction(backend) {
               );
           } else {
             // same key but different element. treat as new element
+            // todo 相同键但是不同元素, 将其视为新元素
             createElm(
               newStartVnode,
               insertedVnodeQueue,
@@ -661,35 +671,49 @@ export function createPatchFunction(backend) {
       vnode.componentInstance = oldVnode.componentInstance;
       return;
     }
-
+    // todo 执行一些组件钩子
     let i;
     const data = vnode.data;
     if (isDef(data) && isDef((i = data.hook)) && isDef((i = i.prepatch))) {
       i(oldVnode, vnode);
     }
-
+    // todo查找 新旧节点是否存在孩子 (深度优先,同层比较)
     const oldCh = oldVnode.children;
     const ch = vnode.children;
+
+    // todo 属性更新
     if (isDef(data) && isPatchable(vnode)) {
+      // todo cbs 中关于属性更新的数组拿出来[attrFn, attrFn]
       for (i = 0; i < cbs.update.length; ++i) cbs.update[i](oldVnode, vnode);
       if (isDef((i = data.hook)) && isDef((i = i.update))) i(oldVnode, vnode);
     }
+
+    // todo 判断是否元素
     if (isUndef(vnode.text)) {
+      // todo 双方都有孩子
       if (isDef(oldCh) && isDef(ch)) {
+        // todo 比较孩子render
+        // todo 递归
         if (oldCh !== ch)
           updateChildren(elm, oldCh, ch, insertedVnodeQueue, removeOnly);
       } else if (isDef(ch)) {
+        // todo 新节点有孩子
         if (process.env.NODE_ENV !== "production") {
           checkDuplicateKeys(ch);
         }
+        // todo 清空老节点的文本
         if (isDef(oldVnode.text)) nodeOps.setTextContent(elm, "");
+        // todo 创建孩子并追加
         addVnodes(elm, null, ch, 0, ch.length - 1, insertedVnodeQueue);
       } else if (isDef(oldCh)) {
+        // todo 老jiekou有孩子, 删除即可
         removeVnodes(oldCh, 0, oldCh.length - 1);
       } else if (isDef(oldVnode.text)) {
+        // todo 老节点存在文本, 清空
         nodeOps.setTextContent(elm, "");
       }
     } else if (oldVnode.text !== vnode.text) {
+      // todo  双方都有文本节点, 更新文本
       nodeOps.setTextContent(elm, vnode.text);
     }
     if (isDef(data)) {

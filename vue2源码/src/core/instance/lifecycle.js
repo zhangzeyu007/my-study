@@ -138,7 +138,7 @@ export function lifecycleMixin (Vue: Class<Component>) {
   }
 }
 
-// 挂载组件
+// todo:挂载组件
 export function mountComponent (
   vm: Component,
   el: ?Element,
@@ -187,7 +187,7 @@ export function mountComponent (
       measure(`vue ${name} patch`, startTag, endTag)
     }
   } else {
-    // 更新组件函数
+    // todo:更新组件函数
     updateComponent = () => {
       vm._update(vm._render(), hydrating)
     }
@@ -196,7 +196,7 @@ export function mountComponent (
   // we set this to vm._watcher inside the watcher's constructor
   // since the watcher's initial patch may call $forceUpdate (e.g. inside child
   // component's mounted hook), which relies on vm._watcher being already defined
-  // 创建 watcher
+  // todo: 创建 watcher
   new Watcher(vm, updateComponent, noop, {
     before () {
       if (vm._isMounted && !vm._isDestroyed) {
@@ -208,6 +208,7 @@ export function mountComponent (
 
   // manually mounted instance, call mounted on self
   // mounted is called for render-created child components in its inserted hook
+  // todo 手动挂载实例 , 自动调用 mounted
   if (vm.$vnode == null) {
     vm._isMounted = true
     callHook(vm, 'mounted')
