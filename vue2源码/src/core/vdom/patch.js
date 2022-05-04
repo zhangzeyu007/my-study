@@ -31,7 +31,8 @@ import {
 export const emptyNode = new VNode("", {}, []);
 
 const hooks = ["create", "activate", "update", "remove", "destroy"];
-
+// TODO: 判断是否是相同节点:
+// todo key相同 tag相同 注释相同
 function sameVnode(a, b) {
   return (
     a.key === b.key &&
@@ -40,6 +41,7 @@ function sameVnode(a, b) {
       isDef(a.data) === isDef(b.data) &&
       sameInputType(a, b)) ||
       (isTrue(a.isAsyncPlaceholder) &&
+        //  todo 比较占位符是否相同
         a.asyncFactory === b.asyncFactory &&
         isUndef(b.asyncFactory.error)))
   );
@@ -62,11 +64,12 @@ function createKeyToOldIdx(children, beginIdx, endIdx) {
   }
   return map;
 }
-
+// TODO: 创建 Patch函数
 export function createPatchFunction(backend) {
   let i, j;
   const cbs = {};
-
+  // todo: modules -- 属性相关的操作  <div id="xxx"></div>
+  // todo: nodeOps -- 节点正山改查等操作
   const { modules, nodeOps } = backend;
 
   for (i = 0; i < hooks.length; ++i) {
@@ -469,16 +472,16 @@ export function createPatchFunction(backend) {
     if (process.env.NODE_ENV !== "production") {
       checkDuplicateKeys(newCh);
     }
-    // TODO: 循环条件: 开始索引不能大于结束索引
+    // TODO: 循环条件: 开始索引不能大于结束索引, 游标不能重合
     while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
-      // todo: 头尾指针调整
+      // todo: 头尾指针调整, 保证它们有值
       if (isUndef(oldStartVnode)) {
         oldStartVnode = oldCh[++oldStartIdx]; // Vnode has been moved left
       } else if (isUndef(oldEndVnode)) {
         oldEndVnode = oldCh[--oldEndIdx];
         // TODO: 接下来是头尾比较情况
       } else if (sameVnode(oldStartVnode, newStartVnode)) {
-        // todo: 两个开头相同
+        // todo: 1.两个开头相同
         patchVnode(
           oldStartVnode,
           newStartVnode,
@@ -490,7 +493,7 @@ export function createPatchFunction(backend) {
         oldStartVnode = oldCh[++oldStartIdx];
         newStartVnode = newCh[++newStartIdx];
       } else if (sameVnode(oldEndVnode, newEndVnode)) {
-        // todo 老的开始和新的结束相同, 除了打补丁之外还要移动到队尾
+        // todo 2.两个结束, 除了打补丁之外还要移动到队尾
         patchVnode(
           oldEndVnode,
           newEndVnode,
@@ -503,6 +506,7 @@ export function createPatchFunction(backend) {
         newEndVnode = newCh[--newEndIdx];
       } else if (sameVnode(oldStartVnode, newEndVnode)) {
         // Vnode moved right
+        // todo 交叉 3. 老的开始和新的结束相同
         patchVnode(
           oldStartVnode,
           newEndVnode,
@@ -510,6 +514,7 @@ export function createPatchFunction(backend) {
           newCh,
           newEndIdx
         );
+        // todo 移动操作
         canMove &&
           nodeOps.insertBefore(
             parentElm,
@@ -520,6 +525,7 @@ export function createPatchFunction(backend) {
         newEndVnode = newCh[--newEndIdx];
       } else if (sameVnode(oldEndVnode, newStartVnode)) {
         // Vnode moved left
+        // todo 交叉 4.老的结束和新的开始相同
         patchVnode(
           oldEndVnode,
           newStartVnode,
@@ -527,12 +533,13 @@ export function createPatchFunction(backend) {
           newCh,
           newStartIdx
         );
+        // todo 移动操作
         canMove &&
           nodeOps.insertBefore(parentElm, oldEndVnode.elm, oldStartVnode.elm);
         oldEndVnode = oldCh[--oldEndIdx];
         newStartVnode = newCh[++newStartIdx];
       } else {
-        // todo 4种猜想之后没有找到相同,不得不开始循环查找
+        // todo 4种猜想之后没有找到相同,不得不开始循环查找(从这开始首尾都没找到,从新的开头拿一个去老的里找相同的)
         if (isUndef(oldKeyToIdx))
           // todo 查找在老的孩子数组中的索引
           oldKeyToIdx = createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx);
@@ -629,7 +636,7 @@ export function createPatchFunction(backend) {
       if (isDef(c) && sameVnode(node, c)) return i;
     }
   }
-
+  // TODO : diff逻辑,比较两个节点是否相同方法
   function patchVnode(
     oldVnode,
     vnode,
@@ -671,6 +678,7 @@ export function createPatchFunction(backend) {
       vnode.componentInstance = oldVnode.componentInstance;
       return;
     }
+    // TODO: 调用钩子函数
     // todo 执行一些组件钩子
     let i;
     const data = vnode.data;
@@ -688,12 +696,13 @@ export function createPatchFunction(backend) {
       if (isDef((i = data.hook)) && isDef((i = i.update))) i(oldVnode, vnode);
     }
 
-    // todo 判断是否元素
+    // todo 新节点没有文本
+    // todo text 和 children 互斥的
     if (isUndef(vnode.text)) {
       // todo 双方都有孩子
       if (isDef(oldCh) && isDef(ch)) {
         // todo 比较孩子render
-        // todo 递归
+        // todo 递归 重排
         if (oldCh !== ch)
           updateChildren(elm, oldCh, ch, insertedVnodeQueue, removeOnly);
       } else if (isDef(ch)) {
@@ -706,7 +715,7 @@ export function createPatchFunction(backend) {
         // todo 创建孩子并追加
         addVnodes(elm, null, ch, 0, ch.length - 1, insertedVnodeQueue);
       } else if (isDef(oldCh)) {
-        // todo 老jiekou有孩子, 删除即可
+        // todo 老节点有孩子, 删除即可
         removeVnodes(oldCh, 0, oldCh.length - 1);
       } else if (isDef(oldVnode.text)) {
         // todo 老节点存在文本, 清空
@@ -861,8 +870,10 @@ export function createPatchFunction(backend) {
       return node.nodeType === (vnode.isComment ? 8 : 3);
     }
   }
-
+  // TODO : 返回patch函数 __patch__ 方法
+  // todo 下面是patch算法的核心代码
   return function patch(oldVnode, vnode, hydrating, removeOnly) {
+    // todo 新节点未定义, 删除
     if (isUndef(vnode)) {
       if (isDef(oldVnode)) invokeDestroyHook(oldVnode);
       return;
@@ -870,17 +881,22 @@ export function createPatchFunction(backend) {
 
     let isInitialPatch = false;
     const insertedVnodeQueue = [];
-
+    // todo 老节点未定义, 新增
     if (isUndef(oldVnode)) {
       // empty mount (likely as component), create new root element
       isInitialPatch = true;
+      // todo 创建节点
       createElm(vnode, insertedVnodeQueue);
     } else {
+      // todo 通常情况下, 初始化和更新逻辑都走下面
       const isRealElement = isDef(oldVnode.nodeType);
       if (!isRealElement && sameVnode(oldVnode, vnode)) {
         // patch existing root node
+        // TODO 更新, 也就是大家熟知的diff 发生的地方
         patchVnode(oldVnode, vnode, insertedVnodeQueue, null, null, removeOnly);
       } else {
+        // todo 初始化的时候
+        // todo 如果oldVnode是真实的dom
         if (isRealElement) {
           // mounting to a real element
           // check if this is server-rendered content and if we can perform
@@ -905,14 +921,17 @@ export function createPatchFunction(backend) {
           }
           // either not server-rendered, or hydration failed.
           // create an empty node and replace it
+          // todo 将真实dom 转化成 虚拟dom
           oldVnode = emptyNodeAt(oldVnode);
         }
 
         // replacing existing element
+        // Todo 替换现在的元素
         const oldElm = oldVnode.elm;
         const parentElm = nodeOps.parentNode(oldElm);
 
         // create new node
+        // TODO :递归创建树, 把虚拟node 变成真实node
         createElm(
           vnode,
           insertedVnodeQueue,
@@ -920,6 +939,7 @@ export function createPatchFunction(backend) {
           // leaving transition. Only happens when combining transition +
           // keep-alive + HOCs. (#4590)
           oldElm._leaveCb ? null : parentElm,
+          // todo 放在之前宿主元素的旁边
           nodeOps.nextSibling(oldElm)
         );
 
@@ -954,6 +974,7 @@ export function createPatchFunction(backend) {
         }
 
         // destroy old node
+        // todo 删除掉老的节点
         if (isDef(parentElm)) {
           removeVnodes([oldVnode], 0, 0);
         } else if (isDef(oldVnode.tag)) {

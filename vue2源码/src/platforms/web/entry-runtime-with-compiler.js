@@ -15,7 +15,7 @@ const idToTemplate = cached(id => {
   return el && el.innerHTML
 })
 
-// web平台需要扩展$mount：
+//TODO web平台需要扩展$mount：
 const mount = Vue.prototype.$mount
 Vue.prototype.$mount = function (
   el?: string | Element,
@@ -34,8 +34,8 @@ Vue.prototype.$mount = function (
 
   const options = this.$options
   // resolve template/el and convert to render function
-  // el < template < render
-  // render优先级最高
+  //todo el < template < render
+  //todo  render优先级最高
   if (!options.render) {
 
     let template = options.template
@@ -61,7 +61,7 @@ Vue.prototype.$mount = function (
         return this
       }
     } else if (el) {
-      // 最后才是el元素内部的内容作为模板
+      //todo 最后才是el元素内部的内容作为模板
       template = getOuterHTML(el)
     }
 

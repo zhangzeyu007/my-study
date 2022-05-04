@@ -56,6 +56,8 @@ export function initLifecycle(vm: Component) {
 }
 
 export function lifecycleMixin(Vue: Class<Component>) {
+
+//TODO 全局update 更新函数API
   Vue.prototype._update = function (vnode: VNode, hydrating?: boolean) {
     const vm: Component = this;
     const prevEl = vm.$el;
@@ -66,9 +68,12 @@ export function lifecycleMixin(Vue: Class<Component>) {
     // based on the rendering backend used.
     if (!prevVnode) {
       // initial render
+      // todo 初始渲染
+      // todo $el 真实dom vnode 虚拟dom
       vm.$el = vm.__patch__(vm.$el, vnode, hydrating, false /* removeOnly */);
     } else {
       // updates
+      // todo 更新
       vm.$el = vm.__patch__(prevVnode, vnode);
     }
     restoreActiveInstance();
