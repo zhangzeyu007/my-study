@@ -126,7 +126,7 @@ export function createPatchFunction(backend) {
   }
 
   let creatingElmInVPre = 0;
-
+  // TODO: 递归创建节点
   function createElm(
     vnode,
     insertedVnodeQueue,
@@ -146,10 +146,11 @@ export function createPatchFunction(backend) {
     }
 
     vnode.isRootInsert = !nested; // for transition enter check
+    // todo: 自定义组件的处理在这里
     if (createComponent(vnode, insertedVnodeQueue, parentElm, refElm)) {
       return;
     }
-
+    // todo 下面处理保留标签
     const data = vnode.data;
     const children = vnode.children;
     const tag = vnode.tag;
@@ -169,7 +170,7 @@ export function createPatchFunction(backend) {
           );
         }
       }
-
+      // todo: 创建原生的元素(保存在虚拟dom的elm)
       vnode.elm = vnode.ns
         ? nodeOps.createElementNS(vnode.ns, tag)
         : nodeOps.createElement(tag, vnode);
@@ -195,10 +196,13 @@ export function createPatchFunction(backend) {
           insert(parentElm, vnode.elm, refElm);
         }
       } else {
+        // TODO: 父节点创建完成后, 紧接着创建子节点(递归过程)
         createChildren(vnode, children, insertedVnodeQueue);
         if (isDef(data)) {
+          // todo 如果有data定义, 里面就会有事件相关的属性操作
           invokeCreateHooks(vnode, insertedVnodeQueue);
         }
+        // todo 插入字节点
         insert(parentElm, vnode.elm, refElm);
       }
 
@@ -213,20 +217,27 @@ export function createPatchFunction(backend) {
       insert(parentElm, vnode.elm, refElm);
     }
   }
-
+  // TODO: 自定义组件的创建
   function createComponent(vnode, insertedVnodeQueue, parentElm, refElm) {
+    // todo vnode.data 中会有前面安装的管理钩子
     let i = vnode.data;
     if (isDef(i)) {
       const isReactivated = isDef(vnode.componentInstance) && i.keepAlive;
+      // todo 获取初始化并执行它
       if (isDef((i = i.hook)) && isDef((i = i.init))) {
+        // todo 执行组件的初始化: 实例创建和挂载(真实dom挂载完成)
         i(vnode, false /* hydrating */);
       }
       // after calling the init hook, if the vnode is a child component
       // it should've created a child instance and mounted it. the child
       // component also has set the placeholder vnode's elm.
       // in that case we can just return the element and be done.
+      // todo 下一步就是把前面挂载得到的dom插入到父节点中
+      // todo 判断当前是否有实例
       if (isDef(vnode.componentInstance)) {
+        // todo 初始化组件:属性操作
         initComponent(vnode, insertedVnodeQueue);
+        // todo 插入到父节点中(在缓存中,还不能看到)
         insert(parentElm, vnode.elm, refElm);
         if (isTrue(isReactivated)) {
           reactivateComponent(vnode, insertedVnodeQueue, parentElm, refElm);
@@ -244,6 +255,7 @@ export function createPatchFunction(backend) {
       );
       vnode.data.pendingInsert = null;
     }
+    // todo: 拿出元素
     vnode.elm = vnode.componentInstance.$el;
     if (isPatchable(vnode)) {
       invokeCreateHooks(vnode, insertedVnodeQueue);
@@ -321,8 +333,9 @@ export function createPatchFunction(backend) {
     }
     return isDef(vnode.tag);
   }
-
+  //todo 创建钩子
   function invokeCreateHooks(vnode, insertedVnodeQueue) {
+    // todo 执行所有的回调处理
     for (let i = 0; i < cbs.create.length; ++i) {
       cbs.create[i](emptyNode, vnode);
     }
@@ -933,7 +946,7 @@ export function createPatchFunction(backend) {
         const parentElm = nodeOps.parentNode(oldElm);
 
         // create new node
-        // TODO :递归创建树, 把虚拟node 变成真实node
+        // TODO :递归创建树, 把虚拟node 变成真实node (整个树的创建)
         createElm(
           vnode,
           insertedVnodeQueue,

@@ -9,6 +9,7 @@ import {
 } from '../util/index'
 import { updateListeners } from '../vdom/helpers/index'
 
+// TODO: 初始事件方法
 export function initEvents (vm: Component) {
   vm._events = Object.create(null)
   vm._hasHookEvent = false
@@ -21,7 +22,7 @@ export function initEvents (vm: Component) {
 }
 
 let target: any
-
+// todo 调用事件监听方法
 function add (event, fn) {
   target.$on(event, fn)
 }
@@ -46,6 +47,7 @@ export function updateComponentListeners (
   oldListeners: ?Object
 ) {
   target = vm
+  // todo 更新事件监听的时候add() 调用事件$on()
   updateListeners(listeners, oldListeners || {}, add, remove, createOnceHandler, vm)
   target = undefined
 }

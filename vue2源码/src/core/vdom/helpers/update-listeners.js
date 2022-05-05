@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Author: 张泽雨
+ * @Date: 2022-05-04 13:01:25
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-05 17:04:28
+ * @FilePath: \my-study\vue2源码\src\core\vdom\helpers\update-listeners.js
+ */
 /* @flow */
 
 import {
@@ -49,7 +57,7 @@ export function createFnInvoker (fns: Function | Array<Function>, vm: ?Component
   invoker.fns = fns
   return invoker
 }
-
+//Todo  更新事件监听函数处理
 export function updateListeners (
   on: Object,
   oldOn: Object,
@@ -80,6 +88,7 @@ export function updateListeners (
       if (isTrue(event.once)) {
         cur = on[name] = createOnceHandler(event.name, cur, event.capture)
       }
+      // todo 添加事件监听函数
       add(event.name, cur, event.capture, event.passive, event.params)
     } else if (cur !== old) {
       old.fns = cur
