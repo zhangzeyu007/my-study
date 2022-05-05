@@ -1,32 +1,32 @@
 /*
- * @Description: 组件
- * @Author: 海象
- * @Date: 2021-03-06 10:28:16
- * @LastEditors: 海象
- * @LastEditTime: 2021-03-28 15:09:54
+ * @Description:
+ * @Author: 张泽雨
+ * @Date: 2022-05-04 13:01:25
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-05 09:42:41
+ * @FilePath: \my-study\vue2源码\src\core\instance\index.js
  */
-import { initMixin } from './init'
-import { stateMixin } from './state'
-import { renderMixin } from './render'
-import { eventsMixin } from './events'
-import { lifecycleMixin } from './lifecycle'
-import { warn } from '../util/index'
 
-// Vue构造函数
-function Vue (options) {
-  if (process.env.NODE_ENV !== 'production' &&
-    !(this instanceof Vue)
-  ) {
-    warn('Vue is a constructor and should be called with the `new` keyword')
+import { initMixin } from "./init";
+import { stateMixin } from "./state";
+import { renderMixin } from "./render";
+import { eventsMixin } from "./events";
+import { lifecycleMixin } from "./lifecycle";
+import { warn } from "../util/index";
+
+//todo Vue构造函数
+function Vue(options) {
+  if (process.env.NODE_ENV !== "production" && !(this instanceof Vue)) {
+    warn("Vue is a constructor and should be called with the `new` keyword");
   }
-  // 执行初始化，_init从何而来
-  this._init(options)
+  // todo 执行初始化，_init从何而来
+  this._init(options);
 }
 
-initMixin(Vue) // 扩展了一个_init方法
-stateMixin(Vue) // $data/$props/$set/$delete...
-eventsMixin(Vue) // $on/$emit/$once/$off
-lifecycleMixin(Vue) // _update/$forceUpdate/$destroy
-renderMixin(Vue) // $nextTick/_render
+initMixin(Vue); //todo 扩展了一个_init方法
+stateMixin(Vue); //todo $data/$props/$set/$delete...
+eventsMixin(Vue); //todo $on/$emit/$once/$off
+lifecycleMixin(Vue); //todo _update/$forceUpdate/$destroy
+renderMixin(Vue); //todo $nextTick/_render
 
-export default Vue
+export default Vue;

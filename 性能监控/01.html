@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2021-07-20 12:45:01
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-04-26 13:38:16
+ * @LastEditTime: 2022-05-05 10:47:04
  * @FilePath: \my-study\性能监控\01.html
 -->
 <!DOCTYPE html>
@@ -21,6 +21,7 @@
       }
       window.onload = function () {
         var per = window.performance.timing;
+        console.log(per);
         console.log(
           "DNS查询耗时" + getsec(per.domainLookupEnd - per.domainLookupStart)
         );
@@ -31,7 +32,7 @@
         console.log(
           "dom渲染耗时" + getsec(per.domComplete - per.domInteractive)
         );
-        console.log("白屏时间" + getsec(firstPaint - pageStartTime));
+        console.log("白屏时间" + getsec(per.domLoading  - per.fetchStart));
         console.log(
           "domready可操作时间" +
             getsec(per.domContentLoadedEventEnd - per.fetchStart)

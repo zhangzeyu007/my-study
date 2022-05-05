@@ -2,42 +2,39 @@
  * @Description: 组件
  * @Author: 海象
  * @Date: 2021-01-28 10:16:37
- * @LastEditors: 海象
- * @LastEditTime: 2021-01-28 10:50:51
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-05 10:33:59
 -->
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>构造函数</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
+  <body>
     <script>
+      let Person = function (name, age, job) {
+        this.name = name;
+        this.age = age;
+        this.job = job;
+        this.sayName = new Function("console.log(this.name)");
+      };
 
-        let Person = function (name, age, job) {
-            this.name = name
-            this.age = age
-            this.job = job
-            this.sayName = new Function("console.log(this.name)")
-        }
+      // let person1 = new Person('哈哈')
+      let person = new Person("的对抗赛", 29, "dd");
+      person.sayName();
 
-        // let person1 = new Person('哈哈')
-        let person = new Person('的对抗赛', 29, 'dd')
-        person.sayName()
+      Person("我发的", 27, "的菜单");
+      console.log(window.sayName());
 
-        Person('我发的', 27, "的菜单")
-        console.log(window.sayName());
+      // console.log(person1 instanceof Object);
+      // console.log(person1 instanceof Person);
 
-        // console.log(person1 instanceof Object);
-        // console.log(person1 instanceof Person);
-
-        let o = new Object()
-        Person.call(o, 'Kinect', 25, '第三方')
-        o.sayName()
+      let o = new Object();
+      Person.call(o, "Kinect", 25, "第三方");
+      o.sayName();
     </script>
-</body>
-
+  </body>
 </html>
