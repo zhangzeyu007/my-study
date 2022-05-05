@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Author: 张泽雨
+ * @Date: 2022-05-04 13:01:25
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-04 22:43:36
+ * @FilePath: \my-study\vue2源码\src\compiler\create-compiler.js
+ */
 /* @flow */
 
 import { extend } from 'shared/util'
@@ -57,7 +65,7 @@ export function createCompilerCreator (baseCompile: Function): Function {
       }
 
       finalOptions.warn = warn
-
+      // TODO: 核心编译部分
       const compiled = baseCompile(template.trim(), finalOptions)
       if (process.env.NODE_ENV !== 'production') {
         detectErrors(compiled.ast, warn)
