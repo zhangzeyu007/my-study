@@ -14,7 +14,7 @@ let uid = 0
 
 export function initMixin (Vue: Class<Component>) {
   Vue.prototype._init = function (options?: Object) {
-    // vue实例
+    //todo vue实例
     const vm: Component = this
     // a uid
     vm._uid = uid++
@@ -30,7 +30,7 @@ export function initMixin (Vue: Class<Component>) {
     // a flag to avoid this being observed
     vm._isVue = true
     // merge options
-    // 自定义组件合并选项
+    //todo 自定义组件合并选项
     if (options && options._isComponent) {
       // optimize internal component instantiation
       // since dynamic options merging is pretty slow, and none of the
@@ -50,16 +50,16 @@ export function initMixin (Vue: Class<Component>) {
       vm._renderProxy = vm
     }
     // expose real self
-    // 各种初始化
+    //todo 各种初始化
     vm._self = vm
-    initLifecycle(vm) // $parent/$root
-    initEvents(vm) // 自定义事件监听
-    initRender(vm) // $slots/$createElement
+    initLifecycle(vm) //todo $parent/$root
+    initEvents(vm) //todo 自定义事件监听
+    initRender(vm) //todo $slots/$createElement
     callHook(vm, 'beforeCreate')
-    // 获取祖辈注入的数据
-    initInjections(vm) // resolve injections before data/props
-    initState(vm) // 数据状态初始化：data/props/methods/computed/watch
-    // 给后代提供数据
+    // todo 获取祖辈注入的数据
+    initInjections(vm) // todo resolve injections before data/props
+    initState(vm) //todo 数据状态初始化：data/props/methods/computed/watch
+    // todo 给后代提供数据
     initProvide(vm) // resolve provide after data/props
     callHook(vm, 'created')
 
@@ -70,13 +70,13 @@ export function initMixin (Vue: Class<Component>) {
       measure(`vue ${vm._name} init`, startTag, endTag)
     }
 
-    // 选项如果有el，自动执行$mount
+    // todo 选项如果有el，自动执行$mount
     if (vm.$options.el) {
       vm.$mount(vm.$options.el)
     }
   }
 }
-
+// TODO: 初始化内部组件
 export function initInternalComponent (vm: Component, options: InternalComponentOptions) {
   const opts = vm.$options = Object.create(vm.constructor.options)
   // doing this because it's faster than dynamic enumeration.

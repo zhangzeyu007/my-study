@@ -44,11 +44,11 @@ export function proxy (target: Object, sourceKey: string, key: string) {
   }
   Object.defineProperty(target, key, sharedPropertyDefinition)
 }
-
+// TODO: 初始化数据函数
 export function initState (vm: Component) {
   vm._watchers = []
   const opts = vm.$options
-  // 先后关系
+  //todo 先后关系
   if (opts.props) initProps(vm, opts.props)
   if (opts.methods) initMethods(vm, opts.methods)
   if (opts.data) {
@@ -110,7 +110,7 @@ function initProps (vm: Component, propsOptions: Object) {
   toggleObserving(true)
 }
 
-// 数据响应式
+//todo 数据响应式
 function initData (vm: Component) {
   let data = vm.$options.data
   //  如果data 是函数,将其结果作为data选项值
@@ -151,7 +151,7 @@ function initData (vm: Component) {
     }
   }
   // observe data
-  // 遍历data并做响应式处理
+  //TODO: 遍历data并做响应式处理
   observe(data, true /* asRootData */)
 }
 

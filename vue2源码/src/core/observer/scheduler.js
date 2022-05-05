@@ -183,7 +183,7 @@ export function queueWatcher(watcher: Watcher) {
         return;
       }
       // TODO 如果没有等待状态
-      // todo 使用nextTick 将 flushSchedulerQueue 入队
+      // todo 使用nextTick 将 flushSchedulerQueue入队
       // todo 尝试异步的方式将函数放入微任务队列
       nextTick(flushSchedulerQueue);
     }

@@ -127,12 +127,12 @@ export default class Watcher {
    */
   addDep(dep: Dep) {
     const id = dep.id;
-    // 如果没有建立和dep之间关系
+    // todo 如果没有建立和dep之间关系
     if (!this.newDepIds.has(id)) {
-      // 则建立watcher和dep关系
+      //todo 则建立watcher和dep关系
       this.newDepIds.add(id);
       this.newDeps.push(dep);
-      // 反向建立dep和watcher关系
+      //todo 反向建立dep和watcher关系
       if (!this.depIds.has(id)) {
         dep.addSub(this);
       }
@@ -142,6 +142,7 @@ export default class Watcher {
   /**
    * Clean up for dependency collection.
    */
+  // todo 清除依赖集合
   cleanupDeps() {
     let i = this.deps.length;
     while (i--) {
@@ -168,13 +169,13 @@ export default class Watcher {
   update() {
     /* istanbul ignore else */
     if (this.lazy) {
-      // todo 标记为dirty
+      // todo 标记为 dirty
       this.dirty = true;
     } else if (this.sync) {
       // todo: 立即更新
       this.run();
     } else {
-      // todo : 入队操作
+      // todo: 入队操作
       // todo 秘书入队
       queueWatcher(this);
     }
