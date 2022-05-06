@@ -90,7 +90,7 @@ if (typeof Promise !== "undefined" && isNative(Promise)) {
   };
 }
 
-// TODO 此方法就是我们平时使用$nextTick的方法
+// TODO:此方法就是我们平时使用$nextTick的方法
 export function nextTick(cb?: Function, ctx?: Object) {
   let _resolve;
   // todo 用户传递的回调函数会被放入callbacks数组中

@@ -96,7 +96,7 @@ export default class Watcher {
   /**
    * Evaluate the getter, and re-collect dependencies.
    */
-
+  // TODO: 获取updateComponent
   get() {
     pushTarget(this);
     let value;
@@ -105,9 +105,9 @@ export default class Watcher {
       // todo 获取updateComponent的值
       value = this.getter.call(vm, vm);
     } catch (e) {
-      if (this.user) {
-        handleError(e, vm, `getter for watcher "${this.expression}"`);
+      if (this.user) { vm, `getter for watcher "${this.expression}"`);
       } else {
+        handleError(e,
         throw e;
       }
     } finally {
@@ -198,6 +198,7 @@ export default class Watcher {
         this.deep
       ) {
         // set new value
+        // todo 设置新值
         const oldValue = this.value;
         this.value = value;
         if (this.user) {

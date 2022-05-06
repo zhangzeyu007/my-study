@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-03-06 10:28:16
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-04 18:40:45
+ * @LastEditTime: 2022-05-06 12:39:24
  */
 /* @flow */
 
@@ -33,22 +33,22 @@ Vue.config.isReservedAttr = isReservedAttr;
 Vue.config.getTagNamespace = getTagNamespace;
 Vue.config.isUnknownElement = isUnknownElement;
 
-//扩展继承
+//todo 扩展继承
 // install platform runtime directives & components
 extend(Vue.options.directives, platformDirectives);
 extend(Vue.options.components, platformComponents);
 
 // install platform patch function
-// 安装平台特有patch函数，diff发生的地方(虚拟DOM的转换函数)
+// todo el安装平台特有patch函数，diff发生的地方(虚拟DOM的转换函数)
 Vue.prototype.__patch__ = inBrowser ? patch : noop;
 
 // public mount method
-// 实现$mount: 挂载组件
+// TODO: 实现$mount: 挂载组件
 Vue.prototype.$mount = function (
   el?: string | Element,
   hydrating?: boolean
 ): Component {
-  //todo 获取el元素
+  // todo 获取el元素
   el = el && inBrowser ? query(el) : undefined;
   // todo 执行挂载
   return mountComponent(this, el, hydrating);

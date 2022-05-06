@@ -31,7 +31,7 @@ import {
 export const emptyNode = new VNode("", {}, []);
 
 const hooks = ["create", "activate", "update", "remove", "destroy"];
-// TODO: 判断是否是相同节点:
+// TODO: 判断虚拟dom是否有相同节点属性是否相同:
 // todo key相同 tag相同 注释相同
 function sameVnode(a, b) {
   return (
@@ -907,7 +907,7 @@ export function createPatchFunction(backend) {
       const isRealElement = isDef(oldVnode.nodeType);
       if (!isRealElement && sameVnode(oldVnode, vnode)) {
         // patch existing root node
-        // TODO 更新, 也就是大家熟知的diff 发生的地方
+        // TODO 更新, 也就是大家熟知的diff 发生的地方(比较两个节点是否相同)
         patchVnode(oldVnode, vnode, insertedVnodeQueue, null, null, removeOnly);
       } else {
         // todo 初始化的时候

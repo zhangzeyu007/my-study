@@ -7,7 +7,7 @@ import { callHook, activateChildComponent } from "../instance/lifecycle";
 import { warn, nextTick, devtools, inBrowser, isIE } from "../util/index";
 
 export const MAX_UPDATE_COUNT = 100;
-
+// todo 定义 watcher 队列
 const queue: Array<Watcher> = [];
 const activatedChildren: Array<Component> = [];
 let has: { [key: number]: ?true } = {};
