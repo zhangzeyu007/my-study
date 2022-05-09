@@ -1,6 +1,5 @@
 /* @flow */
 // 入口文件
-
 import config from "core/config";
 import { warn, cached } from "core/util/index";
 import { mark, measure } from "core/util/perf";
@@ -18,7 +17,7 @@ const idToTemplate = cached((id) => {
   return el && el.innerHTML;
 });
 
-// TODO web平台需要扩展$mount：
+// TODO: web平台需要扩展$mount：
 const mount = Vue.prototype.$mount;
 Vue.prototype.$mount = function (
   el?: string | Element,
@@ -39,7 +38,7 @@ Vue.prototype.$mount = function (
   const options = this.$options;
   // resolve template/el and convert to render function
   //todo el < template < render
-  //todo  render优先级最高
+  //todo render优先级最高
   if (!options.render) {
     let template = options.template;
     // todo 没有render函数使用 template
@@ -64,7 +63,7 @@ Vue.prototype.$mount = function (
         return this;
       }
     } else if (el) {
-      //todo 最后才是el元素内部的内容作为模板
+      // todo 最后才是el元素内部的内容作为模板
       template = getOuterHTML(el);
     }
 
@@ -87,7 +86,7 @@ Vue.prototype.$mount = function (
         },
         this
       );
-      //TODO 将获取到的渲染函数设置到组件选项上
+      //TODO: 将获取到的渲染函数设置到组件选项上
       options.render = render;
       options.staticRenderFns = staticRenderFns;
 

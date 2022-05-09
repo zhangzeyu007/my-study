@@ -116,7 +116,7 @@ function initProps(vm: Component, propsOptions: Object) {
 //todo 数据响应式
 function initData(vm: Component) {
   let data = vm.$options.data;
-  //  如果data 是函数,将其结果作为data选项值
+  // todo 如果data 是函数,将其结果作为data选项值
   data = vm._data = typeof data === "function" ? getData(data, vm) : data || {};
   if (!isPlainObject(data)) {
     data = {};
@@ -309,7 +309,7 @@ function initWatch(vm: Component, watch: Object) {
   }
 }
 
-// 创建 Watcher
+// TODO:创建 Watcher
 function createWatcher(
   vm: Component,
   expOrFn: string | Function,
