@@ -56,6 +56,7 @@ export function initState(vm: Component) {
   } else {
     observe((vm._data = {}), true /* asRootData */);
   }
+  //todo 初始化computed
   if (opts.computed) initComputed(vm, opts.computed);
   if (opts.watch && opts.watch !== nativeWatch) {
     // todo 初始化watch监听器
@@ -246,7 +247,7 @@ export function defineComputed(
   }
   Object.defineProperty(target, key, sharedPropertyDefinition);
 }
-
+// TODO: 创建计算属性的 weatcher 监听
 function createComputedGetter(key) {
   return function computedGetter() {
     const watcher = this._computedWatchers && this._computedWatchers[key];
