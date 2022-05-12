@@ -18,7 +18,7 @@ export function initExtend (Vue: GlobalAPI) {
    */
   Vue.extend = function (extendOptions: Object): Function {
     extendOptions = extendOptions || {}
-    const Super = this
+    const Super = this //todo Vue
     const SuperId = Super.cid
     const cachedCtors = extendOptions._Ctor || (extendOptions._Ctor = {})
     if (cachedCtors[SuperId]) {
@@ -29,13 +29,15 @@ export function initExtend (Vue: GlobalAPI) {
     if (process.env.NODE_ENV !== 'production' && name) {
       validateComponentName(name)
     }
-
+    //todo 创建一个 VueComponent类
     const Sub = function VueComponent (options) {
       this._init(options)
     }
+    // todo 继承于Vue
     Sub.prototype = Object.create(Super.prototype)
     Sub.prototype.constructor = Sub
     Sub.cid = cid++
+    // todo 选项合并
     Sub.options = mergeOptions(
       Super.options,
       extendOptions

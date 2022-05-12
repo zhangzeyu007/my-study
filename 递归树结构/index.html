@@ -1,0 +1,92 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-11 19:51:36
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-11 19:52:46
+ * @FilePath: \my-study\递归树结构\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>字节跳动</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      const data = {
+        user_name: "name1",
+        user_id: 1000,
+        detail: {
+          user_avatar_url: "xxx",
+          object_one: {
+            a_num: 1,
+            str: "str1",
+          },
+          array_one: [
+            [
+              {
+                a_num: 111,
+                b_num: 222,
+              },
+            ],
+            [
+              {
+                c_obj: {
+                  c_num: 333,
+                  str: "str3",
+                },
+              },
+            ],
+          ],
+        },
+      };
+      // 字节跳动面试题(递归树结构)
+      const util = function (data) {
+        if (Object.prototype.toString.call(data) === "[object Object]") {
+          for (key in data) {
+            let name = key.split("_")[1]
+              ? key.split("_")[0] +
+                "_" +
+                key.split("_")[1].substring(0, 1).toUpperCase() +
+                key.split("_")[1].substring(1)
+              : key;
+            if (key !== name) {
+              data[name] = data[key];
+              delete data[key];
+            }
+            if (
+              Object.prototype.toString.call(data[name]) === "[object Object]"
+            ) {
+              util(data[name]);
+            }
+            if (
+              Object.prototype.toString.call(data[name]) === "[object Array]"
+            ) {
+              data[name].forEach((it) => {
+                if (Object.prototype.toString.call(it) === "[object Object]") {
+                  util(it);
+                }
+                if (Object.prototype.toString.call(it) === "[object Array]") {
+                  it.forEach((itm) => {
+                    if (
+                      Object.prototype.toString.call(itm) === "[object Object]"
+                    ) {
+                      util(itm);
+                    }
+                  });
+                }
+              });
+            }
+          }
+          return data;
+        }
+      };
+      let result = util(data);
+      console.log(result);
+    </script>
+  </body>
+</html>
