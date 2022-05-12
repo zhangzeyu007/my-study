@@ -48,7 +48,7 @@ export function proxy(target: Object, sourceKey: string, key: string) {
 export function initState(vm: Component) {
   vm._watchers = [];
   const opts = vm.$options;
-  //todo 先后关系
+  // todo 先后关系
   if (opts.props) initProps(vm, opts.props);
   if (opts.methods) initMethods(vm, opts.methods);
   if (opts.data) {
@@ -56,7 +56,7 @@ export function initState(vm: Component) {
   } else {
     observe((vm._data = {}), true /* asRootData */);
   }
-  //todo 初始化computed
+  // todo 初始化computed
   if (opts.computed) initComputed(vm, opts.computed);
   if (opts.watch && opts.watch !== nativeWatch) {
     // todo 初始化watch监听器
@@ -114,7 +114,7 @@ function initProps(vm: Component, propsOptions: Object) {
   toggleObserving(true);
 }
 
-//todo 数据响应式
+// todo 数据响应式
 function initData(vm: Component) {
   let data = vm.$options.data;
   // todo 如果data 是函数,将其结果作为data选项值

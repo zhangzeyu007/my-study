@@ -30,7 +30,7 @@ export function initMixin (Vue: Class<Component>) {
     // a flag to avoid this being observed
     vm._isVue = true
     // merge options
-    //todo 自定义组件合并选项
+    // todo 自定义组件合并选项
     if (options && options._isComponent) {
       // optimize internal component instantiation
       // since dynamic options merging is pretty slow, and none of the
@@ -50,7 +50,7 @@ export function initMixin (Vue: Class<Component>) {
       vm._renderProxy = vm
     }
     // expose real self
-    //todo 各种初始化
+    // todo 各种初始化
     vm._self = vm
     initLifecycle(vm) //todo $parent/$root
     initEvents(vm) //todo 自定义事件监听
@@ -58,7 +58,7 @@ export function initMixin (Vue: Class<Component>) {
     callHook(vm, 'beforeCreate')
     // todo 获取祖辈注入的数据
     initInjections(vm) // todo resolve injections before data/props
-    initState(vm) //todo 数据状态初始化：data/props/methods/computed/watch
+    initState(vm) // todo 数据状态初始化：data/props/methods/computed/watch
     // todo 给后代提供数据
     initProvide(vm) // resolve provide after data/props
     callHook(vm, 'created')
@@ -120,7 +120,7 @@ export function resolveConstructorOptions (Ctor: Class<Component>) {
   return options
 }
 
-function resolveModifiedOptions (Ctor: Class<Component>): ?Object {
+function resolveModifiedOptions (Ctor: Class<Component>): ? Object {
   let modified
   const latest = Ctor.options
   const sealed = Ctor.sealedOptions

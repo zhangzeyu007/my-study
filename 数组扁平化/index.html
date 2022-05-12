@@ -1,0 +1,37 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-12 17:51:50
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-12 18:11:31
+ * @FilePath: \my-study\数组扁平化\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组扁平化</title>
+  </head>
+  <body>
+    <script>
+      // TODO: 数组扁平化
+      const a = [1, [2, [3, 4]]];
+
+      function flatten(arr) {
+        let result = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (Array.isArray(arr[i])) {
+            result = result.concat(flatten(arr[i]));
+          } else {
+            result = result.concat(arr[i]);
+          }
+        }
+        return result;
+      }
+
+      console.log(flatten(a));
+    </script>
+  </body>
+</html>

@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-11 21:17:01
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-12 10:57:04
+ * @LastEditTime: 2022-05-12 14:19:05
  * @FilePath: \my-study\手写promise\03\index.html
 -->
 <!DOCTYPE html>
@@ -16,19 +16,20 @@
   </head>
   <body>
     <script>
+      
       let p1 = new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(11111);
-          // reject(1111)
         }, 3000);
       });
+
       let p2 = new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(22222);
         }, 2000);
       });
 
-	  // 手写PromiseAll
+      // 手写 PromiseAll
       function PromiseAll(promiseArr) {
         return new Promise(function (resolve, reject) {
           let resArr = [];
@@ -48,6 +49,7 @@
       PromiseAll([p1, p2]).then((res) => {
         console.log(res);
       });
+
     </script>
   </body>
 </html>
