@@ -3,23 +3,51 @@
  * @Author: 张泽雨
  * @Date: 2022-05-11 21:17:01
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-11 21:49:30
+ * @LastEditTime: 2022-05-12 10:57:04
  * @FilePath: \my-study\手写promise\03\index.html
 -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-</head>
-<body>
-	
-	<script>
-		function PromiseAll () {
-			
-		}
-	</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手写PromiseAll</title>
+  </head>
+  <body>
+    <script>
+      let p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(11111);
+          // reject(1111)
+        }, 3000);
+      });
+      let p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(22222);
+        }, 2000);
+      });
+
+	  // 手写PromiseAll
+      function PromiseAll(promiseArr) {
+        return new Promise(function (resolve, reject) {
+          let resArr = [];
+          let num = 0;
+          promiseArr.forEach((promise, index) => {
+            promise.then((res) => {
+              resArr[index] = res;
+              num++;
+              if (num === resArr.length) {
+                resolve(resArr);
+              }
+            });
+          });
+        });
+      }
+
+      PromiseAll([p1, p2]).then((res) => {
+        console.log(res);
+      });
+    </script>
+  </body>
 </html>

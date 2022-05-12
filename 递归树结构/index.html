@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-11 19:51:36
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-11 19:52:46
+ * @LastEditTime: 2022-05-12 10:15:53
  * @FilePath: \my-study\递归树结构\index.html
 -->
 <!DOCTYPE html>
@@ -17,6 +17,7 @@
   </head>
   <body>
     <script>
+      // 数据结构
       const data = {
         user_name: "name1",
         user_id: 1000,
@@ -54,6 +55,7 @@
                 key.split("_")[1].substring(0, 1).toUpperCase() +
                 key.split("_")[1].substring(1)
               : key;
+              
             if (key !== name) {
               data[name] = data[key];
               delete data[key];
