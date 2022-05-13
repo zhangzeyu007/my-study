@@ -1,0 +1,34 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-12 19:06:29
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-12 19:08:03
+ * @FilePath: \my-study\css面试题\02.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS 怎么画一个大小为父元素宽度一半的正方形？</title>
+    <style>
+      .outer {
+        width: 400px;
+        height: 400px;
+        background: red;
+      }
+
+      .inner {
+        width: 50%;
+        padding-bottom: 50%;
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="inner"></div>
+    </div>
+  </body>
+</html>
