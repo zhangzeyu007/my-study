@@ -1,0 +1,40 @@
+<!--
+ * @Description:
+ * @Author: 张泽雨
+ * @Date: 2022-05-13 10:58:04
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-13 11:24:56
+ * @FilePath: \my-study\两数和算法\02.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>两数和算法</title>
+  </head>
+  <body>
+    <script>
+      // 
+      let nums = [2, 11, 15, 7],
+        target = 9;
+
+      let toSum = function (nums, target) {
+        let obj = {};
+        for (let i = 0; i < nums.length; i++) {
+          let num = nums[i];
+          if (num in obj) {
+            return [obj[num], i];
+          } else {
+            obj[target - num] = i;
+			console.log(obj);
+          }
+        }
+      };
+
+      let result = toSum(nums, target);
+      console.log(result);
+    </script>
+  </body>
+</html>
