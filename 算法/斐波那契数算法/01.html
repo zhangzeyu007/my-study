@@ -1,0 +1,32 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-13 11:49:21
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-13 12:06:59
+ * @FilePath: \my-study\斐波那契数算法\01.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>斐波那契数算法</title>
+  </head>
+  <body>
+    <script>
+      // 递归方法
+      let N = 6;
+      let fib = function (N) {
+        if (N == 1 || N == 0) {
+          return N;
+        }
+        return fib(N - 1) + fib(N - 2);
+      };
+
+      let result = fib(N);
+      console.log(result);
+    </script>
+  </body>
+</html>
