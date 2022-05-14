@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-04-09 15:28:56
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-14 14:43:15
+ * @FilePath: \my-study\call、apply和bind\06.html
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,54 +16,52 @@
   </head>
   <body>
     <script>
+      let a = 10;
 
-let a = 10
+      let obj = {
+        a: 1,
+      };
 
-let obj = {
-    a:1
-}
+      function fn(...args) {
+        console.log(this);
+        console.log(this.a, "args legnth:", args);
+      }
+      // 总结: call/apply改变了函数的this上下文后马上执行该函数
+      // bind则是返回一个新的改变了上下文后的函数,不执行该函数
 
-function fn(...args) {
-    console.log(this);
-    console.log(this.a,'args legnth:',args);
-}
-// 总结: call/apply改变了函数的this上下文后马上执行该函数
-// bind则是返回一个新的改变了上下文后的函数,不执行该函数
+      // call方法接受的是一个参数列表
+      fn.call(obj, 1, 2);
+      // apply方法接受的是一个数组
+      fn.apply(obj, [1, 10]);
+      //bind接受的是一个参数列表
+      fn.bind(obj, ...[1, 2])();
 
-// call方法接受的是一个参数列表
-fn.call(obj,1,2)
-// apply方法接受的是一个数组
-fn.apply(obj,[1,10])
-//bind接受的是一个参数列表
-fn.bind(obj, ...[1,2])()
+      Function.prototype.myCall = function (ctx, ...argv) {
+        const fn = Symbol("fn");
+        ctx[fn] = this;
+        ctx[fn](...argv); // 传入参数
+        delete ctx[fn];
+      };
 
-Function.prototype.myCall = function(ctx, ...argv) {
-	const fn = Symbol('fn')
-	ctx[fn] = this
-	ctx[fn](...argv) // 传入参数
-	delete ctx[fn]
-}
+      obj = { fn: "functionName", a: 10 };
 
-obj = { fn: 'functionName', a: 10 }
+      function foo(name) {
+        console.log(this[name]);
+      }
 
-function foo(name) { 
-	console.log(this[name]) 
-}
+      foo.myCall(obj, "fn");
 
-foo.myCall(obj, 'fn')
+      Function.prototype.myBind = function (ctx) {
+        return (value) => {
+          console.log(value);
+          // 要用箭头函数，否则 this 指向错误
+          return this.call(ctx);
+        };
+      };
 
-Function.prototype.myBind = function(ctx) {
-	return (value) => { 
-		console.log(value);
-		// 要用箭头函数，否则 this 指向错误
-		return this.call(ctx)
-	}
-}
+      foo.myBind(obj)("fn");
 
-foo.myBind(obj)('fn')
-
-console.log(this);
-
+      console.log(this);
     </script>
   </body>
 </html>

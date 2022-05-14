@@ -230,6 +230,7 @@ export default class Watcher {
   /**
    * Depend on all deps collected by this watcher.
    */
+  // todo 观察者收集所有dep , 批量添加
   depend() {
     let i = this.deps.length;
     while (i--) {

@@ -1,64 +1,67 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2021-01-19 09:37:12
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-14 14:48:42
+ * @FilePath: \my-study\拖拽\drag.html
+-->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>拖拽</title>
     <style>
-        body {
-            position: relative;
-        }
+      body {
+        position: relative;
+      }
 
-        #box {
-            width: 500px;
-            height: 500px;
-            background-color: palegoldenrod;
-            margin-left: 200px;
-        }
+      #box {
+        width: 500px;
+        height: 500px;
+        background-color: palegoldenrod;
+        margin-left: 200px;
+      }
 
-        #drag {
-            width: 100px;
-            height: 50px;
-            position: absolute;
-            background-color: lightgreen;
-        }
+      #drag {
+        width: 100px;
+        height: 50px;
+        position: absolute;
+        background-color: lightgreen;
+      }
     </style>
-</head>
-<div id="drag"></div>
-<div id="box"></div>
+  </head>
+  <div id="drag"></div>
+  <div id="box"></div>
 
-
-<body>
+  <body>
     <script>
-        /**
-         * 1.开始拖拽 onmousedown
-         * 2.拖拽元素移动onmousemove
-         * 3.拖拽元素放置当前位置 onmouseup
-        */
-        window.onload = function () {
-            let drag = document.getElementById('drag')
-            drag.onmousedown = function (e) {
-                e = e || window.event;
-                let ol = e.clientX - drag.offsetLeft
-                let ot = e.clientY - drag.offsetTop
-                document.onmousemove = function (event) {
-                    event = event || window.event;
-                    let left = event.clientX - ol;
-                    let top = event.clientY - ot;
-                    // 修改drag的位置
-                    drag.style.left = left + 'px'
-                    drag.style.top = top + "px"
-                }
-                document.onmouseup = function (e) {
-                    document.onmousemove = null
-                    document.onmouseup = null
-                }
-            }
-
-        }
-
+      /**
+       * 1.开始拖拽 onmousedown
+       * 2.拖拽元素移动onmousemove
+       * 3.拖拽元素放置当前位置 onmouseup
+       */
+      window.onload = function () {
+        let drag = document.getElementById("drag");
+        drag.onmousedown = function (e) {
+          e = e || window.event;
+          let ol = e.clientX - drag.offsetLeft;
+          let ot = e.clientY - drag.offsetTop;
+          document.onmousemove = function (event) {
+            event = event || window.event;
+            let left = event.clientX - ol;
+            let top = event.clientY - ot;
+            // 修改drag的位置
+            drag.style.left = left + "px";
+            drag.style.top = top + "px";
+          };
+          document.onmouseup = function (e) {
+            document.onmousemove = null;
+            document.onmouseup = null;
+          };
+        };
+      };
     </script>
-</body>
-
+  </body>
 </html>
