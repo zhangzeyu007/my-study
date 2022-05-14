@@ -1,0 +1,35 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-14 13:39:06
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-14 14:01:18
+ * @FilePath: \my-study\算法\简化路径\01.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>简化路径</title>
+  </head>
+  <body>
+    <script>
+      let simplifyPath = function (path) {
+        let stack = [];
+        let paths = path.split("/");
+        for (let i = 0; i < paths.length; i++) {
+          let p = paths[i];
+          if (p == "..") {
+            stack.pop();
+          } else if (p && p != ".") {
+            stack.push(p);
+          }
+        }
+        return "/" + stack.join("/");
+      };
+      console.log(simplifyPath("../../home/index"));
+    </script>
+  </body>
+</html>
