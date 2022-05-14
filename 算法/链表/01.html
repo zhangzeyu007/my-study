@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2021-07-26 17:19:10
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-14 14:34:54
+ * @FilePath: \my-study\算法\链表\01.html
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +16,6 @@
   </head>
   <body>
     <script>
-		
       class Node {
         constructor(element) {
           this.element = element;
@@ -24,11 +31,11 @@
           this.heade = null;
           this.length = 0;
         }
-
+        // 增删改查
         append(element) {
           let node = new Node(element);
           let cur;
-          // 两种情况 1. 链表是空的 2. 不是空的
+          // 两种情况 1.链表是空的 2.不是空的
           if (this.head == null) {
             // head 是第一个
             this.head = node;
