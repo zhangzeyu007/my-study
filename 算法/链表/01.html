@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2021-07-26 17:19:10
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-14 14:34:54
+ * @LastEditTime: 2022-05-14 21:12:52
  * @FilePath: \my-study\算法\链表\01.html
 -->
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
           // 链表
           // 链表相关的操作
           // 链表的第一个元素
-          this.heade = null;
+          this.head = null;
           this.length = 0;
         }
         // 增删改查
@@ -49,6 +49,27 @@
           }
           this.length += 1;
         }
+        removeAt(index) {
+          // 你的上一个节点, 指向下一个节点
+          // 把自己下一个节点指向取消
+          let cur = this.head;
+          let prev;
+          let i = 0;
+          if (index == 0) {
+            // 删除第一项
+            this.head = cur.next;
+          } else {
+            while (i < index) {
+              prev = cur;
+              cur = cur.next;
+              i++;
+            }
+            prev.next = cur.next;
+            cur.next = null;
+          }
+          this.length -= 1;
+          return cur.element;
+        }
 
         print() {
           let cur = this.head;
@@ -66,6 +87,8 @@
       linkNode.append("哈喽");
       linkNode.append("你愁啥");
       linkNode.append("你好");
+      linkNode.print();
+      linkNode.removeAt(2);
       linkNode.print();
     </script>
   </body>
