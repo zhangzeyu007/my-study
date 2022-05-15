@@ -1,22 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+/*
+ * @Description:
+ * @Author: 张泽雨
+ * @Date: 2022-05-14 22:34:03
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-15 13:27:52
+ * @FilePath: \my-study\React基础学习\my-test\src\App.js
+ */
+import logo from "./logo.svg";
+import "./App.css";
+import ClassComponent from "./pages/ClassComponent";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ClassComponent />
       </header>
     </div>
   );

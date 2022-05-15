@@ -47,45 +47,41 @@
       };
       // 字节跳动面试题(递归树结构)
       const util = function (data) {
-        if (Object.prototype.toString.call(data) === "[object Object]") {
-          for (key in data) {
-            let name = key.split("_")[1]
-              ? key.split("_")[0] +
-                "_" +
-                key.split("_")[1].substring(0, 1).toUpperCase() +
-                key.split("_")[1].substring(1)
-              : key;
-              
-            if (key !== name) {
-              data[name] = data[key];
-              delete data[key];
-            }
-            if (
-              Object.prototype.toString.call(data[name]) === "[object Object]"
-            ) {
-              util(data[name]);
-            }
-            if (
-              Object.prototype.toString.call(data[name]) === "[object Array]"
-            ) {
-              data[name].forEach((it) => {
-                if (Object.prototype.toString.call(it) === "[object Object]") {
-                  util(it);
-                }
-                if (Object.prototype.toString.call(it) === "[object Array]") {
-                  it.forEach((itm) => {
-                    if (
-                      Object.prototype.toString.call(itm) === "[object Object]"
-                    ) {
-                      util(itm);
-                    }
-                  });
-                }
-              });
-            }
+        for (key in data) {
+          let name = key.split("_")[1]
+            ? key.split("_")[0] +
+              "_" +
+              key.split("_")[1].substring(0, 1).toUpperCase() +
+              key.split("_")[1].substring(1)
+            : key;
+
+          if (key !== name) {
+            data[name] = data[key];
+            delete data[key];
           }
-          return data;
+          if (
+            Object.prototype.toString.call(data[name]) === "[object Object]"
+          ) {
+            util(data[name]);
+          }
+          if (Object.prototype.toString.call(data[name]) === "[object Array]") {
+            data[name].forEach((it) => {
+              if (Object.prototype.toString.call(it) === "[object Object]") {
+                util(it);
+              }
+              if (Object.prototype.toString.call(it) === "[object Array]") {
+                it.forEach((itm) => {
+                  if (
+                    Object.prototype.toString.call(itm) === "[object Object]"
+                  ) {
+                    util(itm);
+                  }
+                });
+              }
+            });
+          }
         }
+        return data;
       };
       let result = util(data);
       console.log(result);
