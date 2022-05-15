@@ -3,12 +3,13 @@
  * @Author: 张泽雨
  * @Date: 2022-05-14 22:34:03
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-15 13:27:52
+ * @LastEditTime: 2022-05-15 14:04:37
  * @FilePath: \my-study\React基础学习\my-test\src\App.js
  */
 import logo from "./logo.svg";
 import "./App.css";
 import ClassComponent from "./pages/ClassComponent";
+import FunctionCompoent from "./pages/FunctionCompoent";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <ClassComponent />
+        <FunctionCompoent />
       </header>
     </div>
   );
