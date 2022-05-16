@@ -1,0 +1,37 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-16 18:13:31
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-16 18:25:14
+ * @FilePath: \my-study\算法\最长公共前缀\01.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>最长公共前缀</title>
+  </head>
+  <body>
+    <script>
+      let longestCommonPrefix = function (strs) {
+        if (!strs.length) return "";
+        let result = strs[0];
+        for (ch of strs) {
+          for (let i = 0; i < result.length; i++) {
+            if (ch[i] !== result[i]) {
+              result = result.slice(0, i);
+              break;
+            }
+          }
+        }
+        return result;
+      };
+
+      let strs = ["flower", "flow", "flight"];
+      console.log(longestCommonPrefix(strs));
+    </script>
+  </body>
+</html>

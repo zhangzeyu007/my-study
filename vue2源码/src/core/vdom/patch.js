@@ -290,7 +290,7 @@ export function createPatchFunction(backend) {
     // a reactivated keep-alive component doesn't insert itself
     insert(parentElm, vnode.elm, refElm);
   }
-
+  // TODO: 插入
   function insert(parent, elm, ref) {
     if (isDef(parent)) {
       if (isDef(ref)) {
@@ -333,7 +333,7 @@ export function createPatchFunction(backend) {
     }
     return isDef(vnode.tag);
   }
-  //todo 创建钩子
+  //TODO 创建钩子
   function invokeCreateHooks(vnode, insertedVnodeQueue) {
     // todo 执行所有的回调处理
     for (let i = 0; i < cbs.create.length; ++i) {
