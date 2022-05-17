@@ -1,0 +1,28 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-17 11:04:31
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-17 11:17:33
+ * @FilePath: \my-study\算法\回文数\01.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>回文数</title>
+  </head>
+  <body>
+    <script>
+      // 回文数
+      let isPalindrome = function (str) {
+        return str.toString() === str.toString().split("").reverse().join("");
+      };
+
+      let num = 121;
+      console.log(isPalindrome(num));
+    </script>
+  </body>
+</html>

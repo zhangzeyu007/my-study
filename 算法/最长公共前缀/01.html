@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-16 18:13:31
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-16 18:25:14
+ * @LastEditTime: 2022-05-17 11:19:56
  * @FilePath: \my-study\算法\最长公共前缀\01.html
 -->
 <!DOCTYPE html>
@@ -16,6 +16,7 @@
   </head>
   <body>
     <script>
+      // 最长公共前缀
       let longestCommonPrefix = function (strs) {
         if (!strs.length) return "";
         let result = strs[0];
@@ -29,7 +30,6 @@
         }
         return result;
       };
-
       let strs = ["flower", "flow", "flight"];
       console.log(longestCommonPrefix(strs));
     </script>
