@@ -1,0 +1,40 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-17 10:43:59
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-17 10:59:07
+ * @FilePath: \my-study\算法\移除元素\01.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>移除元素</title>
+  </head>
+  <body>
+    <script>
+      let arr = [3, 2, 2, 4, 3, 3];
+      let val = 3;
+
+      let removeFn = function (nums, val) {
+        let fast = 0,
+          slow = 0;
+        while (fast < nums.length) {
+          if (nums[fast] != val) {
+            nums[slow] = nums[fast];
+            slow++;
+            fast++;
+          } else {
+            fast++;
+          }
+        }
+        return slow;
+      };
+
+      console.log(removeFn(arr, val));
+    </script>
+  </body>
+</html>
