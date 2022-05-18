@@ -1,10 +1,10 @@
 <!--
- * @Description:
+ * @Description: 
  * @Author: 张泽雨
- * @Date: 2022-05-13 10:58:04
+ * @Date: 2022-05-18 14:50:54
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-18 14:50:42
- * @FilePath: \my-study\算法\两数和算法\02.html
+ * @LastEditTime: 2022-05-18 14:56:13
+ * @FilePath: \my-study\算法\两数和算法\03.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,22 +12,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>两数和算法</title>
+    <title>两数和双指针算法</title>
   </head>
   <body>
     <script>
-      // 
+      // 双指针
       let nums = [2, 11, 15, 7],
         target = 9;
-
       let toSum = function (nums, target) {
-        let obj = {};
-        for (let i = 0; i < nums.length; i++) {
-          let num = nums[i];
-          if (num in obj) {
-            return [obj[num], i];
+        let start = 0;
+        let end = start + 1;
+
+        while (start < end) {
+          if (nums[end] + nums[start] === target) {
+            return [start, end];
           } else {
-            obj[target - num] = i;
+            if (end < nums.length - 1) {
+              end++;
+            } else {
+              start++;
+              end = start + 1;
+            }
           }
         }
       };
