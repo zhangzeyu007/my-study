@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-18 14:50:54
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-18 14:56:13
+ * @LastEditTime: 2022-05-18 15:00:29
  * @FilePath: \my-study\算法\两数和算法\03.html
 -->
 <!DOCTYPE html>
@@ -22,7 +22,6 @@
       let toSum = function (nums, target) {
         let start = 0;
         let end = start + 1;
-
         while (start < end) {
           if (nums[end] + nums[start] === target) {
             return [start, end];

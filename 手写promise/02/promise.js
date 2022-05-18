@@ -3,7 +3,7 @@
  * @Author: 海象
  * @Date: 2021-04-21 17:41:55
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-16 10:54:33
+ * @LastEditTime: 2022-05-18 15:23:48
  */
 
 class zzPromise {
@@ -49,7 +49,6 @@ class zzPromise {
     if (typeof onRejected != "function") {
       onRejected = () => this.value;
     }
-
     return new zzPromise((resolve, reject) => {
       if (this.status === zzPromise.PENDING) {
         this.callbacks.push({
