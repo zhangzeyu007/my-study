@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-15 13:23:08
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-15 13:46:59
+ * @LastEditTime: 2022-05-19 14:04:56
  * @FilePath: \my-study\React基础学习\my-test\src\pages\ClassComponent.js
  */
 
@@ -31,7 +31,7 @@ export default class ClassComponent extends Component {
   componentWillUnmount() {
     clearInterval(this.timer);
   }
-
+ // 
   render() {
     const { date } = this.state;
     return (

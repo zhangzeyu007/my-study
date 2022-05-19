@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-15 13:49:17
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-15 14:30:44
+ * @LastEditTime: 2022-05-19 13:58:32
  * @FilePath: \my-study\React基础学习\my-test\src\pages\FunctionCompoent.js
  */
 
@@ -19,6 +19,7 @@ export default function FunctionCompoent(props) {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
+
   return (
     <div>
       <h3>Funciton Component</h3>
