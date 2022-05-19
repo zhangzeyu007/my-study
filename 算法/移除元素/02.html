@@ -1,10 +1,10 @@
 <!--
  * @Description: 
  * @Author: 张泽雨
- * @Date: 2022-05-17 10:43:59
+ * @Date: 2022-05-19 09:07:27
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-19 11:47:06
- * @FilePath: \my-study\算法\移除元素\01.html
+ * @LastEditTime: 2022-05-19 09:12:13
+ * @FilePath: \my-study\算法\移除元素\02.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -12,26 +12,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>移除元素</title>
+    <title>Document</title>
   </head>
   <body>
     <script>
-      let arr = [3, 2, 2, 4, 3, 3];
+      let arr = [3, 2, 2, 2, 3];
       let val = 3;
-      // 1.双指针 2.快慢指针
       let removeFn = function (nums, val) {
-        let fast = 0,
-          slow = 0;
-        while (fast < nums.length) {
-          if (nums[fast] != val) {
-            nums[slow] = nums[fast];
-            slow++;
-            fast++;
-          } else {
-            fast++;
+        let k = 0;
+        for (let i = 0; i < nums.length; i++) {
+          if (nums[i] !== val) {
+            nums[k++] = nums[i];
           }
         }
-        return slow;
+        return k;
       };
       console.log(removeFn(arr, val));
     </script>
