@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-14 22:34:03
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-19 16:00:02
+ * @LastEditTime: 2022-05-19 16:21:35
  * @FilePath: \my-study\React基础学习\my-test\src\App.js
  */
 
@@ -13,6 +13,7 @@ import ClassComponent from "./pages/ClassComponent";
 import FunctionCompoent from "./pages/FunctionCompoent";
 import SetStateCompoent from "./pages/SetState";
 import Layout from "./pages/layout/Layout";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <h3>HomePage</h3>
           </div>
         </Layout>
+        <HomePage></HomePage>
       </header>
     </div>
   );

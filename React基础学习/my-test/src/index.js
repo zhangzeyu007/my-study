@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-14 22:34:03
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-15 13:21:50
+ * @LastEditTime: 2022-05-21 10:19:01
  * @FilePath: \my-study\React基础学习\my-test\src\index.js
  */
 
@@ -13,6 +13,7 @@ import styles from "./index.module.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import logo from "./logo192.png";
+// import store from "./store/index";
 
 const name = "React";
 const obj = {
@@ -45,6 +46,10 @@ const jsx = (
 );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+// store.subscribe(() => {
+//   ReactDOM.render(<App />, document.getElementById("root"));
+// });
 
 root.render(
   <React.StrictMode>
