@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-14 22:34:03
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-21 10:19:01
+ * @LastEditTime: 2022-05-21 11:28:34
  * @FilePath: \my-study\React基础学习\my-test\src\index.js
  */
 
@@ -13,7 +13,8 @@ import styles from "./index.module.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import logo from "./logo192.png";
-// import store from "./store/index";
+import store from "./store/index";
+import { Provider } from "react-redux";
 
 const name = "React";
 const obj = {
@@ -53,7 +54,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
