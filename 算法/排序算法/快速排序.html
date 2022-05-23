@@ -1,0 +1,56 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-23 11:59:28
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-23 12:06:18
+ * @FilePath: \my-study\算法\排序算法\快速排序.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>快速排序</title>
+  </head>
+  <body>
+    <script>
+      // 快速排序
+      function quickSort(arr) {
+        quickSort_c(arr, 0, arr.length - 1);
+      }
+      // 递归
+      function quickSort_c(arr, p, r) {
+        if (p >= r) return;
+        // 分割
+        let q = partition(arr, p, r);
+        quickSort_c(arr, p, q - 1);
+        quickSort_c(arr, q + 1, r);
+      }
+      // 分割
+      function partition(arr, p, r) {
+        let i = (j = p);
+        while (j < r) {
+          if (arr[j] < arr[r]) {
+            swap(arr, j, i);
+            i++;
+          }
+          j++;
+        }
+        swap(arr, i, r);
+        return i;
+      }
+      // 交换元素位置
+      function swap(arr, i, r) {
+        let temp = arr[i];
+        arr[i] = arr[r];
+        arr[r] = temp;
+      }
+
+      var s = [32, 12, 56, 78, 76, 45, 36];
+      quickSort(s);
+      console.log(s);
+    </script>
+  </body>
+</html>

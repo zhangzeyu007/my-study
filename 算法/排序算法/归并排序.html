@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>归并排序</title>
+  </head>
+  <body>
+    <script>
+      let array = [5, 13, 20, 3, 2];
+      // let array = [15, 13, 20, 21, 29];
+
+      function mergeSort(array) {
+        let arr = array.slice(0);
+        let len = arr.length;
+        if (len < 2) {
+          return arr;
+        }
+        let midIndex = Math.floor(len / 2);
+        let left = arr.slice(0, midIndex);
+        let right = arr.slice(midIndex);
+        return merge(mergeSort(left), mergeSort(right));
+      }
+
+      function merge(left, right) {
+        let result = [];
+        while (left.length && right.length) {
+          result.push(left[0] < right[0] ? left.shift() : right.shift());
+        }
+
+        if (left.length && !right.length) {
+          result = result.concat(left);
+        }
+
+        if (right.length && !left.length) {
+          result = result.concat(right);
+        }
+        return result;
+      }
+
+      console.log(mergeSort(array));
+    </script>
+  </body>
+</html>

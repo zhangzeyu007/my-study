@@ -1,0 +1,35 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-23 09:01:10
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-23 09:15:02
+ * @FilePath: \my-study\算法\排序算法\冒泡排序.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>冒泡排序</title>
+  </head>
+  <body>
+    <script>
+      let arr = [8, 2, 1, 12, 45, 32, 6, 7];
+
+      let sort = function (nums) {
+        for (let i = 0; i < nums.length; i++) {
+          for (let j = i + 1; j < nums.length; j++) {
+            if (nums[j] < nums[i]) {
+              [nums[i], nums[j]] = [nums[j], nums[i]];
+            }
+          }
+        }
+        return nums;
+      };
+
+      console.log(sort(arr));
+    </script>
+  </body>
+</html>
