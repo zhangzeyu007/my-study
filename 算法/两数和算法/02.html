@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-13 10:58:04
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-18 14:50:42
+ * @LastEditTime: 2022-05-23 08:18:39
  * @FilePath: \my-study\算法\两数和算法\02.html
 -->
 <!DOCTYPE html>
@@ -16,15 +16,20 @@
   </head>
   <body>
     <script>
-      // 
+      //
       let nums = [2, 11, 15, 7],
         target = 9;
 
-      let toSum = function (nums, target) {
+      // n两层遍历 大概次数是n*n 0(n^2)
+      // 一次循环 复杂度 0 (n)
+      let twoSum = function (nums, target) {
+        // 你需要什么样的对象
         let obj = {};
         for (let i = 0; i < nums.length; i++) {
           let num = nums[i];
+          // 告诉主办方法你的诉求
           if (num in obj) {
+            // 找到了
             return [obj[num], i];
           } else {
             obj[target - num] = i;

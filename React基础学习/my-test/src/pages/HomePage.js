@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-19 16:17:20
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-21 11:51:00
+ * @LastEditTime: 2022-05-21 13:43:07
  * @FilePath: \my-study\React基础学习\my-test\src\pages\HomePage.js
  */
 
@@ -11,7 +11,7 @@ import React, { Component } from "react";
 import Layout from "../pages/layout/Layout";
 import store from "../store/index";
 import { connect } from "react-redux";
-
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 export default connect(
   // mapStateToProps 映射到 props
   (state) => ({ num: state }),
@@ -40,8 +40,26 @@ export default connect(
           <button onClick={() => store.dispatch({ type: "ADD" })}>添加</button>
           {/* <button onClick={() => dispatch({ type: "ADD" })}>添加++++++</button> */}
           <button onClick={() => add()}>新增</button>
+          <Router>
+            <Link to="/">首页</Link>
+            <Link to="/user">用户中心</Link>
+            <Route exact path="/" component={AboutPage} />
+            <Route path="/user" component={UserPage} />
+          </Router>
         </Layout>
       );
     }
   }
 );
+
+class UserPage extends Component {
+  render() {
+    return <div>UserPage hahada</div>;
+  }
+}
+
+class AboutPage extends Component {
+  render() {
+    return <div>AboutPage</div>;
+  }
+}
