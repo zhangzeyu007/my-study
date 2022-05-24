@@ -1,48 +1,37 @@
-<!--
- * @Description: 组件
- * @Author: 海象
- * @Date: 2021-03-03 08:01:39
- * @LastEditors: 海象
- * @LastEditTime: 2021-03-03 08:32:53
--->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>代理与反射</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <script>
-        const target = {
-            foo: '走了333'
-        }
-        const handler = {
-            get(trapTarget, property, receiver) {
-                // console.log(trapTarget);
-                // console.log(property);
-                // console.log(receiver);
-                // return trapTarget[property]
-                let decoration = ''
-                if (property === 'foo') {
-                    decoration = '!!!!!'
-                }
-                return Reflect.get(...arguments) + decoration
-            }
-        }
-        const proxy = new Proxy(target, handler)
+      const target = {
+        foo: "走了333",
+      };
+      const handler = {
+        get(trapTarget, property, receiver) {
+          // console.log(trapTarget);
+          // console.log(property);
+          // console.log(receiver);
+          // return trapTarget[property]
+          let decoration = "";
+          if (property === "foo") {
+            decoration = "!!!!!";
+          }
+          return Reflect.get(...arguments) + decoration;
+        },
+      };
+      const proxy = new Proxy(target, handler);
 
-        console.log('------------------------------------');
-        // console.log(target.foo);
-        console.log(proxy.foo);
-        // console.log(Object.create(target)['foo']);
-        // console.log(Object.create(proxy)['foo']);
+      console.log("------------------------------------");
+      // console.log(target.foo);
+      console.log(proxy.foo);
+      // console.log(Object.create(target)['foo']);
+      // console.log(Object.create(proxy)['foo']);
     </script>
-
-</body>
-
+  </body>
 </html>
