@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-23 10:23:03
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-23 13:36:50
+ * @FilePath: \my-study\算法\排序算法\归并排序.html
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,38 +16,32 @@
   </head>
   <body>
     <script>
-      let array = [5, 13, 20, 3, 2];
-      // let array = [15, 13, 20, 21, 29];
-
-      function mergeSort(array) {
-        let arr = array.slice(0);
-        let len = arr.length;
-        if (len < 2) {
-          return arr;
+      function mergeSort(arr) {
+        if (arr.length === 1) return arr;
+        const midIdx = Math.floor(arr.length / 2);
+        return merge(
+          mergeSort(arr.slice(0, midIdx)),
+          mergeSort(arr.slice(midIdx))
+        );
+      }
+      // 合并
+      function merge(leftArr, rightArr) {
+        let temp = [];
+        // 循环
+        while (leftArr.length > 0 && rightArr.length > 0) {
+          if (leftArr[0] < rightArr[0]) {
+            temp.push(leftArr.shift());
+          } else {
+            temp.push(rightArr.shift());
+          }
         }
-        let midIndex = Math.floor(len / 2);
-        let left = arr.slice(0, midIndex);
-        let right = arr.slice(midIndex);
-        return merge(mergeSort(left), mergeSort(right));
+        // 合并拼接新的数组
+        return temp.concat(leftArr).concat(rightArr);
       }
 
-      function merge(left, right) {
-        let result = [];
-        while (left.length && right.length) {
-          result.push(left[0] < right[0] ? left.shift() : right.shift());
-        }
-
-        if (left.length && !right.length) {
-          result = result.concat(left);
-        }
-
-        if (right.length && !left.length) {
-          result = result.concat(right);
-        }
-        return result;
-      }
-
-      console.log(mergeSort(array));
+      var s = [32, 12, 56, 78, 4, 76, 45, 36, 1, 2, 1];
+      var arr = mergeSort(s);
+      console.log(arr);
     </script>
   </body>
 </html>
