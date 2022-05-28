@@ -1,19 +1,13 @@
 <!--
- * @Description:
- * @Author: 张泽雨
- * @Date: 2021-07-26 17:19:10
- * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-22 16:07:53
- * @FilePath: \my-study\算法\链表\01.html
--->
-l<!--
  * @Description: 
  * @Author: 张泽雨
  * @Date: 2021-07-26 17:19:10
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-14 21:12:52
+ * @LastEditTime: 2022-05-27 23:28:12
  * @FilePath: \my-study\算法\链表\01.html
 -->
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -40,6 +34,7 @@ l<!--
           this.length = 0;
         }
         // 增删改查
+        //新增
         append(element) {
           let node = new Node(element);
           let cur;
@@ -57,6 +52,7 @@ l<!--
           }
           this.length += 1;
         }
+        // 删除
         removeAt(index) {
           // 你的上一个节点, 指向下一个节点
           // 把自己下一个节点指向取消
@@ -78,7 +74,7 @@ l<!--
           this.length -= 1;
           return cur.element;
         }
-
+        // 查询
         print() {
           let cur = this.head;
           let ret = [];
