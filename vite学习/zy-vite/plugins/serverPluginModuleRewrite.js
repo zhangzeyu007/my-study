@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-06-06 08:18:42
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-06-06 14:13:44
+ * @LastEditTime: 2022-06-06 15:35:49
  * @FilePath: \my-study\vite学习\zy-vite\plugins\moduleRewritePlugin.js
  */
 const { readBody } = require("./utils");
@@ -22,7 +22,7 @@ function rewriteImports(source) {
       let id = source.substring(s, e); // vue ./app
       // 当前开头是 \ 或者 . 不需要重写
       if (/^[^\/\.]/.test(id)) {
-        id = `/@modules/${id}`;
+        id = `/@modules/${id}`; // 标识这个模块是第三方模块
         magicString.overwrite(s, e, id);
       }
     }

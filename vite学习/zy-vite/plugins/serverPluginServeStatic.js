@@ -3,8 +3,8 @@
  * @Author: 张泽雨
  * @Date: 2022-06-05 22:57:52
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-06-06 13:39:19
- * @FilePath: \my-study\vite学习\zy-vite\plugins\serverPluginServerStatic.js
+ * @LastEditTime: 2022-06-06 15:12:38
+ * @FilePath: \my-study\vite学习\zy-vite\plugins\servePluginServeStatic.js
  */
 
 const static = require("koa-static");

@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-06-05 17:27:32
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-06-05 20:16:55
+ * @LastEditTime: 2022-06-06 15:40:03
  * @FilePath: \my-study\vite学习\vite-project\src\main.js
  */
 import { createApp } from "vue";
