@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-06-06 15:37:19
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-06-07 14:46:10
+ * @LastEditTime: 2022-06-07 16:55:07
  * @FilePath: \my-study\vite学习\zy-vite\plugins\serverPluginModuleResolved.js
  */
 
@@ -14,7 +14,6 @@ const path = require("path");
 function resolveVue(root) {
   // todo vue3 由 几部分组成 runtime-dom runtime-core reactivity  shared , 在后端中解析 .vue 文件 compiler-sfc
   // todo 编译是在后端实现的, 所以我需要拿到的文件是commonjs规范的
-  return;
   const compilerPkgPath = path.join(
     root,
     "node_modules",
@@ -55,18 +54,18 @@ function moduleResolvedPlugin({ app, root }) {
   const vueResolved = resolveVue(root); // todo 根据当前运行vite 的目录解析出一个文件表来,包含着vue中的所有的模块
 
   app.use(async (ctx, next) => {
-
+    console.log(ctx.path);
     if (!moduleREG.test(ctx.path)) {
       // todo 处理当前的请求的路径, 是否以/@modules 开头的
       await next();
     }
     // todo 将/@modules 替换掉 /@modules/vue
-    console.log(ctx.path);
     const id = ctx.path.replace(moduleREG, ""); // vue
 
     ctx.type = "js"; // todo 设置响应类型 响应结果是js类型
 
     // todo  应该去当前项目下查找 vue 对应的真实的文件
+    // TODO:这里有问题
     const content = await fs.readFile(vueResolved[id], "utf8");
     console.log(content);
     ctx.body = content; // todo 返回读取出来的结果
