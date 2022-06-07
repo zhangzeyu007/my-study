@@ -3,8 +3,8 @@
  * @Author: 张泽雨
  * @Date: 2022-06-06 08:18:42
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-06-06 15:35:49
- * @FilePath: \my-study\vite学习\zy-vite\plugins\moduleRewritePlugin.js
+ * @LastEditTime: 2022-06-06 23:19:52
+ * @FilePath: \my-study\vite学习\zy-vite\plugins\serverPluginModuleRewrite.js
  */
 const { readBody } = require("./utils");
 const { parse } = require("es-module-lexer"); // 解析import 语法
@@ -17,7 +17,6 @@ function rewriteImports(source) {
     // 对 import 语法进行拦截
     // 说明有多条import语法
     for (let i = 0; i < imports.length; i++) {
-      console.log(imports[i]);
       let { s, e } = imports[i];
       let id = source.substring(s, e); // vue ./app
       // 当前开头是 \ 或者 . 不需要重写
@@ -27,8 +26,7 @@ function rewriteImports(source) {
       }
     }
   }
-  console.log(magicString.toString());
-  return magicString.toString(); // 将替换后的结果返回增加/@module 浏览器会再次发送请求, 服务器要拦截 带有/@moudules 前缀的请求 进行处理
+  return magicString.toString(); //todo 将替换后的结果返回增加/@module浏览器会再次发送请求,服务器要拦截带有/@moudules 前缀的请求进行处理
 }
 
 function moduleRewritePlugin({ app, root }) {

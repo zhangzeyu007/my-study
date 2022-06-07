@@ -3,11 +3,11 @@
  * @Author: 张泽雨
  * @Date: 2022-06-05 17:27:32
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-06-06 15:40:03
+ * @LastEditTime: 2022-06-06 22:50:56
  * @FilePath: \my-study\vite学习\vite-project\src\main.js
  */
 import { createApp } from "vue";
-import App from "./App.vue";
+// import App from "./App.vue";
 
 createApp(App).mount("#app");
 
