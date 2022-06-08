@@ -609,7 +609,7 @@ export function createPatchFunction(backend) {
     }
 
     // TODO: 整理工作: 必定有数组还剩下的元素未处理
-    // todo 新老数组一定有一个先结束
+    // TODO 新老数组一定有一个先结束
     if (oldStartIdx > oldEndIdx) {
       //  todo:老的结束了,这种情况说明新的数组的数组还有剩下的节点(说明有新增,批量创建)
       refElm = isUndef(newCh[newEndIdx + 1]) ? null : newCh[newEndIdx + 1].elm;

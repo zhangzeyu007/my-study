@@ -43,8 +43,8 @@ export class Observer {
   // todo 观察者构造函数
   constructor(value: any) {
     this.value = value;
-    //todo 大管家：未来当前value对象动态添加或删除属性，通知视图更新
-    //todo 如果是数组，如果有数据动态加入或者移除，通知视图更新
+    // todo 大管家：未来当前value对象动态添加或删除属性，通知视图更新
+    // todo 如果是数组，如果有数据动态加入或者移除，通知视图更新
     this.dep = new Dep();
     this.vmCount = 0;
     def(value, "__ob__", this);
