@@ -1,0 +1,40 @@
+<!--
+ * @Description: *
+ * @Author: 张泽雨
+ * @Date: 2022-06-09 07:48:48
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-06-09 09:39:36
+ * @FilePath: \my-study\函数\函数作用域\02.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+		* 什么是作用域
+		 1)作用域是在运行时代码中的某些特定部分中变量, 函数和 对象的 可访问性
+		 2)作用域最大的作用就是隔离变量, 不同作用域下同名变量不会冲突
+     3)作用域是分层的,内层作用域可以访问外层作用的变量, 反之则不行
+     什么是自由变量
+     当前作用域没有定义的变量, 这成为自由变量; 自由变量的值如何得到 -- 向父级作用域寻找
+     如果父级没有, 再一层一层向上寻找, 直到全局作用域没有找到,就宣布放弃,.这种层级关系, 就是作用域链
+		*/
+      // console.log(a);
+      let a = 100;
+
+      function aa() {
+        let b = 2;
+        console.log(a); // 这里的a在 这里就是 一个自由变量
+        console.log(b);
+      }
+
+      aa();
+    </script>
+  </body>
+</html>

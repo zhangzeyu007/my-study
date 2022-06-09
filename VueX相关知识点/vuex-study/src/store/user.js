@@ -2,9 +2,10 @@
  * @Description: 组件
  * @Author: 海象
  * @Date: 2021-03-27 11:19:37
- * @LastEditors: 海象
- * @LastEditTime: 2021-03-27 12:13:25
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-06-09 11:16:52
  */
+
 export default {
     namespaced: true,
     state: {
