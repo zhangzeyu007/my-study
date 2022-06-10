@@ -121,8 +121,8 @@ export function observe(value: any, asRootData: ?boolean): Observer | void {
     return;
   }
 
-  //todo 每个对象配一个Observer实例
-  //todo 如果一个对象拥有__ob__属性，他就是一个响应式的数据
+  // todo 每个对象配一个Observer实例
+  // todo 如果一个对象拥有__ob__属性，他就是一个响应式的数据
   let ob: Observer | void;
   if (hasOwn(value, "__ob__") && value.__ob__ instanceof Observer) {
     ob = value.__ob__;
@@ -133,7 +133,7 @@ export function observe(value: any, asRootData: ?boolean): Observer | void {
     Object.isExtensible(value) &&
     !value._isVue
   ) {
-    //todo 初始化需要创建一个新的ob
+    // todo 初始化需要创建一个新的ob
     ob = new Observer(value);
   }
   if (asRootData && ob) {

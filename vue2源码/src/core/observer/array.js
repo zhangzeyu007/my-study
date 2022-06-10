@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-04 13:01:25
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-10 19:57:09
+ * @LastEditTime: 2022-06-10 11:18:51
  * @FilePath: \my-study\vue2源码\src\core\observer\array.js
  */
 /*
@@ -51,7 +51,7 @@ methodsToPatch.forEach(function (method) {
         inserted = args.slice(2)
         break
     }
-    //todo 新添加的数组项要做响应式处理
+    // todo 新添加的数组项要做响应式处理
     if (inserted) ob.observeArray(inserted)
     // notify change
     // 通过ob获取大管家
