@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-27 11:21:51
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-27 11:22:27
+ * @LastEditTime: 2022-06-10 11:51:30
  * @FilePath: \my-study\虚拟滚动组件\VirtualList.vue
 -->
 
@@ -90,13 +90,13 @@ export default {
   },
   methods: {
     scrollEvent() {
-      //当前滚动位置
+      // 当前滚动位置
       let scrollTop = this.$refs.list.scrollTop;
-      //此时的开始索引
+      // 此时的开始索引
       this.start = Math.floor(scrollTop / this.size);
-      //此时的结束索引
+      // 此时的结束索引
       this.end = this.start + this.visibleCount;
-      //此时的偏移量
+      // 此时的偏移量
       this.startOffset = scrollTop - (scrollTop % this.size);
     },
   },

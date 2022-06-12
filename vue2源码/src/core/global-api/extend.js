@@ -1,3 +1,11 @@
+/*
+ * @Description:
+ * @Author: 张泽雨
+ * @Date: 2022-05-04 13:01:25
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-06-10 15:46:34
+ * @FilePath: \my-study\vue2源码\src\core\global-api\extend.js
+ */
 /* @flow */
 
 import { ASSET_TYPES } from 'shared/constants'
@@ -18,7 +26,7 @@ export function initExtend (Vue: GlobalAPI) {
    */
   Vue.extend = function (extendOptions: Object): Function {
     extendOptions = extendOptions || {}
-    const Super = this //todo Vue
+    const Super = this // todo Vue
     const SuperId = Super.cid
     const cachedCtors = extendOptions._Ctor || (extendOptions._Ctor = {})
     if (cachedCtors[SuperId]) {
@@ -33,7 +41,7 @@ export function initExtend (Vue: GlobalAPI) {
     const Sub = function VueComponent (options) {
       this._init(options)
     }
-    // todo 继承于Vue
+    // todo 继承于 Vue
     Sub.prototype = Object.create(Super.prototype)
     Sub.prototype.constructor = Sub
     Sub.cid = cid++

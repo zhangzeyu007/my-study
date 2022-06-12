@@ -52,9 +52,9 @@ export function initMixin (Vue: Class<Component>) {
     // expose real self
     // todo 各种初始化
     vm._self = vm
-    initLifecycle(vm) //todo $parent/$root
-    initEvents(vm) //todo 自定义事件监听
-    initRender(vm) //todo $slots/$createElement
+    initLifecycle(vm) // todo $parent/$root
+    initEvents(vm) // todo 自定义事件监听
+    initRender(vm) // todo $slots/$createElement
     callHook(vm, 'beforeCreate')
     // todo 获取祖辈注入的数据
     initInjections(vm) // todo resolve injections before data/props
