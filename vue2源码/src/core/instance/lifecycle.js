@@ -196,12 +196,12 @@ export function mountComponent(
       measure(`vue ${name} patch`, startTag, endTag);
     };
   } else {
-    // todo:更新组件函数
+    // todo: 更新组件函数
     // todo: 小秘书让这个函数执行一下
     updateComponent = () => {
       // todo vm.render() 获取最新的虚拟dom
       vm._update(vm._render(), hydrating);
-    };
+    }
   }
 
   // we set this to vm._watcher inside the watcher's constructor

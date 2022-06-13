@@ -1,10 +1,3 @@
-/*
- * @Description: 组件
- * @Author: 海象
- * @Date: 2021-04-21 17:41:55
- * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-18 15:23:48
- */
 
 class zzPromise {
   static PENDING = "pending";

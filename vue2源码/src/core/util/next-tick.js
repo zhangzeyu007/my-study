@@ -40,10 +40,11 @@ let timerFunc;
 // completely stops working after triggering a few times... so, if native
 // Promise is available, we will use it:
 /* istanbul ignore next, $flow-disable-line */
-// todo 首选 promise
+// todo 判断浏览器是否支持promise 首选 promise
 if (typeof Promise !== "undefined" && isNative(Promise)) {
   const p = Promise.resolve();
   timerFunc = () => {
+    // * 执行入队
     p.then(flushCallbacks);
     // In problematic UIWebViews, Promise.then doesn't completely break, but
     // it can get stuck in a weird state where callbacks are pushed into the
@@ -95,6 +96,7 @@ export function nextTick(cb?: Function, ctx?: Object) {
   let _resolve;
   // todo 用户传递的回调函数会被放入callbacks数组中
   // todo 前面刷新函数就是执行callbacks数组中的回调函数
+  // * cb 放入的回调函数
   callbacks.push(() => {
     if (cb) {
       try {
@@ -108,7 +110,7 @@ export function nextTick(cb?: Function, ctx?: Object) {
   });
   if (!pending) {
     pending = true;
-    // todo 定时器函数启动
+    // * 定时器函数启动
     timerFunc();
   }
   // $flow-disable-line

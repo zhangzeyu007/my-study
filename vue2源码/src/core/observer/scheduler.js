@@ -176,6 +176,7 @@ export function queueWatcher(watcher: Watcher) {
       queue.splice(i + 1, 0, watcher);
     }
     // queue the flush
+    // todo 没有在等待的状态
     if (!waiting) {
       waiting = true;
       if (process.env.NODE_ENV !== "production" && !config.async) {

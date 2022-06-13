@@ -1,0 +1,46 @@
+<!--
+ * @Description:
+ * @Author: 张泽雨
+ * @Date: 2022-06-13 12:59:04
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-06-13 21:07:34
+ * @FilePath: \my-study\函数\高阶函数\02.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>高阶函数</title>
+  </head>
+  <body>
+    <script>
+      // 什么是高阶函数? 1. 就是一个函数的参数是一个函数, 就叫做高阶函数
+      //               2. 一个函数的返回值是一个函数
+
+      function fn(cb) {}
+
+      fn(() => {});
+
+      function fn() {
+        return function cb() {};
+      }
+      // 高阶函数的运用
+      function coreFunction() {
+        // 其他
+        console.log("before fn");
+        // 实现核心逻辑
+        console.log("核心逻辑");
+      }
+
+	  Function.prototype.before = function (beforeFn) {
+        // 谁调用这个方法, this 就指向谁
+		return () => { // 箭头函数的特点? 没有this 没有 argument 没有 原型链
+			beforeFn()
+		}
+
+	  }
+    </script>
+  </body>
+</html>

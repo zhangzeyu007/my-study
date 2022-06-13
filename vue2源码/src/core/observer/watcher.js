@@ -96,7 +96,7 @@ export default class Watcher {
   /**
    * Evaluate the getter, and re-collect dependencies.
    */
-  // TODO: 获取updateComponent
+  // TODO: 获取 updateComponent
   get() {
     pushTarget(this);
     let value;
@@ -176,7 +176,7 @@ export default class Watcher {
       this.run();
     } else {
       // todo: 入队操作
-      // todo 秘书入队
+      // todo 小秘书入队
       queueWatcher(this);
     }
   }
