@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-06-13 12:59:04
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-06-13 21:07:34
+ * @LastEditTime: 2022-06-13 21:20:23
  * @FilePath: \my-study\函数\高阶函数\02.html
 -->
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
   </head>
   <body>
     <script>
-      // 什么是高阶函数? 1. 就是一个函数的参数是一个函数, 就叫做高阶函数
+      // * 什么是高阶函数? 1. 就是一个函数的参数是一个函数, 就叫做高阶函数
       //               2. 一个函数的返回值是一个函数
 
       function fn(cb) {}
@@ -27,20 +27,28 @@
         return function cb() {};
       }
       // 高阶函数的运用
-      function coreFunction() {
+      function coreFn(a, b, c) {
         // 其他
-        console.log("before fn");
         // 实现核心逻辑
-        console.log("核心逻辑");
+        console.log("核心逻辑", a, b);
       }
 
-	  Function.prototype.before = function (beforeFn) {
+      Function.prototype.before = function (beforeFn) {
         // 谁调用这个方法, this 就指向谁
-		return () => { // 箭头函数的特点? 没有this 没有 argument 没有 原型链
-			beforeFn()
-		}
+        return (...args) => {
+          console.log(args); // 收集所有参数 变成数组
 
-	  }
+          // 箭头函数的特点? 没有this 没有 argument 没有 原型链
+          beforeFn();
+          this(...args);
+        };
+      };
+
+      let newFns = coreFn.before(() => {
+        console.log("before fn");
+      });
+
+      newFns(1, 2, 3);
     </script>
   </body>
 </html>

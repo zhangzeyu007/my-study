@@ -1,0 +1,42 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-06-13 21:24:52
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-06-13 21:58:09
+ * @FilePath: \my-study\函数\函数柯里化\05.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>柯里化</title>
+  </head>
+  <body>
+    <script>
+      // 柯里化 => 高阶函数
+
+      // 柯里化概念: 就是一个函数有多个参数, 我们根据这个函数的参数个数, 转化成 n 个 函数,  每个函数有 一个参数
+
+      function fn(a, b, c) {}
+      fn(1, 2, 3);
+
+      //   function isType(type, value) {
+      //     return Object.prototype.toString.call(value) === `[object ${type}]`;
+      //   }
+
+      //   console.log(isType("Number", 2222));
+
+      function isType(type) {
+        return function (value) {
+          return Object.prototype.toString.call(value) === `[object ${type}]`;
+        };
+      }
+      let isString = isType("String");
+
+      console.log(isString(2222));
+    </script>
+  </body>
+</html>
