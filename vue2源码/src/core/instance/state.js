@@ -324,7 +324,7 @@ function createWatcher(
   if (typeof handler === "string") {
     handler = vm[handler];
   }
-  //todo 全局方法$watch
+  // todo 全局方法$watch
   return vm.$watch(expOrFn, handler, options);
 }
 

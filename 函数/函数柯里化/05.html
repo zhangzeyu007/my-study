@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-06-13 21:24:52
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-06-13 21:58:09
+ * @LastEditTime: 2022-06-13 22:08:37
  * @FilePath: \my-study\函数\函数柯里化\05.html
 -->
 <!DOCTYPE html>
@@ -37,6 +37,16 @@
       let isString = isType("String");
 
       console.log(isString(2222));
+      ///柯里化 公共 方法
+      function sum() {}
+
+      sum(1)(2, 3)(4);
+      // 拆分
+
+      let fnc = curring(sum);
+	  let fn1 = fnc(1)
+	  let fn2 = fnc(2,3)
+	  let result = fnc
     </script>
   </body>
 </html>

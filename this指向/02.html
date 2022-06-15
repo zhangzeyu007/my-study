@@ -2,8 +2,8 @@
  * @Description: 组件
  * @Author: 海象
  * @Date: 2021-04-13 17:00:47
- * @LastEditors: 海象
- * @LastEditTime: 2021-04-19 22:19:08
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-06-15 15:21:34
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +21,7 @@
         // 不可使用call()改变this的指向
        // 没有参数不能使用arguments访问箭头函数参数 
       // 箭头函数对象调用也指向全局window的原因是变量num是全局的,箭头函数的指向是不可以改变的 
+      
         let num = () => {
             console.log(this);
         }
