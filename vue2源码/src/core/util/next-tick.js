@@ -108,6 +108,8 @@ export function nextTick(cb?: Function, ctx?: Object) {
       _resolve(ctx);
     }
   });
+
+  
   if (!pending) {
     pending = true;
     // * 定时器函数启动
