@@ -1,0 +1,96 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-06-26 10:23:33
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-06-26 15:17:53
+ * @FilePath: \my-study\css知识积累与实践\css布局\两栏布局.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>两栏布局</title>
+    <style>
+      html * {
+        padding: 0;
+        margin: 0;
+      }
+      .layout {
+        display: flex;
+      }
+      .layout > div {
+        height: 200px;
+      }
+      .layout.flex .left {
+        width: 300px;
+        background-color: yellow;
+      }
+      .layout.flex .right {
+        width: 100%;
+        background-color: green;
+      }
+
+      .layout.float .left {
+        width: 300px;
+        float: left;
+        background-color: yellow;
+      }
+      .layout.float .right {
+        width: 100%;
+        float: right;
+        background-color: green;
+      }
+      .layout.grid {
+        display: grid;
+        grid-template-rows: 200px;
+        grid-template-columns: 300px auto;
+      }
+      .layout.grid .left {
+        background-color: yellow;
+      }
+      .layout.grid .right {
+        background-color: green;
+      }
+      .layout.table {
+        width: 100%;
+        height: 100px;
+        display: table;
+      }
+      .layout.table > div {
+        display: table-cell;
+      }
+      .layout.table .left {
+        width: 300px;
+        background-color: yellow;
+      }
+      .layout.table .right {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="title"><h2>flex 两栏布局</h2></div>
+    <div class="layout flex">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+    <div class="title"><h2>float 两栏布局</h2></div>
+    <div class="layout float">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+    <div class="title"><h2>grid 两栏布局</h2></div>
+    <div class="layout grid">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+    <div class="title"><h2>table 两栏布局</h2></div>
+    <div class="layout table">
+      <div class="left"></div>
+      <div class="right"></div>
+    </div>
+  </body>
+</html>

@@ -1,70 +1,71 @@
 <!--
- * @Description: 组件
- * @Author: 海象
+ * @Description: 
+ * @Author: 张泽雨
  * @Date: 2021-04-08 10:19:38
- * @LastEditors: 海象
- * @LastEditTime: 2021-04-18 16:51:44
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-06-26 13:08:40
+ * @FilePath: \my-study\css知识积累与实践\margin负边距\01.html
 -->
-
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>margin 负边距</title>
     <style>
-        .box1 {
-            width: 200px;
-            height: 200px;
-            border: 2px solid darkgoldenrod;
-            margin-bottom: -20px;
-        }
+      .main {
+        overflow: hidden;
+      }
+      .box1 {
+        width: 200px;
+        height: 200px;
+        border: 2px solid darkgoldenrod;
+        margin-bottom: -20px;
+      }
 
-        .box2 {
-            width: 200px;
-            height: 200px;
-            border: 2px solid springgreen;
+      .box2 {
+        width: 200px;
+        height: 200px;
+        border: 2px solid springgreen;
+      }
 
-        }
+      .box3 {
+        width: 200px;
+        height: 200px;
+        border: 2px solid darkgoldenrod;
+        display: inline-block;
+        margin-right: -20px;
+      }
 
-        .box3 {
-            width: 200px;
-            height: 200px;
-            border: 2px solid darkgoldenrod;
-            display: inline-block;
-            margin-right: -20px;
-        }
-
-        .box4 {
-            width: 200px;
-            height: 200px;
-            border: 2px solid springgreen;
-            display: inline-block;
-
-        }
+      .box4 {
+        width: 200px;
+        height: 200px;
+        border: 2px solid springgreen;
+        display: inline-block;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>margin上下负边距</h1>
-    <div class="box1"></div>
-    <div class="box2"></div>
+    <div class="main">
+      <div class="box1"></div>
+      <div class="box2"></div>
+    </div>
+
     <h1>margin左右负边距</h1>
     <div class="box3"></div>
     <div class="box4"></div>
     <script>
-        
-        /**
-         * margin-top 负值 元素向上拖拽
-         * margin-left 负值 元素向左拖拽
-         * margin-bottom 负值 元素本身不变,下边元素上移
-         * margin-right 负值 元素本身不变,右边元素左移
-         *
-        */
+      /**
+       * margin-top 负值 元素向上拖拽
+       * margin-left 负值 元素向左拖拽
+       * margin-bottom 负值 元素本身不变,下边元素上移
+       * margin-right 负值 元素本身不变,右边元素左移
+       *
+       */
     </script>
-</body>
-
+  </body>
 </html>
