@@ -1,0 +1,42 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-06-26 15:57:02
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-06-26 17:00:01
+ * @FilePath: \my-study\css知识积累与实践\列表生成内容\01.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>列表生成内容</title>
+    <style>
+      .list {
+        list-style-type: "$";
+        list-style-position: inside;
+      }
+      .list li::before {
+        content: "(link)";
+      }
+      .list li::after {
+        content: "(link)";
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="list">
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+    </ul>
+  </body>
+</html>
