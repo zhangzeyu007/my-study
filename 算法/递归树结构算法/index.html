@@ -3,8 +3,8 @@
  * @Author: 张泽雨
  * @Date: 2022-05-11 19:51:36
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-12 10:15:53
- * @FilePath: \my-study\递归树结构\index.html
+ * @LastEditTime: 2023-04-30 18:27:05
+ * @FilePath: \my-study\算法\递归树结构算法\index.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -40,20 +40,15 @@
                   c_num: 333,
                   str: "str3",
                 },
-              },
-            ],
-          ],
+              }
+            ]
+          ]
         },
       };
-      // 字节跳动面试题(递归树结构)
+      // 字节跳动面试题(递归树结构)  
       const util = function (data) {
         for (key in data) {
-          let name = key.split("_")[1]
-            ? key.split("_")[0] +
-              "_" +
-              key.split("_")[1].substring(0, 1).toUpperCase() +
-              key.split("_")[1].substring(1)
-            : key;
+          let name = key.split("_")[1] ? key.split("_")[0] +"_" + key.split("_")[1].substring(0, 1).toUpperCase() + key.split("_")[1].substring(1) : key;
 
           if (key !== name) {
             data[name] = data[key];

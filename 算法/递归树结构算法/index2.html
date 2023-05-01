@@ -1,0 +1,74 @@
+
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-05-11 19:51:36
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2023-04-30 18:38:15
+ * @FilePath: \my-study\算法\递归树结构算法\index2.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>字节跳动</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      // 数据结构
+      const data = {
+        user_name: "name1",
+        user_id: 1000,
+        detail: {
+          user_avatar_url: "xxx",
+          object_one: {
+            a_num: 1,
+            str: "str1",
+          },
+          array_one: [
+            [
+              {
+                a_num: 111,
+                b_num: 222,
+              },
+            ],
+            [
+              {
+                c_obj: {
+                  c_num: 333,
+                  str: "str3",
+                },
+              }
+            ]
+          ]
+        },
+      };
+
+function convertToCamelCase(data) {
+  if (Array.isArray(data)) {
+    // 处理数组
+    return data.map((item) => convertToCamelCase(item));
+  } else if (typeof data === "object" && data !== null) {
+    // 处理对象
+    const result = {};
+    for (let key in data) {
+      const newKey = key.replace(/_([a-z])/g, function(match, p1) {
+        return '_'+p1.toUpperCase();
+      });
+      result[newKey] = convertToCamelCase(data[key]);
+    }
+    return result;
+  } else {
+    // 基本类型直接返回
+    return data;
+  }
+}
+
+      let result = convertToCamelCase(data);
+      console.log(result);
+    </script>
+  </body>
+</html>
