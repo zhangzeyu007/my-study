@@ -51,7 +51,8 @@ function convertToCamelCase(data) {
   if (Array.isArray(data)) {
     // 处理数组
     return data.map((item) => convertToCamelCase(item));
-  } else if (typeof data === "object" && data !== null) {
+  } 
+  else if (typeof data === "object" && data !== null) {
     // 处理对象
     const result = {};
     for (let key in data) {
@@ -67,8 +68,8 @@ function convertToCamelCase(data) {
   }
 }
 
-      let result = convertToCamelCase(data);
-      console.log(result);
+let result = convertToCamelCase(data);
+  console.log(result);
     </script>
   </body>
 </html>
