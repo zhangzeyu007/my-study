@@ -1,0 +1,87 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-02-29 10:51:39
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-02-29 11:17:56
+ * @FilePath: \my-study\css知识积累与实践\css文本渲染\01.html
+-->
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2021-04-11 12:28:46
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2022-05-10 07:59:19
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本渲染</title>
+    <style>
+        .main1 {
+            font-size: 16px;
+            text-shadow: green 5px 0.5em;
+        }
+        .main2 {
+            margin-top: 30px;
+            font-size: 16px;
+            text-decoration: line-through;     
+        }
+        .main3 {
+            margin-top: 30px;
+            font-size: 16px;
+            white-space: pre-wrap;
+            tab-size: 8;     
+        }
+        .clo1 {
+            margin-top: 30px;
+            font-size: 16px;
+            hyphens: auto;   
+            text-orientation: sideways; 
+            writing-mode: horizontal-tb;
+        }
+        .clo2 {
+            margin-top: 30px;
+            font-size: 16px;
+            hyphens: manual;
+            text-orientation: mixed; 
+            writing-mode: vertical-rl;
+        }
+        .clo3 {
+            margin-top: 30px;
+            font-size: 16px;
+            hyphens: none;  
+            text-orientation: upright;
+            writing-mode: vertical-lr;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main1">
+        噼噼啪啪噼噼啪啪水电费受打击开发逻辑双打卡拉法基
+    </div>
+    <div class="main2">
+        噼噼啪啪噼噼啪啪水电费受打击开发逻辑双打卡拉法基
+    </div>
+    <p class="main3">
+        噼噼啪啪噼噼啪啪水电费受打击开发逻辑双打卡拉法基
+    </p>
+    <p class="clo1">
+        ffffffrewrwer werwerwerwe
+    </p>
+    <p class="clo2">
+        ffffffrewrwer werwerwerwe
+    </p>
+    <p class="clo3">
+        fffffffrewrwer werwerwerwe
+    </p>
+
+</body>
+
+</html>
