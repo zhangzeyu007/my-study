@@ -45,7 +45,6 @@ body {
     right: 0;
     top: 90%;
     bottom: 0;
-
     animation: charging 10s linear infinite;
     animation-fill-mode: forwards;
     box-shadow: 0 14px 28px rgba(33, 150, 243, 0), 0 10px 10px rgba(9, 188, 215, 0.08);

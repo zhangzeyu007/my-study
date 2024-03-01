@@ -1,0 +1,47 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-01 10:35:07
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-01 10:51:52
+ * @FilePath: \my-study\css知识积累与实践\css动画\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css动画</title>
+    <style>
+     @keyframes identifier {
+      0% {  
+      color: red;
+     }
+      50% {  
+        color: blue;
+        }
+     100% {      
+          color: green;
+        }
+    }
+    .main1 {  
+      animation-name: identifier;  
+      animation-duration: 3s;  // 动画持续时间
+      animation-iteration-count: infinite;    // 动画重复次数
+      animation-direction: alternate;   // 动画播放方向 
+      animation-timing-function: ease-in-out;   // 动画速度曲线 
+      animation-fill-mode: forwards;   // 动画结束后状态
+      animation-play-state: running;   // 动画播放状态  
+      animation-delay: 2s;   // 动画延迟时间
+    }
+    </style>
+  </head>
+
+  <body>
+    <div class="main1">
+      富家大室颗粒剂敷设电缆科技发啦
+    </div>
+  </body>
+</html>

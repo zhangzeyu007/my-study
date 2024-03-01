@@ -1,0 +1,42 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-02-29 15:33:20
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-01 10:34:50
+ * @FilePath: \my-study\css知识积累与实践\css过渡\01.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css过渡</title>
+    <style>
+      .main1 {
+            margin-top: 100px;
+              transition-property: transform, color ,opacity; 
+              transition-duration: 10000ms;
+              transition-timing-function: ease-in;  
+              transition-delay: 50ms;
+              transform: scale(1,1) rotate(0deg);
+              transform-origin: top center;  
+              color: #000;
+              opacity: 1;
+      }
+      .main1:hover {
+              transform: scale(1,0) rotate(90deg);
+              color: rosybrown;
+              opacity: 0.5;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="main1">
+      富家大室颗粒剂敷设电缆科技发啦
+    </div>
+  </body>
+</html>
