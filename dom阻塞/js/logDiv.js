@@ -1,10 +1,12 @@
 /*
- * @Description: 组件
- * @Author: 海象
+ * @Description: 
+ * @Author: 张泽雨
  * @Date: 2021-01-16 09:53:23
- * @LastEditors: 海象
- * @LastEditTime: 2021-01-16 11:06:16
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-01 12:09:10
+ * @FilePath: \my-study\dom阻塞\js\logDiv.js
  */
+
 
 const arr = [];
 for (let i = 0; i < 100000000; i++) {

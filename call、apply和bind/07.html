@@ -1,0 +1,30 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-01 16:41:59
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-01 16:49:00
+ * @FilePath: \my-study\call、apply和bind\07.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>call 、apply 和 bind 区别</title>
+  </head>
+  <body>
+    <script>
+      function foo(a, b) {
+        console.log(a, b);
+      } 
+     let fun = Object.create(null);
+     foo.apply(fun, [1,2])
+     foo.bind(fun, 10)
+
+     console.log(foo);
+    </script>
+  </body>
+</html>
