@@ -1,0 +1,66 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-02 13:25:21
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-02 13:33:42
+ * @FilePath: \my-study\数组\04.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      //累加数组中的所有元素
+      const numbers = [1, 2, 3, 4, 5];
+      const sum = numbers.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        0
+      );
+      console.log(sum); // 15
+
+      // 将数组中的元素转换为对象
+      const names = ["Alice", "Bob", "Charlie"];
+      const nameObject = names.reduce((obj, name, index) => {
+        obj[index] = name;
+        return obj;
+      }, {});
+      console.log(nameObject); // {0: "Alice", 1: "Bob", 2: "Charlie"}
+
+      //查找数组中的最大值
+      const numbers1 = [10, 5, 20, 15];
+      const max = numbers1.reduce(
+        (maxValue, currentValue) => Math.max(maxValue, currentValue),
+        -Infinity
+      );
+      console.log(max); // 20
+
+      //扁平化多维数组
+      const nestedArray = [
+        [1, 2],
+        [3, 4],
+        [5, 6],
+      ];
+      const flattenedArray = nestedArray.reduce(
+        (acc, val) => acc.concat(val),
+        []
+      );
+      console.log(flattenedArray); // [1, 2, 3, 4, 5, 6]
+
+      //统计数组中元素的出现次数：
+      const words = ["apple", "banana", "apple", "orange", "banana", "apple"];
+      const wordCount = words.reduce((obj, word) => {
+        obj[word] = (obj[word] || 0) + 1;
+        return obj;
+      }, {});
+      console.log(wordCount); // {apple: 3, banana: 2, orange: 1}
+    </script>
+  </body>
+</html>
