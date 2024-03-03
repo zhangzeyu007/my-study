@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2022-04-09 13:42:16
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-02 20:28:13
+ * @FilePath: \my-study\vue响应式原理\01.html
+-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +20,13 @@
 
 		// 模拟vue中data的选项
         let data = {
-			name:'zhangzeyu',
-			msg:'哈哈哈'
+			   name:'zhangzeyu',
+			   msg:'哈哈哈'
 		}
 		// 模拟vue的实例
-		let vm = {}
+		let vm = {
+			
+		}
 
 		Object.keys(data).forEach(k => {
 			// 数据劫持, 访问或者设置vm的成员的时候,就会触发getter和setter
@@ -24,16 +34,19 @@
 				enumerable:true,
 				configurable:true,
 				get(value){
-			    console.log('get方法',data[k]);
+			  console.log('get方法',data[k]);
 				return  data[k]
 				},
 				set(newVal){
-                 console.log('set方法',newVal);
+         console.log('set方法',newVal);
 				 data[k] = newVal;
 				}
 			})
 		})
-
+		data.name = 'lisi'
+		data.msg = '嘿嘿嘿'
+		vm.name = 'wangwu'
+		console.log(vm) // lisi	
     </script>
 </body>
 

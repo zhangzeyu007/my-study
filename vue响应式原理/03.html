@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-04-25 14:54:25
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-04-25 17:59:10
+ * @LastEditTime: 2024-03-02 20:15:15
  * @FilePath: \my-study\vue响应式原理\03.html
 -->
 
@@ -24,7 +24,6 @@
 
       const handler = {
         get(target, key, receiver) {
-        
           return Reflect.get(target, key, receiver);
 
         },
