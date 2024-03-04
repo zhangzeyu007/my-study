@@ -1,0 +1,35 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-04 09:41:49
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-04 10:28:06
+ * @FilePath: \my-study\函数\函数作用域\03.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>私有变量</title>
+  </head>
+  <body>
+    <script>
+       // 私有变量
+       function myFunction() {  
+          var x = 0;  
+
+          this.publicMethod = function() {   
+            x++;  
+            console.log(x);  
+          }
+       }
+
+        // 实例化对象
+        var myObject = new myFunction();  
+        myObject.publicMethod();   // 1
+    </script>
+  </body>
+</html>
