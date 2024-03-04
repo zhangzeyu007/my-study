@@ -1,0 +1,35 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-04 15:43:58
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-04 16:45:04
+ * @FilePath: \my-study\性能监控\02.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>性能监控原生api</title>
+  </head>
+  <body>
+    <script>
+     window.onload = function () {
+      let lastFrameTime = performance.now();
+      function loop(timestamp) {
+        const dateTime = timestamp - lastFrameTime;
+        if (dateTime > 16) {
+          console.log("每秒60帧");
+        }
+        lastFrameTime = timestamp;
+        console.log(lastFrameTime,'ms');
+
+      }
+      requestAnimationFrame(loop);
+     }         
+    </script>
+  </body>
+</html>

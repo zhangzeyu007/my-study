@@ -2,63 +2,87 @@
  * @Description: 组件
  * @Author: 海象
  * @Date: 2021-01-10 07:52:31
- * @LastEditors: 海象
- * @LastEditTime: 2021-01-10 09:09:32
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-04 17:12:44
 -->
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件</title>
     <style>
-        #box {
-            width: 100px;
-            height: 100px;
-            background-color: red;
-        }
+      #box {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div>
-        <div id="box"></div>
+      <div id="box"></div>
     </div>
     <script>
-        let div = document.getElementById('box')
-        console.log(div);
+      let div = document.getElementById("box");
+    
+      window.addEventListener("beforeunload", () => {
+        console.log("beforeunload");
+      });
+      window.addEventListener("DOMContentLoaded", () => {
+        console.log("DOMContentLoaded");
+      });
+      window.addEventListener("load", () => {
+        console.log("load");
+      });
+      document.addEventListener("readystatechange", () => {
+        console.log("readystatechange");
+      });
+      window.addEventListener("pageshow", () => {
+        console.log("pageshow");
+      });
+      window.addEventListener("pagehide", () => {
+        console.log("pagehide");
+      });
+      window.addEventListener("hashchange", () => {
+        console.log("hashchange");
+      });
+      window.addEventListener("keydown", (event) => {
+        console.log("keydown", event);
+      });
+      window.addEventListener("keydown", (event) => {
+        console.log("keypress", event);
+        // 检查是否按下了 Ctrl 键
+        const isCtrlPressed = event.ctrlKey;
+        // 检查是否按下了 Shift 键
+        const isShiftPressed = event.shiftKey;
+        // 检查是否按下了 Alt 键
+        const isAltPressed = event.altKey;
 
-        div.addEventListener("contexmenu", (e) => {
-            console.log(e);
-            console.log('contexmenu');
-        })
-        window.addEventListener("beforeunload", () => {
-            console.log('beforeunload');
-        })
-        window.addEventListener("DOMContentLoaded", () => {
-            console.log('DOMContentLoaded');
-        })
-        window.addEventListener("load", () => {
-            console.log('load');
-        })
-        document.addEventListener("readystatechange", () => {
-            console.log('readystatechange');
-        })
-        window.addEventListener("pageshow", () => {
-            console.log('pageshow');
-        })
-        window.addEventListener("pagehide", () => {
-            console.log('pagehide');
-        })
-        window.addEventListener("hashchange", () => {
-            console.log('hashchange');
-        })
+        // 检查是否按下了 Ctrl 和 Shift 键
+        const isCtrlShiftPressed = event.ctrlKey && event.shiftKey;
 
+        // 检查是否按下了特定的键盘键，如 "A"
+        const isAPressed = event.key === "A";
+
+        // 在控制台输出组合键的状态
+        console.log("Ctrl 键是否按下：", isCtrlPressed);
+        console.log("Shift 键是否按下：", isShiftPressed);
+        console.log("Alt 键是否按下：", isAltPressed);
+        console.log("Ctrl 和 Shift 键是否同时按下：", isCtrlShiftPressed);
+        console.log("A 键是否按下：", isAPressed);
+      });
+      window.addEventListener("keyup", (event) => {
+        console.log("keyup", event);
+      });
+      window.addEventListener("contextmenu", (event) => {
+        console.log("contextmenu", event);
+      });
+      window.addEventListener("readyStateChange", (event) => {
+        console.log("readyStateChange", event);
+      });
     </script>
-
-</body>
-
+  </body>
 </html>
