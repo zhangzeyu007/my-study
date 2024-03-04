@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>历史状态管理</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      // 添加新的历史状态，并修改 URL
+      history.pushState({ page: 1 }, "Page 1", "/page1");
+
+      // 替换当前历史状态，并修改 URL
+      history.replaceState({ page: 2 }, "Page 2", "/page2");
+
+      // 监听 popstate 事件
+      window.onpopstate = function (event) {
+        console.log(
+          "Location: " +
+            document.location +
+            ", state: " +
+            JSON.stringify(event.state)
+        );
+      };
+    </script>
+  </body>
+</html>
