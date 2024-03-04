@@ -1,0 +1,38 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-04 13:42:47
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-04 13:43:46
+ * @FilePath: \my-study\DOM\04.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>innerText vs outerText</title>
+</head>
+<body>
+
+<div id="myDiv">
+  <p>Hello <span>world</span>!</p>
+</div>
+
+<script>
+var myDiv = document.getElementById('myDiv');
+
+// 获取元素的文本内容
+console.log("innerText:", myDiv.innerText);
+console.log("outerText:", myDiv.outerText);
+
+// 设置元素的文本内容
+myDiv.innerText = "Goodbye";
+console.log("innerText after setting:", myDiv.innerText);
+
+myDiv.outerText = "This is a new message";
+console.log("outerText after setting:", myDiv.outerText);
+</script>
+
+</body>
+</html>
