@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>处理剪切板</title>
+  </head>
+
+  <body>
+    <h1>处理剪切板</h1>
+    <input type="text">
+    <script>
+      window.addEventListener('beforecopy', function(){
+        console.log('剪切前beforecopy');
+      })
+      window.addEventListener('copy', function(){
+        console.log('剪切发生copy');
+      })
+      window.addEventListener('beforecut', function(){
+        console.log('剪切beforecut');
+      })
+      window.addEventListener('cut', function(){
+        console.log('剪切cut');
+      })
+      window.addEventListener('beforepaste', function(){
+        console.log('粘贴beforepaste');
+      })
+      window.addEventListener('paste', function(){
+        console.log('粘贴paste');
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-05 10:40:26
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-05 11:32:06
+ * @FilePath: \my-study\表单脚本使用\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>表单脚本</title>
+  </head>
+
+  <body>
+    <form
+      action="http://www.baidu.com/submit"
+      accept-charset="utf-8"
+      method="post"
+      id="myForm"
+    >
+      <input type="text" id="input2" />
+      <input type="submit"  value="提交"/>
+      <input type="reset"  value="重置"/></input>
+      <textarea>in</textarea>
+    </form>
+    <script>
+      let form = document.getElementById("myForm");
+      // form.addEventListener("click", function (event) {
+      //   console.log("表单点击",event);
+      //   // form.submit();  
+      //   event.preventDefault();
+      // });
+      form.addEventListener("submit", function (event) {
+        console.log("表单提交",event);
+        form.submit();
+        event.preventDefault();
+      });
+      form.addEventListener("reset", function (event) {
+        console.log("reset",event);
+        event.preventDefault();
+      });
+
+      window.addEventListener("load", function () {
+        console.log("页面加载完成");
+        document.forms[0].input2.value = "hello world";
+        const input2 =   document.forms[0].elements[0]
+        input2.addEventListener("focus", function (event) {
+        const target = event.target
+        target.style.color = "red";
+        });
+        input2.addEventListener("blur", function (event) {
+          const target = event.target
+        target.style.backgroundColor = "yellow";
+        });
+        const textbox = document.forms[0].elements[3]
+        textbox.addEventListener("keypress", function (event) {
+        // event.preventDefault();
+        console.log("按下了回车键", event.charCode);
+        })
+      })
+    </script>
+  </body>
+</html>
