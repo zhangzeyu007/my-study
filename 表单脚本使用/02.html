@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,26 +8,43 @@
 
   <body>
     <h1>处理剪切板</h1>
-    <input type="text">
+    <input type="text" />
     <script>
-      window.addEventListener('beforecopy', function(){
-        console.log('剪切前beforecopy');
-      })
-      window.addEventListener('copy', function(){
-        console.log('剪切发生copy');
-      })
-      window.addEventListener('beforecut', function(){
-        console.log('剪切beforecut');
-      })
-      window.addEventListener('cut', function(){
-        console.log('剪切cut');
-      })
-      window.addEventListener('beforepaste', function(){
-        console.log('粘贴beforepaste');
-      })
-      window.addEventListener('paste', function(){
-        console.log('粘贴paste');
-      })
+      window.addEventListener("beforecopy", function (event) {
+        console.log("剪切前beforecopy");
+        let clipboardData = event.clipboardData || window.clipboardData;
+        const text = clipboardData.getData("text");
+        console.log(text);
+        event.preventDefault();
+      });
+      window.addEventListener("copy", function (event) {
+        // const text = getClipboardText(event);
+        // console.log(text);
+        navigator.clipboard
+        .readText()
+        .then((text) => {
+          console.log("剪贴板内容为:", text);
+        })
+        .catch((err) => {
+          console.error("无法读取剪贴板内容:", err);
+        });
+        console.log("剪切发生copy", event.clipboardData);
+      });
+      window.addEventListener("beforecut", function () {
+        console.log("剪切beforecut");
+      });
+      window.addEventListener("cut", function () {
+        console.log("剪切cut");
+      });
+      window.addEventListener("beforepaste", function () {
+        console.log("粘贴beforepaste");
+      });
+      window.addEventListener("paste", function (event) {
+        // const text = getClipboardText(event);
+        // console.log(text);
+        console.log("粘贴paste");
+      });
+    
     </script>
   </body>
 </html>
