@@ -1,0 +1,46 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-05 12:23:30
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-05 13:00:17
+ * @FilePath: \my-study\富文本编辑\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>富文本编辑器</title>
+    <style></style>
+  </head>
+
+  <body>
+    <iframe name="richedit" height="200px" width="200px"></iframe>
+
+    <script>
+      window.onload = function () {
+        var iframe = document.getElementsByName("richedit")[0];
+        iframe.contentWindow.document.execCommand("fontName", false, "Arial");
+        iframe.contentWindow.document.execCommand("fontSize", false, "3");
+        iframe.contentWindow.document.execCommand("foreColor", false, "red");
+        iframe.contentWindow.document.execCommand("bold", true, null);
+        iframe.contentWindow.document.execCommand("italic", false, null);
+        iframe.contentWindow.document.execCommand("underline", false, null);
+        iframe.contentWindow.document.designMode = "on";
+        let selection =iframe.contentWindow.document.getSelection();
+        let rangea =iframe.contentWindow.document.selection.createRange();
+        let selectText = selection.toString();
+        console.log(selection);
+        console.log(rangea);
+        let range = rangea.getRangeAt(0);
+        let text = range.extractContents();
+        console.log(text);
+        let span = document.createElement("span");
+        span.style.color = "yellow";
+        range.surroundContents(span);
+      };
+    </script>
+  </body>
+</html>
