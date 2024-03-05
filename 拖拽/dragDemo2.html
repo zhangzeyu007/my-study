@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2024-03-05 13:50:27
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-03-05 15:39:28
+ * @LastEditTime: 2024-03-05 15:51:39
  * @FilePath: \my-study\拖拽\dragDemo2.html
 -->
 
@@ -12,7 +12,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>拖拽</title>
+    <title>拖拽课程表</title>
     <style>
       .container {
         display: flex;
@@ -38,8 +38,10 @@
       th,
       td {
         border: 1px solid black;
-        padding: 15px 5px;
+        width: 120px;
+        height: 40px;
         text-align: left;
+        text-align: center;
       }
       .item {
         height: 35px;
@@ -52,10 +54,13 @@
         z-index: 1000;
       }
       .color1 {
-        background-color: red;
+        background-color: rgb(231, 76, 76);
       }
       .color2 {
-        background-color: green;
+        background-color: rgb(96, 235, 96);
+      }
+      .color3 {
+        background-color: rgb(102, 223, 241);
       }
       .over-bg {
         background-color: yellow;
@@ -67,6 +72,7 @@
       <div class="left" data-drop="move">
         <div data-effect="copy" draggable="true" class="color1 item">语文</div>
         <div data-effect="copy" draggable="true" class="color2 item">数学</div>
+        <div data-effect="copy" draggable="true" class="color3 item">政治</div>
       </div>
       <div class="right">
         <table>
