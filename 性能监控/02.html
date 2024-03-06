@@ -22,7 +22,7 @@
       function loop(timestamp) {
         const dateTime = timestamp - lastFrameTime;
         if (dateTime > 16) {
-          console.log("每秒60帧");
+          console.log("超时");
         }
         lastFrameTime = timestamp;
         console.log(lastFrameTime,'ms');

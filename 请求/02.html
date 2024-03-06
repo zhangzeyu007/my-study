@@ -1,0 +1,60 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-06 19:14:10
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-06 19:15:29
+ * @FilePath: \my-study\请求\02.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>取消上一次请求</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      import axios from "axios";
+
+      // 创建一个 CancelToken 实例
+      const CancelToken = axios.CancelToken;
+      let cancel;
+
+      // 发送请求函数
+      function fetchData() {
+        // 如果上一次请求存在并且没有响应，就取消上一次请求
+        if (cancel) {
+          cancel("取消请求：上一次请求没有响应");
+        }
+
+        // 发送新请求
+        axios
+          .get("https://api.example.com/data", {
+            cancelToken: new CancelToken(function executor(c) {
+              // 记录新请求的取消方法
+              cancel = c;
+            }),
+          })
+          .then((response) => {
+            // 请求成功的处理逻辑
+            console.log("请求成功：", response.data);
+          })
+          .catch((error) => {
+            // 请求失败的处理逻辑
+            if (axios.isCancel(error)) {
+              console.log("请求被取消：", error.message);
+            } else {
+              console.error("请求错误：", error);
+            }
+          });
+      }
+
+      // 使用 fetchData 函数发送请求
+      fetchData();
+    </script>
+  </body>
+</html>

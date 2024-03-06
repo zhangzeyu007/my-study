@@ -1,0 +1,50 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-06 19:07:24
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-06 19:13:16
+ * @FilePath: \my-study\请求\01.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>请求</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      
+      /**
+       * 请求头（Request Headers）是在HTTP请求中发送的元数据，用于提供关于请求的信息，如客户端的信息、被请求的资源等。常见的请求头参数包括：
+                User-Agent: 表示发起请求的客户端信息，通常是浏览器的名称和版本号，有些网站会根据 User-Agent 来适配页面或服务。
+                Accept: 表示客户端可接受的内容类型，服务器可以根据这个字段来返回适合客户端的响应内容。
+                Content-Type: 表示请求体的MIME类型，告诉服务器请求中发送的数据的格式。
+                Authorization: 表示客户端的身份认证信息，用于在请求中包含认证凭据，如用户名和密码或者 token。
+                Cookie: 表示客户端的 Cookie 信息，用于在请求中发送与域相关的用户识别信息和状态信息。
+                Referer: 表示请求的来源地址，即当前页面的URL。
+                Origin: 表示请求的源地址，与 Referer 类似，但只包含了协议、主机和端口，不包含路径和查询参数。
+                这些请求头参数是HTTP请求中常见的一部分，可以根据具体的需求添加其他自定义的请求头参数。在发送HTTP请求时，
+               可以通过设置请求头参数来提供客户端的信息、请求的内容类型、身份认证信息等，以便服务器根据这些信息做出相应的处理和响应。
+
+        * 响应头包含了服务器响应给客户端的一些重要信息，它们以键值对的形式发送到客户端。一些常见的响应头包括：
+                Content-Type: 响应体的类型，告诉客户端如何解析响应体的内容，例如 text/html 表示 HTML 格式的文本，application/json 
+                表示 JSON格式的数据等。
+                Content-Length: 响应体的长度，以字节为单位。这可以帮助客户端正确地读取和处理响应体。
+                Cache-Control: 控制缓存的行为，例如 no-cache 表示不使用缓存，max-age 表示设置缓存的最大有效时间等。
+                Location: 重定向地址，用于指示客户端将请求重定向到哪个 URL。
+                Set-Cookie: 设置 Cookie，用于在客户端存储一些状态信息，例如用户登录状态、会话标识等。
+                Expires: 响应过期时间，指示客户端在这个时间之后应该重新获取资源。
+                Last-Modified: 资源的最后修改时间，用于客户端进行条件请求，判断资源是否发生了变化。
+                ETag: 资源的标识符，用于客户端进行条件请求，判断资源是否发生了变化。
+                Access-Control-Allow-Origin: 允许跨域请求的源，用于 CORS（跨域资源共享）。
+               这些响应头对于客户端和服务器之间的通信至关重要，它们可以控制请求和响应的行为，确保通信的顺利进行。
+       * 
+       * 
+       * */
+    </script>
+  </body>
+</html>
