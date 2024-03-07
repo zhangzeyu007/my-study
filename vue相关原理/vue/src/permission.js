@@ -1,10 +1,12 @@
 /*
- * @Description: 组件
- * @Author: 海象
- * @Date: 2020-12-15 16:50:19
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-07 12:55:29
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-04-18 13:08:23
+ * @LastEditTime: 2024-03-07 18:35:49
+ * @FilePath: \my-study\vue相关原理\vue\src\permission.js
  */
+
 
 import router from "./router";
 import store from "./store";

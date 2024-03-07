@@ -1,10 +1,12 @@
 /*
- * @Description: 组件
- * @Author: 海象
- * @Date: 2020-10-06 18:06:45
- * @LastEditors: 海象
- * @LastEditTime: 2020-10-13 00:47:37
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-07 12:55:30
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-07 18:36:07
+ * @FilePath: \my-study\vue相关原理\vue\src\kstore\index.js
  */
+
 import Vue from "vue";
 import Vuex from "./kvuex";
 

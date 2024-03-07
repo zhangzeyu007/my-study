@@ -1,10 +1,12 @@
 <!--
- * @Description: 组件
- * @Author: 小鱼
- * @Date: 2020-10-06 21:51:14
- * @LastEditors: 小鱼
- * @LastEditTime: 2020-10-06 22:19:41
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-07 12:55:29
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-07 19:14:23
+ * @FilePath: \my-study\vue相关原理\vue\src\components\slots\index.vue
 -->
+
 <template>
   <div>
     <h2>插槽</h2>
@@ -26,11 +28,11 @@ import Layout from "@/components/slots/Layout.vue";
 
 export default {
   components: {
-    Layout
+    Layout,
   },
   data() {
     return {};
-  }
+  },
 };
 </script>
 

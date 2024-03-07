@@ -2,8 +2,8 @@
  * @Description: 组件
  * @Author: 小鱼
  * @Date: 2020-10-06 18:30:19
- * @LastEditors: 小鱼
- * @LastEditTime: 2020-10-06 19:23:46
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-07 19:43:29
 -->
 <template>
   <div>
@@ -22,11 +22,11 @@ import Child2 from "./child2";
 export default {
   components: {
     Child1,
-    Child2
+    Child2,
   },
   provide() {
     return {
-      foo: "foo"
+      foo: "foo",
     };
   },
   data() {
@@ -36,8 +36,8 @@ export default {
   methods: {
     onSomeEvent(msg) {
       console.log("父组件:", msg);
-    }
-  }
+    },
+  },
 };
 </script>
 
