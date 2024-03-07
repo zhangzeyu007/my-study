@@ -1,0 +1,46 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-07 15:14:44
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-07 15:53:56
+ * @FilePath: \my-study\数组\05.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      function insert(arr, taskNum, topNum) {
+        const card = arr.splice(0, taskNum);
+        arr.splice(topNum, 0, ...card);
+      }
+      insert(arr, 3, 2);
+      console.log(arr);
+      //
+      var arrF = [1, 2, 3, 4, 4, 5, 1];
+      function qua(arr) {
+        const resMap = new Map();
+        for (const item of arr) {
+          if (resMap.has(item)) {
+            resMap.set(item, resMap.get(item) + 1);
+          } else {
+            resMap.set(item, 1);
+          }
+        }
+        return resMap;
+      }
+      let res = qua(arrF);
+      const myObject = Object.fromEntries(res);
+      console.log(myObject);
+    </script>
+  </body>
+</html>
