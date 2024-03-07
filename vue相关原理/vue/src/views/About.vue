@@ -2,8 +2,8 @@
  * @Description: 组件
  * @Author: 海象
  * @Date: 2020-10-09 17:36:17
- * @LastEditors: 海象
- * @LastEditTime: 2020-12-26 14:00:55
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-07 16:01:02
 -->
 <template>
   <div class="main-box">
@@ -72,6 +72,7 @@ export default {
       return value + "hhaha";
     }
   },
+  
   mounted() {
     console.log(this.arr.includes(1) + "好贱啊加号");
     Object.values(this.obj).map(item => {
