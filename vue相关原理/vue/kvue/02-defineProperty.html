@@ -1,0 +1,37 @@
+<!--
+ * @Description: 组件
+ * @Author: 海象
+ * @Date: 2020-10-20 09:45:59
+ * @LastEditors: 海象
+ * @LastEditTime: 2020-10-20 10:14:36
+-->
+
+<div id='app'></div>
+<script>
+    // Object.defineProperty
+    function defineReactive(obj, key, val) {
+        Object.defineProperty(obj, key, {
+            get() {
+                // console.log("get", key);
+                return val;
+            },
+            set(newVal) {
+                if (val !== newVal) {
+                    val = newVal;
+                    update()
+                    // console.log("set", key);
+                }
+            }
+        });
+    }
+
+    const obj = {};
+    defineReactive(obj, "foo", new Date().toLocaleTimeString());
+    function update() {
+        console.log(obj.foo);
+        app.innerHTML = obj.foo
+    }
+    setInterval(() => {
+        obj.foo = new Date().toLocaleTimeString()
+    }, 1000)
+</script>

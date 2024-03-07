@@ -1,0 +1,36 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-06 20:03:34
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-06 20:08:43
+ * @FilePath: \my-study\客户端存储\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>客户端存储</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      // cookie操作
+      // 设置 Cookie
+      function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+          var date = new Date();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        console.log(name + "=" + (value || "") + expires + "; path=/");
+      }
+      setCookie("name", "张泽雨");
+    </script>
+  </body>
+</html>
