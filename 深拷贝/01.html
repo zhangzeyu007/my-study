@@ -1,0 +1,52 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2021-02-02 10:38:00
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-08 17:34:44
+ * @FilePath: \my-study\深拷贝\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>深拷贝方法</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      const obj = {
+        name: "",
+        class: ["aa", "bb", "cc"],
+        num: 3,
+        obj: {
+          name: "eeff",
+        },
+      };
+
+      function deepCopy(obj) {
+        if (typeof obj !== "object" || obj === null) {
+          return obj;
+        }
+        let result;
+        if (obj instanceof Array) {
+          result = [];
+        } else {
+          result = {};
+        }
+        for (let key in obj) {
+          if (obj.hasOwnProperty(key)) {
+            result[key] = deepCopy(obj[key]);
+          }
+        }
+        return result;
+      }
+
+      const newObj = deepCopy(obj);
+      console.log(newObj);
+    </script>
+  </body>
+</html>
