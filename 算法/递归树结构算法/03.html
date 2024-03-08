@@ -1,0 +1,75 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-08 18:04:29
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-08 18:16:07
+ * @FilePath: \my-study\算法\递归树结构算法\03.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>字节跳动</title>
+    <style></style>
+  </head>
+  <body>
+    <script>
+      // 数据结构
+      const data = {
+        user_name: "name1",
+        user_id: 1000,
+        detail: {
+          user_avatar_url: "xxx",
+          object_one: {
+            a_num: 1,
+            str: "str1",
+          },
+          array_one: [
+            [
+              {
+                a_num: 111,
+                b_num: 222,
+              },
+            ],
+            [
+              {
+                c_obj: {
+                  c_num: 333,
+                  str: "str3",
+                },
+              },
+            ],
+          ],
+        },
+      };
+
+      function convertKeys(data) {
+        const newObj = {};
+        for (let key in data) {
+          let newKey;
+          const underscoreIndex = key.indexOf("_");
+          if (underscoreIndex !== -1 && underscoreIndex < key.length - 1) {
+            const parts = key.split("_");
+            newKey =
+              parts[0] + "_" + parts[1][0].toUpperCase() + parts[1].slice(1);
+          } else {
+            newKey = key;
+          }
+          if (typeof data[key] === "object" && data[key] !== null) {
+            newObj[newKey] = convertKeys(data[key]);
+          } else {
+            newObj[newKey] = data[key];
+          }
+        }
+        return newObj;
+      }
+
+      let result = convertKeys(data);
+      console.log(result);
+    </script>
+  </body>
+</html>
