@@ -1,0 +1,64 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-08 14:33:56
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-08 14:43:36
+ * @FilePath: \my-study\this指向\05.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this的指向问题</title>
+  </head>
+
+  <body>
+    <script>
+      /**
+         * this 指向问题是 JavaScript 中比较棘手的知识点之一。
+         * this 关键字的行为依赖于执行上下文,它的值在不同情况下会有所不同。
+         * 让我们总结一下 this 指向的原理:
+        1.  全局执行上下文
+            在全局执行上下文中(在任何函数体外部)，this 指向全局对象。
+            在浏览器中,它指向 window 对象。在严格模式下,this 指向 undefined。
+         * 
+         函数执行上下文
+            在函数内部,this 的值取决于函数被调用的方式。
+            1.简单函数调用
+            如果是作为一个简单函数调用,那么 this 指向全局对象(window 或 undefined 在严格模式下)
+            2.对象方法调用
+            当函数作为对象的方法被调用时,this 指向该对象。。
+            3.构造函数调用
+            当使用 new 关键字调用函数时,它会创建一个新对象,并将 this 绑定到这个新对象上。
+            4.apply、call、bind 手动绑定 this
+            JavaScript 提供了 call、apply 和 bind 方法来手动设置 this 的值。
+            优先级顺序
+                如果存在多种可能性,this 指向的优先级顺序如下:
+                new 绑定 > 显式绑定(call、apply、bind) > 隐式绑定(对象方法调用) > 默认绑定(全局对象或 undefined)
+        */
+      // 函数调用
+      const obj = {
+        foo: function () {
+          console.log(this === obj); // true
+        },
+      };
+      obj.foo();
+      // 构造函数调用
+      function Person(name) {
+        this.name = name;
+      }
+      const person = new Person("Alice");
+      console.log(person.name); // Alice
+      // 手动绑定 this
+      function foo() {
+        console.log(this.a);
+      }
+      const obj1 = { a: 1 };
+      foo.call(obj1); // 1
+      console.log(foo.call(obj1) === obj1.a);
+    </script>
+  </body>
+</html>
