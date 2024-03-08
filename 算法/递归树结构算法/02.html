@@ -1,11 +1,10 @@
-
 <!--
  * @Description: 
  * @Author: 张泽雨
  * @Date: 2022-05-11 19:51:36
  * @LastEditors: 张泽雨
- * @LastEditTime: 2023-04-30 18:38:15
- * @FilePath: \my-study\算法\递归树结构算法\index2.html
+ * @LastEditTime: 2024-03-08 18:22:17
+ * @FilePath: \my-study\算法\递归树结构算法\02.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -41,35 +40,34 @@
                   c_num: 333,
                   str: "str3",
                 },
-              }
-            ]
-          ]
+              },
+            ],
+          ],
         },
       };
 
-function convertToCamelCase(data) {
-  if (Array.isArray(data)) {
-    // 处理数组
-    return data.map((item) => convertToCamelCase(item));
-  } 
-  else if (typeof data === "object" && data !== null) {
-    // 处理对象
-    const result = {};
-    for (let key in data) {
-      const newKey = key.replace(/_([a-z])/g, function(match, p1) {
-        return '_'+p1.toUpperCase();
-      });
-      result[newKey] = convertToCamelCase(data[key]);
-    }
-    return result;
-  } else {
-    // 基本类型直接返回
-    return data;
-  }
-}
+      function convertToCamelCase(data) {
+        if (Array.isArray(data)) {
+          // 处理数组
+          return data.map((item) => convertToCamelCase(item));
+        } else if (typeof data === "object" && data !== null) {
+          // 处理对象
+          const result = {};
+          for (let key in data) {
+            const newKey = key.replace(/_([a-z])/g, function (match, p1) {
+              return "_" + p1.toUpperCase();
+            });
+            result[newKey] = convertToCamelCase(data[key]);
+          }
+          return result;
+        } else {
+          // 基本类型直接返回
+          return data;
+        }
+      }
 
-let result = convertToCamelCase(data);
-  console.log(result);
+      let result = convertToCamelCase(data);
+      console.log(result);
     </script>
   </body>
 </html>
