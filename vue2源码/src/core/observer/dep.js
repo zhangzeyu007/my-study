@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-04 13:01:25
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-04 15:39:12
+ * @LastEditTime: 2024-03-09 21:21:16
  * @FilePath: \my-study\vue2源码\src\core\observer\dep.js
  */
 /* @flow */
@@ -65,7 +65,7 @@ export default class Dep {
 Dep.target = null;
 const targetStack = [];
 
-export function pushTarget(target: ?Watcher) {
+export function pushTarget(target: ? Watcher) {
   targetStack.push(target);
   Dep.target = target;
 }
