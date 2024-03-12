@@ -1,10 +1,4 @@
-/*
- * @Description: 组件
- * @Author: 海象
- * @Date: 2021-04-01 08:56:12
- * @LastEditors: 海象
- * @LastEditTime: 2021-04-02 17:58:14
- */
+
 
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -71,7 +65,7 @@ module.exports = {
                         name: "[name].[ext]",
                         outputPath: "image/",
                         publicPath: '../image/',
-                        limit: 1024 * 3 //阈值超过阈值的图片; 会独立文件, 没有超过会处理base64
+                        limit: 1024 * 3  // 阈值超过阈值的图片; 会独立文件, 没有超过会处理base64
                     }
                 }
             },
