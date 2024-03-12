@@ -1,9 +1,10 @@
 /*
- * @Description: 组件
- * @Author: 海象
+ * @Description: 
+ * @Author: 张泽雨
  * @Date: 2021-04-01 08:56:12
- * @LastEditors: 海象
- * @LastEditTime: 2021-04-01 11:45:09
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-12 11:27:30
+ * @FilePath: \my-study\webpack相关知识\webpack01\webpack.config.js
  */
 
 const path = require('path')
@@ -11,15 +12,15 @@ const htmlWebpackPlugin = require('html-webpack-plugin')
 // 零配置
 module.exports = {
     // 入口
-    entry: "./src/index.js",
+    // entry: "./src/index.js",
     // 数组形式单入口,但是有两个chunk
     // entry: ['./src/index.js', "./src/list.js"],
     // 多入口只能是对象形式
-    // entry: {
-    //     index: "./src/index.js",
-    //     list: "./src/list.js",
-    //     detail: "./src/detail.js"
-    // },
+    entry: {
+        index: "./src/index.js",
+        list: "./src/list.js",
+        detail: "./src/detail.js"
+    },
     // 出口
     output: {
         // 绝对路径
