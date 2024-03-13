@@ -1,5 +1,6 @@
 {
   "git.ignoreLimitWarning": true,
-"eslint.options": {},
-"eslint.format.enable": true
+  "eslint.options": {},
+  "eslint.format.enable": true,
+  "commentTranslate.hover.enabled": false
 }
