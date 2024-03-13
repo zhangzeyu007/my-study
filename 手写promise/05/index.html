@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2024-03-13 13:43:41
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-03-13 14:24:46
+ * @LastEditTime: 2024-03-13 19:14:18
  * @FilePath: \my-study\手写promise\05\index.html
 -->
 <!DOCTYPE html>
@@ -15,6 +15,25 @@
     <title>研究promise</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      let p1 = new Promise((resolve, reject) => {
+        setInterval(() => {
+          reject("哈哈哈哈");
+        }, 1000);
+      });
+      p1.then((res) => {
+        console.log(res);
+        return "ffff";
+      })
+        .then((val) => {
+          console.log(val, "val");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+      Promise.reject(new Error("失败")).catch((err) => {
+        console.log(err);
+      });
+    </script>
   </body>
 </html>
