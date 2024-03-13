@@ -1,0 +1,84 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-13 20:04:57
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-13 20:14:30
+ * @FilePath: \my-study\map使用详解\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>map使用详解</title>
+  </head>
+
+  <body>
+    <script>
+      // 创建一个空 Map
+      const map = new Map();
+
+      // 通过可迭代对象创建 Map
+      const map1 = new Map([
+        ["name", "John"],
+        ["age", 30],
+      ]);
+
+      //2. 添加键值对
+      map.set(key, value); // 添加或更新一个键值对
+      //3. 获取值
+      map.get(key); // 获取指定键对应的值
+      //4. 判断是否存在键
+      map.has(key); // 判断是否存在指定的键
+      //5. 删除键值对
+      map.delete(key); // 删除指定的键值对
+      map.size; // 获取 Map 的大小(键值对的数量)
+      map.clear(); // 清空 Map 中的所有键值对
+      // 6.遍历map
+      // 遍历 Map 的键
+      for (const key of map.keys()) {
+        console.log(key);
+      }
+
+      // 遍历 Map 的值
+      for (const value of map.values()) {
+        console.log(value);
+      }
+
+      // 遍历 Map 的键值对
+      for (const [key, value] of map.entries()) {
+        console.log(key, value);
+      }
+
+      // 使用 forEach 方法遍历 Map
+      map.forEach((value, key) => {
+        console.log(key, value);
+      });
+
+      //7. 转换为数组
+      const mapArray = [...map]; // 将 Map 转换为二维数组
+      const keyArray = [...map.keys()]; // 将 Map 的键转换为数组
+      const valueArray = [...map.values()]; // 将 Map 的值转换为数组
+
+      /*
+      10. Map 与对象的区别
+      Map 可以使用任意类型的值作为键,而对象只能使用字符串或 Symbol 作为键。
+      Map 的键值对是有序的,而对象是无序的。
+      Map 提供了更多的方法和属性来操作键值对,如 size、forEach等。
+      Map 在遍历时比对象更高效,因为它内部使用了优化的哈希算法。
+      **/
+      /**
+     11. 弱引用版本: WeakMap
+        WeakMap 是 Map 的弱引用版本,它只接受对象作为键,并且键所引用的对象不计入垃圾回收机制。
+        这意味着如果没有其他引用指向该对象,它就可以被垃圾回收器回收。WeakMap 主要用于与对象关联元数据,
+        避免引起内存泄漏。
+        总之,Map 为我们提供了一种灵活的键值对存储方式,并且提供了丰富的方法来操作和遍历键值对。
+        掌握 Map 的使用对于编写高效且可维护的 JavaScript 代码非常重要。
+      * 
+     */
+    </script>
+  </body>
+</html>
