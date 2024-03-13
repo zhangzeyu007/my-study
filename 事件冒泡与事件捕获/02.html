@@ -1,0 +1,55 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-13 19:22:39
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-13 19:24:53
+ * @FilePath: \my-study\事件冒泡与事件捕获\02.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件冒泡与事件捕获</title>
+    <style>
+      #div1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      #div2 {
+        width: 200px;
+        height: 200px;
+        background-color: black;
+        position: absolute;
+        left: 200px;
+        top: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      <button id="child">Click me</button>
+    </div>
+    <script>
+      const parent = document.getElementById("parent");
+      const child = document.getElementById("child");
+
+      parent.addEventListener(
+        "click",
+        (event) => {
+          console.log("Parent currentTarget:", event.currentTarget.id);
+          console.log("Parent eventTarget:", event.eventTarget);
+        },
+        true
+      ); // 使用捕获模式
+
+      child.addEventListener("click", (event) => {
+        console.log("Child currentTarget:", event.currentTarget.id);
+        console.log("Child eventTarget:", event.eventTarget);
+      });
+    </script>
+  </body>
+</html>
