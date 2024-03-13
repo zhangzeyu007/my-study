@@ -1,0 +1,62 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-13 13:43:41
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-13 14:17:46
+ * @FilePath: \my-study\手写promise\05\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>研究promise</title>
+  </head>
+  <body>
+    <script>
+      let p1 = new Promise((resolve, reject) => {
+        resolve("primuise1");
+      });
+      let p2 = new Promise((resolve, reject) => {
+        resolve("primuise2");
+      });
+
+      function myPromiseAll(promises) {
+        return new Promise((resolve, reject) => {
+          let results = []; // 用于存储成功结果
+          let completedPromises = 0; // 记录完成的promise 次数
+          let promiseNum = promises.length; // promise总数
+          if (promiseNum === 0) {
+            resolve([]);
+            return;
+          }
+          // 遍历每个 promise
+          promises.forEach((promise, index) => {
+            Promise.resolve(promise)
+              .then((value) => {
+                results[index] = value;
+                completedPromises++;
+                // 如果所有的promise 完成了
+                if (completedPromises === promiseNum) {
+                  resolve(results);
+                }
+              })
+              .catch((reason) => {
+                reject(reason);
+              });
+          });
+        });
+      }
+
+      const res = new myPromiseAll([p1, p2])
+        .then((results) => {
+          console.log(results);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
+  </body>
+</html>

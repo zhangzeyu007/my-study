@@ -1,5 +1,3 @@
-
-
 class MyPromise {
   constructor(executor) {
     this.state = "pending";
@@ -23,7 +21,6 @@ class MyPromise {
         this.onRejectedCallbacks.forEach((fn) => fn());
       }
     };
-
     try {
       executor(resolve, reject);
     } catch (err) {
@@ -71,7 +68,6 @@ class MyPromise {
             }
           }, 0);
         });
-
         this.onRejectedCallbacks.push(() => {
           setTimeout(() => {
             try {
@@ -184,7 +180,7 @@ class MyPromise {
 }
 
 const myPromise = new MyPromise((resolve, reject) => {
-  resolve('成功')
+  resolve("成功");
   // Do some asynchronous operation
   // If the operation is successful, call resolve with the result
   // If the operation fails, call reject with an error
