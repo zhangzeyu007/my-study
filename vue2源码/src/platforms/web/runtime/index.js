@@ -1,9 +1,10 @@
 /*
- * @Description: 组件
- * @Author: 海象
- * @Date: 2021-03-06 10:28:16
+ * @Description:
+ * @Author: 张泽雨
+ * @Date: 2022-05-04 13:01:25
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-06 12:39:24
+ * @LastEditTime: 2024-03-14 17:41:04
+ * @FilePath: \my-study\vue2源码\src\platforms\web\runtime\index.js
  */
 /* @flow */
 

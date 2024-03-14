@@ -1,0 +1,81 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-14 18:15:37
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-14 18:15:37
+ * @FilePath: \my-study\webpack相关知识\07.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>call 、apply 和 bind 区别</title>
+  </head>
+  <body>
+    <script>
+      /**
+       *Webpack 热更新(Hot Module Replacement, HMR)是一种非常有用的功能,它能够在代码发生变化时,自动更新运行在浏览器中的应用程序,
+       而无需进行完全的刷新和重新加载。这使得开发过程更加高效和流畅。下面我将详细总结一下 Webpack 热更新的原理。
+        1. 基本原理
+        Webpack 热更新的基本原理是在应用程序运行的同时,监听代码的变化。一旦监测到文件发生变化,就会重新编译并通知应用程序接受更新。
+        整个过程分为以下几个步骤:
+
+        监听文件变化:使用监听器(watcher)来监视文件系统中文件的变化。
+
+        重新编译:当发现文件发生变化时,Webpack 会重新编译受影响的模块。
+
+        Hash 更新:对重新编译的模块生成新的 hash 值。
+
+        通知更新:通过 WebSocket 与运行在浏览器中的客户端通信,通知它需要更新。
+
+        模块热更新:浏览器端会根据收到的信息,使用新的模块替换旧的模块,从而实现无刷新更新。
+
+        2. 具体实现
+
+        Webpack 热更新的具体实现比较复杂,涉及多个模块和步骤。简单来说,主要包括以下几个部分:
+
+        Webpack Dev Server:这是一个用于开发环境的 Web 服务器,它能够监听文件变化,并通过 WebSocket 与客户端通信。
+
+        HotModuleReplacementPlugin:一个 Webpack 插件,用于启用和管理模块热更新。
+
+        Runtime:Webpack 在编译阶段会注入一些运行时代码,用于在浏览器端处理模块热更新的逻辑。
+
+        模块热更新管理器:运行时代码中包含一个模块热更新管理器,用于处理模块是否可热更新、如何进行更新等逻辑。
+
+        HMR Runtime API:提供了一些 API 供开发者控制模块热更新的生命周期钩子,如 module.hot.accept、module.hot.dispose 等。
+
+        3. 热更新过程
+
+        当开启了 HMR 功能后,Webpack 热更新的具体过程如下:
+
+        Webpack 会通过 HotModuleReplacementPlugin 向 Webpack Dev Server 注入一些代码。
+
+        Webpack Dev Server 会启动一个 WebSocket 服务器,用于与客户端通信。
+
+        当文件发生变化时,Webpack 会重新编译受影响的模块,并将新的模块发送到 Webpack Dev Server。
+
+        Webpack Dev Server 通过 WebSocket 将模块更新信息发送给客户端。
+
+        客户端收到更新信息后,会通过 HMR Runtime API 调用模块热更新管理器,决定如何进行更新。
+
+        如果模块可以进行热更新,则会使用新的模块替换旧的模块,并调用相应的生命周期钩子函数。
+
+        如果模块不能热更新,则会触发整个应用的重新加载。
+
+        4. 总结
+        Webpack 热更新通过智能的模块替换和运行时代码注入,实现了在不刷新浏览器的情况下更新应用程序的功能。它极大地提高了开发效率,降低了开发成本。
+        不过,热更新也有一定的限制,比如对于某些类型的更改(如全局状态更改),可能无法进行热更新,仍然需要进行完全刷新。
+
+        总的来说,Webpack 热更新的原理涉及多个模块和步骤,需要 Webpack 开发者和使用者对其有一定的理解和掌握。
+        正确使用热更新功能,能够大幅提升 Web 开发的体验和效率。
+       *
+       *
+       *
+       */
+    </script>
+  </body>
+</html>
