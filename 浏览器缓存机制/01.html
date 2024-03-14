@@ -1,0 +1,140 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-14 11:43:33
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-14 12:09:09
+ * @FilePath: \my-study\浏览器缓存机制\01.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浏览器缓存机制</title>
+  </head>
+  <body>
+    <script>
+      /**
+       *
+       * 缓存过程分析
+            浏览器第一次加载资源
+            浏览器会先检查强缓存,如果命中强缓存,则直接从缓存中读取资源。否则,浏览器会发送请求到服务器,服务器返回资源内容和缓存头信息。
+            浏览器会根据响应头的指示来决定是否缓存资源以及缓存时间。
+            浏览器再次加载资源
+            浏览器会先检查强缓存是否命中,如果命中则直接从缓存中读取。如果强缓存未命中,
+            则进一步检查协商缓存,浏览器会向服务器发送带有相应请求头的请求。
+            服务器会根据请求头中的条件判断资源是否发生变化,如果资源未变化,
+            则返回 304 状态码告知浏览器可以继续使用缓存。否则,服务器将返回新的资源内容和缓存头信息。
+            缓存相关请求头和响应头
+
+            除了前面提到的一些常用的缓存头之外,还有一些其他常见的头:
+
+            Cache-Control: no-store: 不缓存任何内容,每次请求都从服务器获取资源。
+            Cache-Control: public: 响应可以被任何对象(客户端、代理服务器等)缓存。
+            Cache-Control: private: 响应只能被单个用户缓存,不能被代理服务器等中间人缓存。
+            Pragma: no-cache: 与 Cache-Control: no-cache 作用相同,但是现在基本被 Cache-Control 取代。
+            Age: 资源在缓存中的存活时间,存在于响应头中。
+            缓存位置优先级
+
+            浏览器在获取资源时会先查找缓存,缓存位置的优先级从高到低依次是:
+
+            Service Worker
+            Memory Cache
+            Disk Cache
+            Push Cache
+            Offline Cache
+            其中 Service Worker 缓存需要开发者手动编码,是一种增强缓存能力的 Web 技术。
+
+            缓存策略应用场景
+
+            Cache-Control: no-cache: 对于需要频繁和服务器验证的动态资源,可以使用这种策略。
+            Cache-Control: max-age=0: 与 no-cache 类似,区别在于浏览器在向服务器再次验证资源之前,会先检查是否命中协商缓存。
+            Cache-Control: no-store: 对于敏感数据或个人隐私数据,可以使用这种禁止缓存的策略。
+            Cache-Control: immutable: 对于不变的静态资源(如 CDN 上的第三方库等),可以使用这种策略,浏览器只会请求一次。
+            缓存的其他注意事项
+
+            对于需要频繁更新的资源,我们可以在 URL 中添加版本号或指纹,以便缓存失效。
+            POST 请求无法被浏览器缓存,因为它会产生副作用。
+            通过 Cache-Control: max-age=0, must-revalidate 可以强制浏览器每次都向服务器验证资源是否发生变化。
+            总之,合理利用浏览器缓存机制能够显著提升网站的访问速度和用户体验。我们需要根据不同资源的特性来选择合适的缓存策略,
+            同时也要注意缓存的一致性和安全性。
+            掌握浏览器缓存机制对于优化网站性能至关重要。
+       *
+       *
+       *
+       */
+      /**
+       * 强缓存工作原理
+
+          强缓存是利用 HTTP 响应头中的 Expires 或 Cache-Control 字段来控制的。
+
+          Expires
+          Expires 是 HTTP/1.0 时代的产物,它的值是一个具体的日期时间戳,告诉浏览器在这个时间之前可以直接从缓存中读取资源,无需再次请求。
+
+          例如服务器返回 Expires: Thu, 31 Dec 2023 23:59:59 GMT，那么在 2023 年 12 月 31 日 23:59:59 之前,浏览器都可以直接从缓存中读取该资源。
+
+          Cache-Control
+          Cache-Control 是 HTTP/1.1 中提出的更佳的缓存控制头,它的 max-age 值表示资源的有效期,单位为秒。
+
+          例如服务器返回 Cache-Control: max-age=31536000，那么在 31536000 秒(约 1 年)之内,浏览器都可以直接从缓存中读取该资源。
+
+          如果命中强缓存,浏览器会直接从缓存中获取资源,不会与服务器发生任何交互。否则,浏览器将进入协商缓存阶段。
+       * */
+      /**
+       * 协商缓存工作原理
+
+        协商缓存通过请求头和响应头中的一些字段进行判断是否可以使用缓存。
+
+        Last-Modified 和 If-Modified-Since
+        Last-Modified 是服务器响应头部标识资源最后一次修改时间的字段。浏览器在第一次请求时,会将这个时间记录在本地。
+
+        在下一次请求时,浏览器会通过请求头 If-Modified-Since 携带第一次请求时记录的时间,发送给服务器。服务器接收到请求后,
+        会比对资源的最后修改时间和 If-Modified-Since 的值:
+
+        如果一致,说明资源没有被修改过,直接返回 304 状态码和一个空的响应体,浏览器继续使用缓存。
+        如果不一致,说明资源已经被修改,返回 200 状态码和新的资源内容,浏览器直接展示新资源内容。
+        ETag 和 If-None-Match
+        ETag 是服务器响应头部标识资源内容的唯一标识字符串。浏览器在第一次请求时,会将这个字符串记录在本地。
+
+        在下一次请求时,浏览器会通过请求头 If-None-Match 携带第一次请求时记录的 ETag 值,发送给服务器。服务器接收到请求后,
+        会将请求中的 If-None-Match 与资源的 ETag 标识进行对比:
+
+        如果一致,说明资源没有被修改过,直接返回 304 状态码和一个空的响应体,浏览器继续使用缓存。
+        如果不一致,说明资源已经被修改,返回 200 状态码和新的资源内容,浏览器直接展示新资源内容。
+        ETag 的优先级高于 Last-Modified。ETag 是资源内容的唯一标识,能精确地判断资源是否被修改过;而 Last-Modified 
+        只能精确到秒级,在某些环境下可能会由于其他原因导致时间发生改变,从而无法精确判断资源是否改变。
+        所以,通常 ETag 和 If-None-Match 组合使用会更精确。
+
+        通过上述过程,浏览器可以判断是否需要发起新的 HTTP 请求来获取资源。如果缓存仍有效,
+        则直接使用缓存,避免了发送请求和传输数据的开销,从而提高了网页性能。
+        总之,强缓存决定是否直接使用缓存,而协商缓存决定已存在的缓存是否可以继续使
+       * 
+      */
+
+      // 使用 Last-Modified 和 If-Modified-Since 头进行协商缓存
+      app.get("/data", (req, res) => {
+        const lastModified = new Date().toUTCString();
+        res.setHeader("Last-Modified", lastModified);
+        if (req.headers["if-modified-since"] === lastModified) {
+          res.status(304).end();
+        } else {
+          res.send("新的数据");
+        }
+      });
+
+      // 使用 ETag 和 If-None-Match 头进行协商缓存
+      app.get("/data", (req, res) => {
+        const data = "响应数据";
+        const etag = crypto.createHash("md5").update(data).digest("hex");
+        res.setHeader("ETag", etag);
+        if (req.headers["if-none-match"] === etag) {
+          res.status(304).end();
+        } else {
+          res.send(data);
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>性能优化</title>
+  </head>
+  <body>
+    <script>
+      /**
+      *当一个页面依赖非常多资源(如 JavaScript 文件、CSS 文件、图片等)时,
+       可能会导致页面加载缓慢、用户体验差。为了优化页面加载性能,我们可以从以下几个方面入手:
+
+      压缩资源文件
+      对 JavaScript 和 CSS 文件进行压缩和合并,减小文件大小。对图片进行压缩优化,减小体积。
+      启用服务器端的 Gzip 压缩,进一步减小传输大小。
+      利用浏览器缓存
+
+      为静态资源设置合理的缓存策略(Cache-Control、Expires等),让浏览器缓存资源,减少重复请求。
+      采用内容摘要(Content Hash)作为资源文件名的一部分,防止缓存混淆。
+      资源预加载和预解析
+
+      使用 <link rel="preload"> 进行资源预加载,提前获取关键资源。
+      使用 <link rel="dns-prefetch"> 和 <link rel="preconnect"> 进行 DNS 预解析和预连接,减少网络延迟。
+      采用 CDN 加速
+
+      利用 CDN 的地理分布式缓存特性,让用户从就近节点获取资源,缩短传输距离。延迟加载非关键资源
+      对于非首屏关键资源(如图片、视频等),可以采用懒加载的方式延迟加载,优先加载首屏内容。
+      优化 JavaScript 执行
+      对于大型 JavaScript 应用,可以考虑采用代码分割和按需加载的方式,减少首屏加载体积。
+      尽量将 JavaScript 置于底部加载,避免阻塞首屏渲染。
+      对于第三方 JavaScript 库,可以考虑从 CDN 加载,利用浏览器缓存。
+      采用 HTTP/2 或 HTTP/3 协议
+      HTTP/2 和 HTTP/3 协议支持多路复用、头部压缩等特性,能够更高效地传输资源。
+      实施 Web 服务器优化
+
+      启用文件压缩、缓存控制等服务器优化策略。
+      根据实际业务,调整 Web 服务器的超时时间、最大连接数等配置。
+      使用 Webpack 等构建工具
+      利用构建工具自动完成资源压缩、代码分割、树摇等优化步骤,提高开发效率。进行性能监控和持续优化
+      使用 Web 性能监控工具(如 WebPageTest、Lighthouse 等)持续监控页面性能,发现性能瓶颈点。
+      根据实际情况不断优化,提升页面加载速度和用户体验。
+      需要注意的是,这些优化策略并非一蹴而就,需要根据实际情况综合运用。
+      通过合理的资源优化,可以有效提升网站的加载速度,为用户带来更好的浏览体验。
+       *
+       *
+       *
+       */
+    </script>
+  </body>
+</html>
