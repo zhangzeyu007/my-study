@@ -1,0 +1,79 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-14 15:34:39
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-14 15:38:21
+ * @FilePath: \my-study\http常用知识总结\05.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>http知识总结</title>
+  </head>
+  <body>
+    <script>
+      /*
+      在 Node.js 中,可以使用像 jsonwebtoken 这样的第三方库来生成和解析 JWT Token。
+      以下是如何使用 jsonwebtoken 库为 JWT Token 设置失效时间的示例:
+      1. 安装依赖
+        npm install jsonwebtoken
+      2. 生成 JWT Token 并设置过期时间
+        const jwt = require('jsonwebtoken');
+
+      // 定义密钥
+      const secretKey = 'your-secret-key';
+        // payload 中可以包含一些元数据
+        const payload = {
+          username: 'john.doe',
+          role: 'admin'
+        };
+
+      // 设置 JWT Token 的过期时间为 1 小时
+      const options = { expiresIn: '1h' };
+
+    // 生成 JWT Token
+    const token = jwt.sign(payload, secretKey, options);
+    console.log(`JWT Token: ${token}`);
+    在上面的示例中，我们使用 jwt.sign 方法生成 JWT Token。第三个参数 options 对象中的 expiresIn 
+    属性用于设置 Token 的过期时间。这里将过期时间设置为 1 小时('1h')。你也可以使用其他时间单位，
+    如分钟('30m')或秒('86400s')。
+
+      3. 验证 JWT Token
+
+      javascript
+      复制
+      const jwt = require('jsonwebtoken');
+
+      // 定义密钥
+      const secretKey = 'your-secret-key';
+
+      // 接收到的 JWT Token
+      const token = 'xxx.yyy.zzz';
+
+      // 验证 JWT Token
+      jwt.verify(token, secretKey, (err, decoded) => {
+        if (err) {
+          // Token 无效或已过期
+          console.error('JWT Token 无效或已过期', err);
+          return;
+        }
+
+        // Token 有效
+        console.log('JWT Token 有效', decoded);
+      });
+        在上面的示例中，我们使用 jwt.verify 方法验证 JWT Token 的有效性。如果 Token 过期或无效，
+        该方法会返回一个错误对象。否则，它将返回解码后的 JWT payload 对象。
+        需要注意的是，一旦 JWT Token 生成后，它的过期时间就无法被修改。如果需要提前使 Token 失效，
+        可以采用前面提到的黑名单、白名单或数据库存储等方案。
+        通过设置合理的过期时间并采取适当的失效策略，可以增强 JWT Token 的安全性和可控性。在实际应用中，
+        还需要结合具体的业务需求和安全风险来调整合适的过期时间和失效机制。
+      
+      */
+    </script>
+  </body>
+</html>
