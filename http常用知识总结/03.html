@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>http知识总结</title>
+  </head>
+  <body>
+    <script>
+      //1.读取 Cookie
+      // 获取所有 Cookie
+      const allCookies = document.cookie;
+
+      // 获取指定名称的 Cookie 值
+      function getCookie(name) {
+        const cookieArr = document.cookie.split(";");
+
+        for (let i = 0; i < cookieArr.length; i++) {
+          const cookiePair = cookieArr[i].split("=");
+          if (name == cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
+          }
+        }
+        return null;
+      }
+      //2.设置 Cookie
+      function setCookie(name, value, expires) {
+        const cookieStr = `${name}=${encodeURIComponent(value)}${
+          expires ? `;expires=${expires.toUTCString()}` : ""
+        }; path=/`;
+        document.cookie = cookieStr;
+      }
+
+      // 设置一个带过期时间的 Cookie
+      const expiresDate = new Date();
+      expiresDate.setMonth(expiresDate.getMonth() + 1); // 1 个月后过期
+      setCookie("userId", "123456", expiresDate);
+
+      //3.删除 Cookie
+
+      function deleteCookie(name) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+      }
+      /**
+       * Session 操作
+        前端无法直接操作服务器端的 Session 对象,但可以通过发送请求携带 Session ID 
+        来与服务器交互。通常通过 Cookie 来传递 Session ID。
+        下面是一个使用 fetch 发送带 Cookie 的请求的示例:
+      */
+      // 发送请求时自动携带 Cookie
+      fetch("/api/user/profile", {
+        credentials: "include", // 重要,必须设置为 include 才会发送 Cookie
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          // 处理服务器返回的数据,data 中包含了用户状态信息
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+      /*
+        在实际项目中,我们通常会使用一些库或框架来简化 Cookie 和 Session 的操作,如 js-cookie、axios 等。
+        但核心原理都是基于 document.cookie 和发送带 Cookie 的 HTTP 请求来实现的。
+        需要注意的是,由于 Cookie 存在一些安全隐患,现代 Web 应用更多采用 Token 机制来实现身份认证和状态管理。
+        不过 Cookie 和 Session 的概念也是必须要了解的,因为它们是 Web 开发中非常基础和重要的知识点。
+        */
+    </script>
+  </body>
+</html>
