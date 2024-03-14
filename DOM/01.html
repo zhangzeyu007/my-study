@@ -1,117 +1,152 @@
-<!--
- * @Description: 
- * @Author: 张泽雨
- * @Date: 2022-04-17 16:35:07
- * @LastEditors: 张泽雨
- * @LastEditTime: 2022-04-17 20:27:30
- * @FilePath: \my-study\DOM\01.html
--->
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM接口api</title>
-    <style>
-   
-    </style>
-</head>
+    <style></style>
+  </head>
 
-<body>
-    <div  id="title" name="sos">第二种方法</div>
+  <body>
+    <div id="title" name="sos">第二种方法</div>
     <div class="title2">我是你的</div>
-     <div id="description"></div>
-     <div id="myList1">
-        <h2>woo</h2>
-        <h1>杭州woo</h1>
-     </div>
-    <input/>
-  
-    <img src="" alt="">
+    <div id="description"></div>
+    <div id="myList1">
+      <h2>woo</h2>
+      <h1>杭州woo</h1>
+    </div>
+    <input />
+
+    <img src="" alt="" />
     <a href=""></a>
     <ul id="list">
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
-        <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
     </ul>
-</body>
+  </body>
 
-<script>
+  <script>
     // 文档信息
-    let URL = document.URL
+    let URL = document.URL;
     console.log(URL);
-    let domain = document.domain
+    let domain = document.domain;
     console.log(domain);
-    let referer = document.referer
+    let referer = document.referer;
     console.log(referer);
 
     // 定位元素
-    let title = document.getElementById('title')
+    let title = document.getElementById("title");
     console.log(title);
-    let title2 = document.getElementsByClassName('title2')
+    let title2 = document.getElementsByClassName("title2");
     console.log(title2);
-    let input = document.getElementsByTagName('input')
+    let input = document.getElementsByTagName("input");
     console.log(input);
-    let img = document.getElementsByTagName('img')
+    let img = document.getElementsByTagName("img");
+    document.querySelector(selector); // 通过选择器获取第一个匹配的元素;
+    document.querySelectorAll(selector); // 通过选择器获取所有匹配的元素集合;
     console.log(img);
     // 特殊集合
-    let images = document.images
+    let images = document.images;
     console.log(images);
-    let  links = document.links
+    let links = document.links;
     console.log(links);
 
     // DOM兼容性检测
-    let isXML=document.implementation.hasFeature('XML','2.0')
-    let isCSS = document.implementation.hasFeature('CSS','2.0')
+    let isXML = document.implementation.hasFeature("XML", "2.0");
+    let isCSS = document.implementation.hasFeature("CSS", "2.0");
     console.log(isXML);
-    console.log(isCSS); 
+    console.log(isCSS);
 
     // 文档写入
-    document.write('<h1>我是文档写入</h1>')
+    document.write("<h1>我是文档写入</h1>");
     // 打开关闭网页的输入流
-    document.open()
-    document.close()
+    document.open();
+    document.close();
 
     // 取得属性
-    let  Element = document.getElementById('title')
-    let titleArr = Element.getAttribute('id')
+    let Element = document.getElementById("title");
+    let titleArr = Element.getAttribute("id");
     console.log(titleArr);
 
     // 设置属性
-    Element.setAttribute('id','someOhterId')
+    Element.setAttribute("id", "someOhterId");
     console.log(Element);
     console.log(Element.attributes);
-    let id =Element.attributes.getNamedItem('id').nodeValue
+    let id = Element.attributes.getNamedItem("id").nodeValue;
     console.log(id);
-    let oldAttr =  Element.attributes.removeNamedItem('id')
+    let oldAttr = Element.attributes.removeNamedItem("id");
     console.log(oldAttr);
     console.log(Element);
-   // 创建元素
-   let div = document.createElement('div')
-   let node = document.getElementById('description').lastChild
-   var list=document.getElementById("myList1");
+    // 创建元素
+    let div = document.createElement("div");
+    let node = document.getElementById("description").lastChild;
+    var list = document.getElementById("myList1");
 
-   div.id = 'ohter'
-   div.className = 'box'
-   console.log(div);
-   document.body.appendChild(div)
-   document.body.removeChild(div)
-   list.insertBefore(Element,list.childNodes[0])
-   let h1 = document.getElementsByTagName("h1")[0];  //获取一级标题的引用
-   let h2 = document.createElement("h2");  //创建二级标题元素并引用
-   // 替换
-   list.replaceChild(h2,h1)
+    div.id = "ohter";
+    div.className = "box";
+    console.log(div);
+    document.body.appendChild(div);
+    document.body.removeChild(div);
+    list.insertBefore(Element, list.childNodes[0]);
+    let h1 = document.getElementsByTagName("h1")[0]; //获取一级标题的引用
+    let h2 = document.createElement("h2"); //创建二级标题元素并引用
+    // 替换
+    list.replaceChild(h2, h1);
 
-  // 元素后代
-   let childNodes = document.getElementById('list').childNodes
-   console.log(childNodes);
+    // 元素后代
+    let childNodes = document.getElementById("list").childNodes;
+    console.log(childNodes);
+    /**
+     * 1. 获取 DOM 元素
 
+        document.getElementById(id) - 通过元素 ID 获取单个元素
+        document.getElementsByTagName(name) - 通过标签名获取元素集合
+        document.getElementsByClassName(classNames) - 通过类名获取元素集合
+        document.querySelector(selector) - 通过选择器获取第一个匹配的元素
+        document.querySelectorAll(selector) - 通过选择器获取所有匹配的元素集合
+        2. 创建和插入 DOM 元素
+        document.createElement(tagName) - 创建一个新的元素节点
+        parentNode.appendChild(node) - 将新节点添加到父节点的最后一个子节点
+        parentNode.insertBefore(newNode, existingNode) - 在父节点的指定子节点之前插入新节点
+        3. 删除和替换 DOM 元素
 
-</script>
+        parentNode.removeChild(node) - 从父节点中删除指定的子节点
+        parentNode.replaceChild(newNode, oldNode) - 用新节点替换父节点的一个子节点
+        4. 操作 DOM 元素属性
+        element.getAttribute(attributeName) - 获取元素的指定属性值
+        element.setAttribute(attributeName, value) - 设置或更改元素的指定属性值
+        element.removeAttribute(attributeName) - 从元素中删除指定的属性
+        5. 操作 DOM 元素样式
 
+        element.style.property = value - 设置元素的内联样式属性
+        element.classList.add(className) - 为元素添加类
+        element.classList.remove(className) - 从元素中删除类
+        element.classList.toggle(className) - 切换元素的类
+        6. 操作 DOM 元素内容
+
+        element.innerHTML = html - 设置元素的 HTML 内容
+        element.textContent = text - 设置元素的文本内容
+        element.innerText = text - 设置或获取元素的可渲染文本内容
+        7. 操作 DOM 元素事件
+
+        element.addEventListener(event, function, useCapture) - 为元素添加事件监听器
+        element.removeEventListener(event, function, useCapture) - 从元素中删除事件监听器
+        8. 遍历 DOM 树
+
+        parentNode.childNodes - 获取所有子节点的集合
+        parentNode.firstChild - 获取第一个子节点
+        parentNode.lastChild - 获取最后一个子节点
+        node.parentNode - 获取父节点
+        node.previousSibling - 获取前一个同级节点
+        node.nextSibling - 获取后一个同级节点
+     * 
+     * 
+     * 
+     * 
+    */
+  </script>
 </html>
