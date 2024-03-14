@@ -1,0 +1,95 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-14 13:02:44
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-14 13:03:04
+ * @FilePath: \my-study\http知识总结\02.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>http知识总结</title>
+  </head>
+  <body>
+    <script>
+      /**
+       *HTTP 请求结构
+      请求行
+
+      请求方法: GET、POST、PUT、DELETE、HEAD、OPTIONS 等
+      请求 URL: 包括协议、主机名、端口号、路径、查询字符串等
+      HTTP 版本: 如 HTTP/1.1、HTTP/2.0 等
+      请求头
+
+      通用头: 如 Host、User-Agent、Accept、Accept-Encoding 等
+      请求头: 如 Accept、Accept-Encoding、Connection、Cookie、Referer 等
+      实体头: 如 Content-Type、Content-Length 等
+      请求体
+
+      对于 POST、PUT 等请求方法,请求体用于传输数据
+      HTTP 响应结构
+
+      状态行
+
+      HTTP 版本: 如 HTTP/1.1、HTTP/2.0 等
+      状态码: 如 200 OK、404 Not Found、500 Internal Server Error 等
+      状态码描述: 一个简短的状态码说明
+      响应头
+
+      通用头: 如 Date、Connection、Server 等
+      响应头: 如 Content-Type、Content-Length、Cache-Control 等
+      实体头: 如 Content-Encoding、ETag、Expires 等
+      响应体
+
+      服务器返回给客户端的实际数据内容
+      状态码
+
+      1xx 信息状态码: 接收的请求正在处理
+      2xx 成功状态码: 请求正常处理完毕
+      200 OK: 请求成功
+      204 No Content: 请求成功,但响应没有实体
+      206 Partial Content: 服务器已经成功处理了部分 GET 请求
+      3xx 重定向状态码: 需要进行附加操作以完成请求
+      301 Moved Permanently: 永久重定向
+      302 Found: 临时重定向
+      304 Not Modified: 协商缓存命中,可使用缓存
+      4xx 客户端错误状态码: 服务器无法处理请求
+      400 Bad Request: 请求语法错误
+      401 Unauthorized: 需要身份认证
+      403 Forbidden: 服务器拒绝请求
+      404 Not Found: 未找到请求资源
+      5xx 服务器错误状态码: 服务器处理请求出错
+      500 Internal Server Error: 服务器内部错误
+      502 Bad Gateway: 网关错误
+      503 Service Unavailable: 服务暂时过载或维护
+      请求头和响应头
+
+      Content-Type: 实体主体的媒体类型
+      Content-Length: 实体主体的长度
+      Accept: 客户端可接受的响应类型
+      Accept-Encoding: 客户端可接受的编码格式
+      User-Agent: 发起请求的用户代理标识
+      Server: 服务器名称
+      Referer: 请求来源地址
+      Cookie: 客户端向服务器传递的 Cookie 数据
+      Set-Cookie: 服务器向客户端设置的 Cookie 数据
+      Cache-Control: 控制缓存机制
+      Expires: 资源过期时间
+      ETag: 资源唯一标识
+      Last-Modified: 资源最后修改时间
+      Connection: 连接管理
+      Transfer-Encoding: 传输编码方式
+      Upgrade: 升级 HTTP 协议版本
+      通过以上内容,我们详细介绍了 HTTP 请求和响应的结构、状态码、请求头和响应头等知识点。
+      HTTP 作为 Web 的基础协议,
+      理解其请求和响应的细节对于开发高性能 Web 应用至关重要。
+      这些知识点涵盖了广泛的内容,对于提高 Web 开发能力很有帮助
+       */
+    </script>
+  </body>
+</html>
