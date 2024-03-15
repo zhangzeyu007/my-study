@@ -1,0 +1,51 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-15 10:50:57
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-15 11:47:43
+ * @FilePath: \my-study\事件总线的使用\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>事件总线的使用</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      class Bus {
+        constructor() {
+          this.events = {};
+        }
+        $on(name, callback) {
+          if (!this.events[name]) {
+            this.events[name] = [];
+          }
+          this.events[name].push(callback);
+        }
+
+        $emit(name, ...args) {
+          if (this.events[name]) {
+            this.events[name].forEach((callback) => {
+              callback(...args);
+            });
+          }
+        }
+      }
+
+      const bus = new Bus();
+
+      bus.$on("zzy", (message) => {
+        console.log(message, "res");
+      });
+
+      bus.$emit("zzy", "你好");
+      console.log(bus);
+    </script>
+  </body>
+</html>
