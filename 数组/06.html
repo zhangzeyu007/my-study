@@ -1,0 +1,44 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-14 22:27:09
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-14 22:35:34
+ * @FilePath: \my-study\数组\06.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      var arr = [7, 8, 9, 10, 1, 2, 3, 4, 5, 6];
+      function maxmin(params) {
+        return [Math.max.apply(null, params), Math.min.apply(null, params)];
+      }
+      console.log(maxmin(arr));
+      function maxmin1(arr) {
+        let max = arr[0];
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] > max) {
+            max = arr[i];
+          }
+        }
+        return [max];
+      }
+      console.log(maxmin1(arr));
+
+      function maxmin2(arr) {
+        let arry = arr.sort((a, b) => a - b);
+        return [arry[arry.length - 1], arry[0]];
+      }
+      console.log(maxmin2(arr));
+    </script>
+  </body>
+</html>
