@@ -51,8 +51,12 @@
       */
       let a = new Date();
       console.log(typeof Object.prototype.toString.call(a));
-      console.log(Object.prototype.toString.call(a));
+
       console.log(typeof a);
+
+      let type = Object.prototype.toString.call(a);
+      const res = type.replace(/\[|\]/g, "").split(" ")[1];
+      console.log(res);
     </script>
   </body>
 </html>
