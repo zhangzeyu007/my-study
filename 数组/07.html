@@ -1,0 +1,62 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-16 13:57:44
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-16 14:08:56
+ * @FilePath: \my-study\数组\07.html
+-->
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-14 22:27:09
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-14 22:35:34
+ * @FilePath: \my-study\数组\06.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数组</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      //检查数组中是否包含某个元素
+      const fruits = ["apple", "banana", "orange"];
+      if (fruits.indexOf("banana") !== -1) {
+        console.log("数组包含 banana");
+      } else {
+        console.log("数组不包含 banana");
+      }
+      //获取元素在数组中的位置
+      const numbers = [10, 20, 30, 20, 40];
+      const firstIndex = numbers.indexOf(20); // 1
+      const lastIndex = numbers.lastIndexOf(20); // 3
+
+      //查找数组中是否存在重复元素
+      const names = ["John", "Jane", "Jim", "John"];
+      const hasDuplicates = names.indexOf("John") !== names.lastIndexOf("John");
+      // hasDuplicates 为 true
+
+      //移除数组中的某个元素
+      const index = fruits.indexOf("banana");
+      if (index !== -1) {
+        fruits.splice(index, 1); // 移除 banana
+      }
+
+      //合并两个数组,并去除重复元素
+      const arr1 = [1, 2, 3];
+      const arr2 = [2, 3, 4];
+      const mergedArr = [
+        ...arr1,
+        ...arr2.filter((it) => arr1.indexOf(it) === -1),
+      ];
+      console.log(mergedArr);
+    </script>
+  </body>
+</html>
