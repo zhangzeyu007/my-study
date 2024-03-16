@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2024-03-13 20:04:57
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-03-13 20:14:30
+ * @LastEditTime: 2024-03-16 15:16:32
  * @FilePath: \my-study\map使用详解\01.html
 -->
 
@@ -26,9 +26,11 @@
         ["name", "John"],
         ["age", 30],
       ]);
-
+      console.log(map1);
+      console.log(map1.keys());
+      console.log([...map1.keys()]);
       //2. 添加键值对
-      map.set(key, value); // 添加或更新一个键值对
+      map.set("namee", 1222); // 添加或更新一个键值对
       //3. 获取值
       map.get(key); // 获取指定键对应的值
       //4. 判断是否存在键

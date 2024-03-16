@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-23 09:01:10
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-26 11:02:11
+ * @LastEditTime: 2024-03-16 15:40:46
  * @FilePath: \my-study\算法\排序算法\选择排序.html
 -->
 <!DOCTYPE html>
@@ -32,6 +32,23 @@
         return nums;
       };
       console.log(sort(arr));
+
+      function handleSort(arr) {
+        let len = arr.length;
+        for (var i = 0; i < len - 1; i++) {
+          let minIndex = i;
+          for (var j = i + 1; j < len; j++) {
+            if (arr[j] < arr[minIndex]) {
+              minIndex = j;
+            }
+          }
+          if (i !== minIndex) {
+            [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+          }
+        }
+        return arr;
+      }
+      console.log(handleSort(arr));
     </script>
   </body>
 </html>
