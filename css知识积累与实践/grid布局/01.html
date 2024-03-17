@@ -1,114 +1,102 @@
-<!--
- * @Description: 组件
- * @Author: 海象
- * @Date: 2021-04-11 12:28:46
- * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-10 07:59:19
--->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>grid 布局</title>
     <style>
-        .main1 {
-            display: grid;
-            grid-template-columns: 200px auto 100px;
-            grid-template-rows: 200px;
-        }
+      .main1 {
+        display: grid;
+        grid-template-columns: 200px auto 100px;
+        grid-template-rows: 200px;
+      }
 
-        .main1 .item {
-            border: 2px solid darkgoldenrod;
-        }
+      .main1 .item {
+        border: 2px solid darkgoldenrod;
+      }
 
-        .main2 {
-            display: grid;
-            grid-template-columns: 1fr 2fr 1fr;
-            grid-template-rows: 200px;
-        }
+      .main2 {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 200px;
+      }
 
-        .main2 .item {
-            border: 2px solid pink;
+      .main2 .item {
+        border: 2px solid pink;
+      }
 
-        }
-
-        /* 单元格的大小是固定的，但是容器的大小不确定。如果希望每一行（或每一列）
+      /* 单元格的大小是固定的，但是容器的大小不确定。如果希望每一行（或每一列）
         容纳尽可能多的单元格，这时可以使用auto-fill关键字表示自动填充 */
-        .main3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, 100px);
-            grid-template-rows: 200px;
-            grid-row-gap: 20px;
-            grid-column-gap: 20px;
-            border: 1px solid darkseagreen;
-        }
+      .main3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 100px);
+        grid-template-rows: 200px;
+        grid-row-gap: 20px;
+        grid-column-gap: 20px;
+        border: 1px solid darkseagreen;
+      }
 
-        .main3 .item {
-            border: 2px solid orange;
-            justify-items: center;
-            align-items: center;
-        }
+      .main3 .item {
+        border: 2px solid orange;
+        justify-items: center;
+        align-items: center;
+      }
 
-        /* minmax()函数产生一个长度范围，表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值 */
-        /* minmax(100px, 1fr)表示列宽不小于100px，不大于1fr */
-        .main4 {
-            display: grid;
-            grid-template-columns: 1fr 1fr minmax(100px, 1fr);
-            grid-template-rows: 200px;
-        }
+      /* minmax()函数产生一个长度范围，表示长度就在这个范围之中。它接受两个参数，分别为最小值和最大值 */
+      /* minmax(100px, 1fr)表示列宽不小于100px，不大于1fr */
+      .main4 {
+        display: grid;
+        grid-template-columns: 1fr 1fr minmax(100px, 1fr);
+        grid-template-rows: 200px;
+      }
 
-        .main4 .item {
-            border: 2px solid green;
-        }
+      .main4 .item {
+        border: 2px solid green;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="main1">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
     </div>
 
     <div class="main2">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
     </div>
 
     <div class="main3">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
     </div>
     <div class="main4">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
     </div>
-
-</body>
-
+  </body>
 </html>
