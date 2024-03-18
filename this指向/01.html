@@ -1,55 +1,43 @@
-<!--
- * @Description: 组件
- * @Author: 海象
- * @Date: 2021-01-26 09:41:39
- * @LastEditors: 海象
- * @LastEditTime: 2021-04-19 22:17:41
--->
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>this的指向问题</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        var name = '小红'
-        function a() {
-            var name = '小白'
-            console.log(this.name); // 指向全局的 window
-        }
+      var name = "小红";
+      function a() {
+        var name = "小白";
+        console.log(this.name); // 指向全局的 window
+      }
 
-        function d(i) {
-            return i();
-        }
+      function d(i) {
+        return i();
+      }
 
-        var b = {
-            name: "小黄",
-            detail: function () {
-                console.log(this.name);
-            },
-            bibi: function () {
-                return function () {
-                    console.log(this.name);
-                }
-            }
-        }
-        var c = b.detail;
-        b.a = a
-        var e = b.bibi()
+      var b = {
+        name: "小黄",
+        detail: function () {
+          console.log(this.name);
+        },
+        bibi: function () {
+          return function () {
+            console.log(this.name);
+          };
+        },
+      };
+      var c = b.detail;
+      b.a = a;
+      var e = b.bibi();
 
-        a() // 指向全局的 window
-        c() // 小红
-        b.a() // 小黄
-        d(b.detail) // 小红
-        e() // 小红
-
-
+      a(); // 指向全局的 window
+      c(); // 小红
+      b.a(); // 小黄
+      d(b.detail); // 小红
+      e(); // 小红
     </script>
-</body>
-
+  </body>
 </html>
