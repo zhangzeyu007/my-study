@@ -1,0 +1,77 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-18 19:59:27
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-18 20:18:26
+ * @FilePath: \my-study\任务执行洋葱模型\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>任务执行洋葱模型</title>
+  </head>
+  <body>
+    <script>
+      class TaskPro {
+        constructor() {
+          this._taskList = [];
+          this._running = false;
+          this._currentIndex = 0;
+        }
+
+        addTask(task) {
+          this._taskList.push(task);
+        }
+
+        run() {
+          if (this._running) {
+            return;
+          }
+          this._running = true;
+          this._runTask();
+        }
+        //
+        async _runTask() {
+          if (this._currentIndex >= this._taskList.length) {
+            this._running = false;
+            this._currentIndex = 0;
+            this._taskList = [];
+            return;
+          }
+          const task = this._taskList[this._currentIndex];
+          const i = this._currentIndex;
+          await task(this._next.bind(this));
+          const j = this._currentIndex;
+          if (i === j) {
+            await this._next();
+          }
+        }
+
+        async _next() {
+          await this._currentIndex++;
+          await this._runTask();
+        }
+      }
+
+      const t = new TaskPro();
+      t.addTask(async (next) => {
+        console.log(1, "start");
+        await next();
+        console.log(1, "end");
+      });
+      t.addTask(() => {
+        console.log(2);
+      });
+      t.addTask(() => {
+        console.log(3);
+      });
+
+      t.run();
+    </script>
+  </body>
+</html>
