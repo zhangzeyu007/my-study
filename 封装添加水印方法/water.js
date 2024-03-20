@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2024-03-20 12:30:51
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-03-20 12:30:52
+ * @LastEditTime: 2024-03-20 12:35:57
  * @FilePath: \my-study\封装添加水印方法\water.js
  */
 
@@ -74,12 +74,12 @@ export function useWatermark(parentEl = bodyEl) {
     watermarkEl.style.position = watermarkElPosition;
     watermarkEl.style.zIndex = "999999";
     const { clientWidth, clientHeight } = parentEl;
-    console.log(clientWidth, "到达");
+
     // 设置水印元素的宽高
     updateWatermarkEl({ clientWidth, clientHeight });
     // 设置水印容器为相对定位
     parentEl.style.position = parentElPosition;
-    console.log(watermarkEl);
+
     // 将水印元素添加到容器元素中
     parentEl.appendChild(watermarkEl);
   };
@@ -171,7 +171,7 @@ export function useWatermark(parentEl = bodyEl) {
   const addMutationListener = (targetNode) => {
     // 当观察到变动时执行回调函数
     const mutaionCallback = debounce((mutationsList) => {
-      mutationsList.forEach((mutation) => {
+      mutationsList.forEach(
         debounce((mutation) => {
           switch (mutation.type) {
             case "attributes":
@@ -183,8 +183,8 @@ export function useWatermark(parentEl = bodyEl) {
               });
               break;
           }
-        }, 100);
-      });
+        }, 100)
+      );
     }, 100);
     // 创建观察器实例并传入回调
     observer.watermarkElMutationObserver = new MutationObserver(
