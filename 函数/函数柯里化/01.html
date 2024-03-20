@@ -1,76 +1,77 @@
 <!--
- * @Description: 组件
- * @Author: 海象
+ * @Description: 
+ * @Author: 张泽雨
  * @Date: 2021-01-26 11:53:44
- * @LastEditors: 海象
- * @LastEditTime: 2021-03-20 21:44:28
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-20 13:31:24
+ * @FilePath: \my-study\函数\函数柯里化\01.html
 -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>柯里化</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-
-        const whichEvent = (function () {
-            if (window.addEventListener) {
-                return function (element, type, listener, useCapture) {
-                    element.addEventListener(type, function (e) {
-                        listener.call(element, e)
-                    }, useCapture)
-                }
-            } else if (window.attachEvent) {
-                return function (element, type, handler) {
-                    element.attachEvent('on' + type, function () {
-                        handler.call(element, e)
-                    })
-                }
-            }
-        })()
-        // console.log(whichEvent);
-        function add() {
-            let args = Array.prototype.slice.call(arguments)
-            let inner = function () {
-                args.push(...arguments)
-                return inner
-            }
-            inner.toString = function () {
-                return args.reduce(function (prev, cur) {
-                    return prev + cur
-                })
-            }
-
-            return inner;
+      const whichEvent = (function () {
+        if (window.addEventListener) {
+          return function (element, type, listener, useCapture) {
+            element.addEventListener(
+              type,
+              function (e) {
+                listener.call(element, e);
+              },
+              useCapture
+            );
+          };
+        } else if (window.attachEvent) {
+          return function (element, type, handler) {
+            element.attachEvent("on" + type, function () {
+              handler.call(element, e);
+            });
+          };
         }
+      })();
+      // console.log(whichEvent);
+      function add() {
+        let args = Array.prototype.slice.call(arguments);
+        let inner = function () {
+          args.push(...arguments);
+          return inner;
+        };
+        inner.toString = function () {
+          return args.reduce(function (prev, cur) {
+            return prev + cur;
+          });
+        };
 
-        console.log(add(1)(2)(3));
+        return inner;
+      }
 
-        const nameList1 = [
-            { mid: "哈哈" },
-            { mid: "那你" },
-            { mid: "宽度" },
-            { mid: "大幅度" }
-        ]
+      console.log(add(1)(2)(3));
 
-        const nameList2 = [
-            { abc: '和第三届开发' },
-            { abc: '和第发' },
-            { abc: '和第三届发' },
-            { abc: '和开发' },
-        ]
+      const nameList1 = [
+        { mid: "哈哈" },
+        { mid: "那你" },
+        { mid: "宽度" },
+        { mid: "大幅度" },
+      ];
 
-        const curring = name => element => element[name]
-        const name_mid = curring('mid')
-        const name_abc = curring("abc")
-        console.log(nameList1.map(name_mid));
-        console.log(nameList2.map(name_abc));
+      const nameList2 = [
+        { abc: "和第三届开发" },
+        { abc: "和第发" },
+        { abc: "和第三届发" },
+        { abc: "和开发" },
+      ];
 
+      const curring = (name) => (element) => element[name];
+      const name_mid = curring("mid");
+      const name_abc = curring("abc");
+      console.log(nameList1.map(name_mid));
+      console.log(nameList2.map(name_abc));
     </script>
-</body>
-
+  </body>
 </html>

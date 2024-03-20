@@ -1,0 +1,39 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-20 13:40:28
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-20 13:54:56
+ * @FilePath: \my-study\函数\函数柯里化\06.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>柯里化</title>
+  </head>
+  <body>
+    <script>
+      function addBorder(side, color, width) {
+        // 添加边框样式的逻辑...
+        console.log(`Add ${width}px ${color} border on the ${side} side`);
+      }
+      function curry(fn) {
+        return function curried(...args) {
+          if (args.length >= fn.length) {
+            return fn(...args);
+          } else {
+            return (...rest) => curried(...args, ...rest);
+          }
+        };
+      }
+      const curriedAddBorder = curry(addBorder);
+      const addTopBorder = curriedAddBorder("top");
+      const redTopBorder = addTopBorder("red");
+      const redTopBorder5px = redTopBorder(5);
+    </script>
+  </body>
+</html>
