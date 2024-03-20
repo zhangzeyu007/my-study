@@ -1,0 +1,36 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-20 13:16:32
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-20 13:22:16
+ * @FilePath: \my-study\类\02.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>类</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      function Person(foo) {
+        if (!new.target) {
+          throw TypeError("异常");
+        }
+        this.foo = foo;
+      }
+
+      Person.prototype.func = function () {
+        console.log(this.foo);
+      };
+
+      const p = new Person("张泽雨");
+      p.func();
+    </script>
+  </body>
+</html>

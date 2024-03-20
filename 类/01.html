@@ -9,29 +9,28 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>类</title>
-    <style>
+    <style></style>
+  </head>
 
-    </style>
-</head>
-
-<body>
+  <body>
     <script>
-        class Person {
-            constructor(foo) {
-                this.foo = foo
-            }
+      class Person {
+        constructor(foo) {
+          this.foo = foo;
         }
+        func() {
+          console.log(this.foo);
+        }
+      }
 
-        let p1 = new Person()
-        console.log(p1 instanceof Person);
-        let p2 = new p1.constructor('you')
-        console.log(p2);
+      let p1 = new Person();
+      console.log(p1 instanceof Person);
+      let p2 = new p1.constructor("you");
+      console.log(p2);
     </script>
-</body>
-
+  </body>
 </html>
