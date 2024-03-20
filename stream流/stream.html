@@ -3,53 +3,53 @@
  * @Author: 张泽雨
  * @Date: 2021-01-17 12:14:20
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-07-03 15:20:22
+ * @LastEditTime: 2024-03-20 17:52:39
  * @FilePath: \my-study\stream流\stream.html
 -->
 
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>stream</title>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
+  <body>
     <script>
-        async function* chars() {
-            const encodedText = [240, 159, 152, 138].map(x => Uint8Array.of(x))
-            for (let char of encodedText) {
-                yield await new Promise((resolve) => {
-                    setTimeout(resolve, 1000, char)
-                })
-            }
+      async function* chars() {
+        const encodedText = [240, 159, 152, 138].map((x) => Uint8Array.of(x));
+        for (let char of encodedText) {
+          yield await new Promise((resolve) => {
+            setTimeout(resolve, 1000, char);
+          });
         }
-        const encodedTextStream = new ReadableStream({
-            async start(controller) {
-                for await (let chunk of chars()) {
-                    controller.enqueue(chunk)
-                }
-                controller.close()
-            }
-        })
+      }
+      const encodedTextStream = new ReadableStream({
+        async start(controller) {
+          for await (let chunk of chars()) {
+            controller.enqueue(chunk);
+          }
+          controller.close();
+        },
+      });
 
-        const decodedTextStream = encodedTextStream.pipeThrough(new TextDecoderStream())
-        const ReadableStreamDefaultReader = decodedTextStream.getReader();
+      const decodedTextStream = encodedTextStream.pipeThrough(
+        new TextDecoderStream()
+      );
+      const ReadableStreamDefaultReader = decodedTextStream.getReader();
 
-        (async function () {
-            while (true) {
-                const { done, value } = await ReadableStreamDefaultReader.read()
+      (async function () {
+        while (true) {
+          const { done, value } = await ReadableStreamDefaultReader.read();
 
-                if (done) {
-                    break
-                } else {
-                    console.log(value);
-                }
-            }
-        })()
+          if (done) {
+            break;
+          } else {
+            console.log(value);
+          }
+        }
+      })();
     </script>
-</body>
-
+  </body>
 </html>

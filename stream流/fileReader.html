@@ -1,0 +1,55 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2021-01-18 08:19:59
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-20 18:16:34
+ * @FilePath: \my-study\stream流\fileReader.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文件读取</title>
+  </head>
+
+  <body>
+    <input type="file" id="file" />
+    <script>
+      const CHUNK_SIZE = 0.1 * 1024 * 1024;
+      let fileList = document.getElementById("file");
+
+      fileList.addEventListener("change", (event) => {
+        console.log(event);
+        let files = event.target.files;
+        // console.log(files, "文件对象");
+        createFileChunk(files[0]);
+      });
+
+      function createFileChunk(file, size = CHUNK_SIZE) {
+        const chunks = [];
+        let cur = 0;
+        console.log(file.size, "文件大小", size);
+        while (cur < file.size) {
+          chunks.push({ index: cur, file: file.slice(cur, cur + size) });
+          cur += size;
+        }
+        console.log(chunks, "chunks");
+        calculateHashId(chunks);
+      }
+
+      function calculateHashId(chunks) {
+        let count = 0;
+        while (count < chunks.length) {
+          const reader = new FileReader();
+          reader.readAsArrayBuffer(chunks[count].file);
+          count++;
+          reader.onload = (e) => {
+            console.log(e.target.result, "e.target.result");
+          };
+        }
+      }
+    </script>
+  </body>
+</html>
