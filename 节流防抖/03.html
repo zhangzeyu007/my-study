@@ -1,0 +1,68 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-21 20:39:49
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-21 20:52:44
+ * @FilePath: \my-study\节流防抖\03.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>节流防抖</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      // 防抖原理
+      /*
+      这个防抖函数的原理是:
+      首先定义一个计时器 timer
+      返回一个新的函数
+      在新函数中,首先清除之前设置的计时器 clearTimeout(timer)
+      然后重新设置一个新的计时器 setTimeout
+      当计时器到时间后,执行传入的函数 fn.apply(context, args)
+*/
+      function debounce(fn, delay) {
+        let timer = null;
+        return function () {
+          let context = this;
+          let args = arguments;
+          clearTimeout(timer);
+          timer = setTimeout(function () {
+            fn.apply(context, args);
+          }, delay);
+        };
+      }
+
+      // 节流
+
+      /**
+       * 定义一个 lastTime 变量,用于记录上一次执行的时间
+         返回一个新的函数
+          在新函数中,首先获取当前时间 currentTime
+          然后计算当前时间与上一次执行的时间差 currentTime - lastTime
+          如果时间差大于或等于设置的延迟时间 delay,就执行传入的函数 fn.apply(context, args)
+          最后更新 lastTime 为当前时间 currentTime
+       * 
+      */
+      function throttle(fn, delay) {
+        let lastTime = 0;
+        return function () {
+          let currentTime = new Date().getTime();
+          let context = this;
+          let args = arguments;
+          if (currentTime - lastTime >= delay) {
+            fn.apply(context, args);
+            lastTime = currentTime;
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
