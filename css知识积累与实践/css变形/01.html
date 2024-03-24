@@ -1,0 +1,54 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-24 18:49:35
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-24 18:54:58
+ * @FilePath: \my-study\css知识积累与实践\css变形\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css过渡</title>
+    <style>
+       .box {
+         width: 100px;
+         height: 100px;
+         background-color: red;
+       }
+       .trans1 {
+         transform: translate(50px, 100px); /* 向右移动50px,向下移动100px */
+         transform: translateX(50px); /* 向右移动50px */
+         transform: translateY(100px); 向下移动100px
+       }
+       .trans2 {
+         margin-top: 20px;
+         margin-left:200px;
+         transform: scale(2, 0.5); /* 宽度放大2倍,高度缩小为0.5倍 */
+         transform: scaleX(2); /* 宽度放大2倍 */
+         transform: scaleY(0.5); /* 高度缩小为0.5倍 */
+       }
+       .trans3 {
+         margin-top: 20px;
+         margin-left:200px;
+         transform: rotate(45deg); /* 顺时针旋转45度 */
+       }
+       .trans4 {
+        transform: skew(30deg, 20deg); /* 横向扭曲30度,纵向扭曲20度 */
+       transform: skewX(30deg); /* 横向扭曲30度 */
+      transform: skewY(20deg); /* 纵向扭曲20度 */
+       }
+    </style>
+  </head>
+
+  <body>
+    <div class="box trans1"></div>
+    <div class="box trans2"></div>
+    <div class="box trans3"></div>
+    <div class="box trans4"></div>
+  </body>
+</html>

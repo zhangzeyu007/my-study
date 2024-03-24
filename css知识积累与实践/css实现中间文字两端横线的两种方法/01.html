@@ -1,93 +1,91 @@
 <!--
- * @Description: 组件
- * @Author: 海象
+ * @Description: 
+ * @Author: 张泽雨
  * @Date: 2021-04-11 18:09:23
- * @LastEditors: 海象
- * @LastEditTime: 2021-04-13 07:55:42
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-24 18:41:45
+ * @FilePath: \my-study\css知识积累与实践\css实现中间文字两端横线的两种方法\01.html
 -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>css实现中间文字两端横线的两种方法</title>
     <style>
-        /*第一种方法*/
-        fieldset {
-            border: none;
-            padding: 0;
-            border-top: 1px blue solid;
-            text-align: center;
-            width: 300px;
-            margin: auto;
-        }
+      /*第一种方法*/
+      fieldset {
+        border: none;
+        padding: 0;
+        border-top: 1px blue solid;
+        text-align: center;
+        width: 300px;
+        margin: auto;
+      }
 
-        legend {
-            padding: 0 10px;
-            font-size: 16px;
-            color: blue;
-        }
+      legend {
+        padding: 0 10px;
+        font-size: 16px;
+        color: blue;
+      }
 
-        /*第二种方法*/
-        .title {
-            color: red;
-            text-align: center;
-            font-size: 16px;
-        }
+      /*第二种方法*/
+      .title {
+        color: red;
+        text-align: center;
+        font-size: 16px;
+      }
 
-        .title:before,
-        .title:after {
-            content: "";
-            width: 100px;
-            border-top: 1px red solid;
-            display: inline-block;
-            vertical-align: middle;
-        }
+      .title:before,
+      .title:after {
+        content: "";
+        width: 100px;
+        border-top: 1px red solid;
+        display: inline-block;
+        vertical-align: middle;
+      }
 
-        .title:before {
-            margin-right: 10px;
-        }
+      .title:before {
+        margin-right: 10px;
+      }
 
-        .title:after {
-            margin-left: 10px;
-        }
+      .title:after {
+        margin-left: 10px;
+      }
 
-        /* 练习 */
-        .title2 {
-            text-align: center;
-            font-size: 16px;
+      /* 练习 */
+      .title2 {
+        text-align: center;
+        font-size: 16px;
+      }
 
-        }
+      .title2:after,
+      .title2:before {
+        content: "";
+        width: 100px;
+        border-top: 1px solid darkseagreen;
+        display: inline-block;
+        vertical-align: middle;
+      }
 
-        .title2:after,
-        .title2:before {
-            content: '';
-            width: 100px;
-            border-top: 1px solid darkseagreen;
-            display: inline-block;
-            vertical-align: middle;
-        }
+      .title2:after {
+        margin-left: 10px;
+      }
 
-        .title2:after {
-            margin-left: 10px;
-        }
-
-        .title2:before {
-            margin-right: 10px;
-        }
+      .title2:before {
+        margin-right: 10px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!--第一种方法-->
     <fieldset>
-        <legend><span>第一种方法</span></legend>
+      <legend><span>第一种方法</span></legend>
     </fieldset>
     <!--第二种方法-->
     <div class="title">第二种方法</div>
     <div class="title2">我是你的</div>
-</body>
-
+  </body>
 </html>
