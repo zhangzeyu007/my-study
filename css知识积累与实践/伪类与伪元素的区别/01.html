@@ -1,58 +1,52 @@
 <!--
- * @Description: 组件
- * @Author: 海象
+ * @Description: 
+ * @Author: 张泽雨
  * @Date: 2021-04-09 08:13:09
- * @LastEditors: 海象
- * @LastEditTime: 2021-04-09 08:28:51
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-24 18:25:54
+ * @FilePath: \my-study\css知识积累与实践\伪类与伪元素的区别\01.html
 -->
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>伪类与伪元素的区别</title>
     <style>
-        body {
-            background-color: bisque;
-            color: #fff2e5;
-        }
+      body {
+        background-color: bisque;
+        color: #fff2e5;
+      }
 
-        input {
-            font-size: 3em;
-            width: 200px;
-            height: 50px;
-            border-radius: 10px;
-        }
+      input {
+        font-size: 3em;
+        width: 200px;
+        height: 50px;
+        border-radius: 10px;
+      }
 
-        /* 伪类的使用 ,可以有多个伪类 */
-        input:out-of-range:focus {
-            background: gold;
-        }
+      /* 伪类的使用 ,可以有多个伪类 */
+      input:out-of-range:focus {
+        background: gold;
+      }
 
-        /* 超出范围添加伪元素 */
-        input:out-of-range+h2::after {
-            content: "超出范围";
-        }
+      /* 超出范围添加伪元素 */
+      input:out-of-range + h2::after {
+        content: "超出范围";
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- 
         伪类与伪元素的区别
         伪类:
         伪元素::
      -->
     <div>
-
-        <input type="number" min='1' max="10">
-        <h2>结果:</h2>
-
-
+      <input type="number" min="1" max="10" />
+      <h2>结果:</h2>
     </div>
-
-</body>
-
+  </body>
 </html>

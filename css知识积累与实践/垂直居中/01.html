@@ -1,110 +1,125 @@
 <!--
- * @Description: 组件
- * @Author: 海象
+ * @Description: 
+ * @Author: 张泽雨
  * @Date: 2021-04-08 22:22:41
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-06-10 14:18:46
+ * @LastEditTime: 2024-03-24 18:35:08
+ * @FilePath: \my-study\css知识积累与实践\垂直居中\01.html
 -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>垂直居中</title>
     <style>
-        .box1 {
-            font-size: 30px;
-            width: 200px;
-            height: 200px;
-            border: 2px solid pink;
-            /* 固定高度垂直居中使用line-height 多行不适用*/
-            line-height: 200px;
-            text-align: center;
-        }
-        /* flex 布局 垂直居中方法 */
-        .box2 {
-            font-size: 30px;
-            width: 200px;
-            height: 200px;
-            border: 2px solid pink;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        /* table 垂直居中方法 */
-        .box3 {
-            display: table;
-            vertical-align: middle;
-        }
+      .box1 {
+        font-size: 30px;
+        width: 200px;
+        height: 200px;
+        border: 2px solid pink;
+        /* 固定高度垂直居中使用line-height 多行不适用*/
+        line-height: 200px;
+        text-align: center;
+      }
+      /* flex 布局 垂直居中方法 */
+      .box2 {
+        font-size: 30px;
+        width: 200px;
+        height: 200px;
+        border: 2px solid pink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* table 垂直居中方法 */
+      .box3 {
+        display: table;
+        vertical-align: middle;
+      }
 
-        .box3 li {
-            padding: 5px 10px;
-            background-color: antiquewhite;
-            display: table-cell;
-        }
-        /*  grid 布局 垂直居中方法 */
-        .box4 {
-            background-color: antiquewhite;
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            align-items: center;
-            justify-content: center;
-        }
+      .box3 li {
+        padding: 5px 10px;
+        background-color: antiquewhite;
+        display: table-cell;
+      }
+      /*  grid 布局 垂直居中方法 */
+      .box4 {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        align-items: center;
+        justify-content: center;
+        background-color: red;
+      }
 
-        .box4 li {
-            padding: 5px 10px;
-        }
+      .box4 li {
+        padding: 5px 10px;
+      }
 
-        .box5 {
-            width: 200px;
-            height: 200px;
-            border: 2px solid pink;
-        }
+      .box5 {
+        width: 200px;
+        height: 200px;
+        border: 2px solid pink;
+        text-align: center;
+        line-height: 200px;
+      }
 
-        .search {
-            display: inline-block;
-            vertical-align: middle;
-        }
+      .search {
+        display: inline-block;
+        /* vertical-align: middle;
+        text-align: center; */
+      }
 
-        .after {
-            display: inline-block;
-            height: 200px;
-            vertical-align: middle;
-
-        }
+      .after {
+        /* display: inline-block;
+        height: 200px;
+        vertical-align: middle; */
+      }
+      .box6 {
+        width: 200px;
+        height: 200px;
+        border: 2px solid pink;
+        position: relative;
+      }
+      .cotent {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%);
+        transform: translateX(-50%);
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>line-height 垂直居中</h1>
-    <div class="box1">
-        垂直
-    </div>
+    <div class="box1">垂直</div>
     <h1>flex 垂直居中</h1>
-    <div class="box2">
-        垂直
-    </div>
+    <div class="box2">垂直</div>
     <h1>table 垂直居中</h1>
     <ul class="box3">
-        <li>主要</li>
-        <li>主要</li>
-        <li>主要</li>
-        <li>主要</li>
+      <li>主要</li>
+      <li>主要</li>
+      <li>主要</li>
+      <li>主要</li>
     </ul>
     <h1>grid 垂直居中</h1>
     <ul class="box4">
-        <li>主要</li>
-        <li>主要</li>
-        <li>主要</li>
-        <li>主要</li>
+      <li>主要</li>
+      <li>主要</li>
+      <li>主要</li>
+      <li>主要</li>
     </ul>
-    <h1> inline-block 垂直居中</h1>
+    <h1>inline-block 垂直居中</h1>
     <div class="box5">
-        <div class="search">垂直</div>
-        <span class="after"></span>
+      <div class="search">垂直</div>
+      <span class="after"></span>
     </div>
-</body>
 
+    <h1>定位 垂直居中</h1>
+    <div class="box6">
+      <div class="cotent">垂直</div>
+    </div>
+  </body>
 </html>
