@@ -3,13 +3,14 @@
  * @Author: 张泽雨
  * @Date: 2024-03-05 14:36:00
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-03-14 10:57:47
+ * @LastEditTime: 2024-03-25 12:40:34
  * @FilePath: \my-study\拖拽\drag.js
  */
 const container = document.querySelector(".container");
 let source;
 // 开始拖拽
 container.addEventListener("dragstart", (e) => {
+  console.log(e);
   console.log(e.target.dataset.effect);
   e.dataTransfer.effectAllowed = e.target.dataset.effect;
   source = e.target;

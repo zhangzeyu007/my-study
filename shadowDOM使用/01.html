@@ -1,0 +1,29 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-25 11:33:02
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-25 11:34:28
+ * @FilePath: \my-study\shadowDOM使用\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>shadowDOM使用</title>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script>
+      const root = document.querySelector("#root");
+      const shadowRoot = root.attachShadow({ mode: "open" });
+      const div = document.createElement("div");
+      div.textContent = "Hello, Shadow DOM";
+      shadowRoot.appendChild(div);
+    </script>
+  </body>
+</html>
