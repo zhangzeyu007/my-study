@@ -1,0 +1,57 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-25 15:09:35
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-25 15:33:04
+ * @FilePath: \my-study\使用proxy\02.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用proxy</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      class Compent {
+        _data = { name: "" };
+        pending = false;
+        constructor() {
+          let _this = this;
+          this.data = new Proxy(this._data, {
+            set(target, key, value) {
+              console.log("target", target);
+              console.log("key", key);
+              console.log("value", value);
+              _this._data[key] = value;
+              if (!_this.pending) {
+                _this.pending = true;
+                Promise.resolve().then(() => {
+                  _this.render();
+                });
+              }
+            },
+          });
+        }
+        render(key, value) {
+          this.pending = false;
+          console.log("render------", this.pending);
+        }
+      }
+
+      const com = new Compent();
+      com.data.name = "a";
+      com.data.name = "b";
+      com.data.name = "zzy";
+
+      setTimeout(() => {
+        com.data.name = "c";
+      }, 2000);
+    </script>
+  </body>
+</html>
