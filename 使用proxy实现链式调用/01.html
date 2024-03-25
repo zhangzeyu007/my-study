@@ -1,0 +1,56 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-25 10:29:54
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-25 10:57:25
+ * @FilePath: \my-study\使用proxy实现链式调用\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用proxy实现链式调用</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      // 使用proxy实现链式调用
+      function increase(num) {
+        return num + 1;
+      }
+
+      function decrease(num) {
+        return num - 1;
+      }
+
+      function double(num) {
+        return num * 2;
+      }
+
+      function chain(value) {
+        const handler = {
+          get: function (obj, prop) {
+            if (prop === "end") {
+              return obj.value;
+            }
+            console.log(window);
+            if (typeof window[prop] === "function") {
+              console.log(window[prop](obj.value));
+              obj.value = window[prop](obj.value);
+              return proxy;
+            }
+            return obj[prop];
+          },
+        };
+        const proxy = new Proxy({ value }, handler);
+        return proxy;
+      }
+
+      console.log("结果", chain(3).increase.double.decrease.end);
+    </script>
+  </body>
+</html>

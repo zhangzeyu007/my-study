@@ -1,16 +1,8 @@
-/*
- * @Description: 组件
- * @Author: 海象
- * @Date: 2020-10-20 09:33:10
- * @LastEditors: 海象
- * @LastEditTime: 2020-10-22 16:04:25
- */
-
 // 1. 替换数组原型中的7个方法
 const orginalProto = Array.prototype;
 // 备份一份,修改备份
 const arrayProto = Object.create(orginalProto);
-["push", "pop", "shift", "unshift"].forEach(method => {
+["push", "pop", "shift", "unshift"].forEach((method) => {
   arrayProto[method] = function() {
     // 原始操作
     orginalProto[method].apply(this, arguments);
@@ -34,7 +26,7 @@ function defineReactive(obj, key, val) {
         val = newVal;
         console.log("set", key);
       }
-    }
+    },
   });
 }
 
@@ -54,7 +46,7 @@ function observe(obj) {
       observe(obj[i]);
     }
   } else {
-    Object.keys(obj).forEach(key => {
+    Object.keys(obj).forEach((key) => {
       defineReactive(obj, key, obj[key]);
     });
   }

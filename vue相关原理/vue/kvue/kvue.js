@@ -1,11 +1,3 @@
-/*
- * @Description: 组件
- * @Author: 海象
- * @Date: 2020-10-20 11:12:32
- * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-29 17:52:39
- */
-
 // Object.defineProperty
 function defineReactive(obj, key, val) {
   // todo 如果val是对象, 需要递归处理
@@ -27,7 +19,7 @@ function defineReactive(obj, key, val) {
         //todo  通知更新
         dep.notify();
       }
-    }
+    },
   });
 }
 
@@ -42,14 +34,14 @@ function observe(obj) {
 }
 // proxy代理函数:让用户可以直接访问data中的key
 function proxy(vm, key) {
-  Object.keys(vm[key]).forEach(k => {
+  Object.keys(vm[key]).forEach((k) => {
     Object.defineProperty(vm, k, {
       get() {
         return vm[key][k];
       },
       set(v) {
         vm[key][k] = v;
-      }
+      },
     });
   });
 }
@@ -62,7 +54,7 @@ class Observer {
     this.walk(value);
   }
   walk(obj) {
-    Object.keys(obj).forEach(key => {
+    Object.keys(obj).forEach((key) => {
       defineReactive(obj, key, obj[key]);
     });
   }
@@ -102,7 +94,7 @@ class Compile {
     // el 是宿主元素
     // 遍历它,判断当前遍历元素的类型
     // console.log(el.childNodes);
-    el.childNodes.forEach(node => {
+    el.childNodes.forEach((node) => {
       if (node.nodeType === 1) {
         // console.log("编译元素", node.nodeName);
         this.compileElement(node);
@@ -132,7 +124,7 @@ class Compile {
   compileElement(node) {
     //todo 获取属性并遍历之
     const nodeAttrs = node.attributes;
-    Array.from(nodeAttrs).forEach(attr => {
+    Array.from(nodeAttrs).forEach((attr) => {
       // 指令： k-xxx ='yyy'
       const attrName = attr.name; // k-xxx
       const exp = attr.value;
@@ -180,7 +172,7 @@ class Compile {
     //todo: update 方法只完成赋值和更新
     this.update(node, exp, "model");
     //todo 事件监听
-    node.addEventListener("input", e => {
+    node.addEventListener("input", (e) => {
       // 新的赋值给数据即可
       this.$vm[exp] = e.target.value;
     });
@@ -227,6 +219,6 @@ class Dep {
     this.deps.push(watcher);
   }
   notify() {
-    this.deps.forEach(watcher => watcher.update());
+    this.deps.forEach((watcher) => watcher.update());
   }
 }

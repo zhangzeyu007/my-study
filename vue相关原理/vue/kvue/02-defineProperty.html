@@ -1,37 +1,37 @@
 <!--
- * @Description: 组件
- * @Author: 海象
- * @Date: 2020-10-20 09:45:59
- * @LastEditors: 海象
- * @LastEditTime: 2020-10-20 10:14:36
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-07 12:48:46
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-24 22:07:54
+ * @FilePath: \my-study\vue相关原理\vue\kvue\02-defineProperty.html
 -->
-
-<div id='app'></div>
+<div id="app"></div>
 <script>
-    // Object.defineProperty
-    function defineReactive(obj, key, val) {
-        Object.defineProperty(obj, key, {
-            get() {
-                // console.log("get", key);
-                return val;
-            },
-            set(newVal) {
-                if (val !== newVal) {
-                    val = newVal;
-                    update()
-                    // console.log("set", key);
-                }
-            }
-        });
-    }
+  // Object.defineProperty
+  function defineReactive(obj, key, val) {
+    Object.defineProperty(obj, key, {
+      get() {
+        // console.log("get", key);
+        return val;
+      },
+      set(newVal) {
+        if (val !== newVal) {
+          val = newVal;
+          update();
+          // console.log("set", key);
+        }
+      },
+    });
+  }
 
-    const obj = {};
-    defineReactive(obj, "foo", new Date().toLocaleTimeString());
-    function update() {
-        console.log(obj.foo);
-        app.innerHTML = obj.foo
-    }
-    setInterval(() => {
-        obj.foo = new Date().toLocaleTimeString()
-    }, 1000)
+  const obj = {};
+  defineReactive(obj, "foo", new Date().toLocaleTimeString());
+  function update() {
+    console.log(obj.foo);
+    app.innerHTML = obj.foo;
+  }
+  setInterval(() => {
+    obj.foo = new Date().toLocaleTimeString();
+  }, 1000);
 </script>
