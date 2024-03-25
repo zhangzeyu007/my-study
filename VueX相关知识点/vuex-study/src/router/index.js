@@ -1,33 +1,34 @@
 /*
- * @Description: 组件
- * @Author: 海象
+ * @Description:
+ * @Author: 张泽雨
  * @Date: 2021-03-27 10:32:33
- * @LastEditors: 海象
- * @LastEditTime: 2021-03-27 10:41:31
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-25 15:51:26
+ * @FilePath: \my-study\VueX相关知识点\vuex-study\src\router\index.js
  */
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../views/About.vue')
-  }
-]
+    path: "/about",
+    name: "About",
+    component: () => import("../views/About.vue"),
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

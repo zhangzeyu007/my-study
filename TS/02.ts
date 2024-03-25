@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2024-03-15 13:47:35
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-03-15 14:38:09
+ * @LastEditTime: 2024-03-25 16:22:30
  * @FilePath: \my-study\TS\02.ts
  */
 interface Person {
@@ -62,7 +62,6 @@ function reverse<T>(items: T[]): T[] {
 
 let sample = [1, 2, 3];
 let reversedNum = reverse<number>(sample); // [3, 2, 1]
-
 let reverseString = reverse(['a', 'b', 'c']); // ['c', 'b', 'a']
 
 
