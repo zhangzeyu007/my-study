@@ -1,0 +1,34 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-26 14:04:19
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-26 14:13:00
+ * @FilePath: \my-study\如何实现sleep效果\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>如何实现sleep效果</title>
+  </head>
+  <body>
+    <script>
+      // es5
+      function sleep(delay) {
+        return new Promise((resolve) => {
+          setTimeout(resolve, delay);
+        });
+      }
+
+      sleep(3000).then(() => {
+        console.log("3 miao ");
+      });
+
+      // es6
+    </script>
+  </body>
+</html>

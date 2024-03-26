@@ -47,25 +47,48 @@
         },
       };
 
+      // function convertKeys(data) {
+      //   const newObj = {};
+      //   for (let key in data) {
+      //     let newKey;
+      //     const underscoreIndex = key.indexOf("_");
+      //     if (underscoreIndex !== -1 && underscoreIndex < key.length - 1) {
+      //       const parts = key.split("_");
+      //       newKey =
+      //         parts[0] + "_" + parts[1][0].toUpperCase() + parts[1].slice(1);
+      //     } else {
+      //       newKey = key;
+      //     }
+      //     if (typeof data[key] === "object" && data[key] !== null) {
+      //       newObj[newKey] = convertKeys(data[key]);
+      //     } else {
+      //       newObj[newKey] = data[key];
+      //     }
+      //   }
+      //   return newObj;
+      // }
+
       function convertKeys(data) {
-        const newObj = {};
-        for (let key in data) {
-          let newKey;
-          const underscoreIndex = key.indexOf("_");
-          if (underscoreIndex !== -1 && underscoreIndex < key.length - 1) {
-            const parts = key.split("_");
-            newKey =
-              parts[0] + "_" + parts[1][0].toUpperCase() + parts[1].slice(1);
-          } else {
-            newKey = key;
-          }
-          if (typeof data[key] === "object" && data[key] !== null) {
+        if (Array.isArray(data)) {
+          // 处理数组
+          return data.map((item) => convertKeys(item));
+        } else if (typeof data === "object" && data !== null) {
+          // 处理对象
+          const newObj = {};
+          for (let key in data) {
+            let newKey;
+            let isline = key.indexOf("_");
+            if (isline !== -1 && isline < key.length - 1) {
+              const parts = key.split("_");
+              newKey =
+                parts[0] + "_" + parts[1][0].toUpperCase() + parts[1].slice(1);
+            }
             newObj[newKey] = convertKeys(data[key]);
-          } else {
-            newObj[newKey] = data[key];
           }
+          return newObj;
+        } else {
+          return data;
         }
-        return newObj;
       }
 
       let result = convertKeys(data);
