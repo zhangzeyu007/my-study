@@ -1,0 +1,56 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-26 11:08:41
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-26 11:28:02
+ * @FilePath: \my-study\算法\把树结构还原\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>树结构还原</title>
+  </head>
+  <body>
+    <script>
+      let workflows = [
+        { id: "a2", name: "动作", parent: "a1" },
+        { id: "a3", name: "时间", parent: "az" },
+        { id: "a1", name: "初始人群", parent: "root" },
+        { id: "a4", name: "人群分叉", parent: "a3" },
+        { id: "a5", name: "人群", parent: "a4" },
+        { id: "ax", name: "是", parent: "a5" },
+        { id: "ay", name: "否", parent: "a5" },
+        { id: "a6", name: "人群", parent: "a4" },
+        { id: "a7", name: "展示运营位", parent: "a6" },
+        { id: "a9", name: "引入计划", parent: "a7" },
+        { id: "a10", name: "触发分叉", parent: "a9" },
+        { id: "a11", name: "动作", parent: "a10" },
+        { id: "a12", name: "动作", parent: "a10" },
+        { id: "a13", name: "时间", parent: "a10" },
+        { id: "a14", name: "发券", parent: "a11" },
+        { id: "a15", name: "发券", parent: "a12" },
+        { id: "a16", name: "发消息", parent: "a13" },
+        { id: "az", name: "插入节点", parent: "a2" },
+      ];
+
+      function buildTree(node, list) {
+        const children = list.filter((item) => item.parent === node.id);
+        // 这里可以对 children 进行排序
+        if (children.length > 0) {
+          node.children = children.map((item) => buildTree(item, list));
+        }
+        return node;
+      }
+      const tree = buildTree(
+        { id: "root", name: "根", parent: null, children: [] },
+        workflows
+      );
+      console.log(tree);
+    </script>
+  </body>
+</html>
