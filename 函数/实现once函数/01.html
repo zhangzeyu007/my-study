@@ -1,0 +1,38 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-26 17:55:48
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-26 17:55:49
+ * @FilePath: \my-study\函数\实现once函数\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实现once函数</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      function onece(fn) {
+        let flag = false;
+        return function (...args) {
+          if (!flag) {
+            flag = true;
+            return fn(...args);
+          }
+        };
+      }
+
+      function call() {
+        console.log("---------年后");
+      }
+
+      onece(call());
+    </script>
+  </body>
+</html>
