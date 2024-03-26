@@ -3,8 +3,8 @@
  * @Author: 张泽雨
  * @Date: 2022-05-12 17:51:50
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-05-12 18:11:31
- * @FilePath: \my-study\数组扁平化\index.html
+ * @LastEditTime: 2024-03-26 14:50:13
+ * @FilePath: \my-study\算法\数组扁平化\index.html
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,19 @@
         }
         return result;
       }
+      function flat(arr) {
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+          if (Array.isArray(arr[i])) {
+            newArr = [...newArr, ...flat(arr[i])];
+          } else {
+            newArr = [...newArr, arr[i]];
+          }
+        }
+        return newArr;
+      }
 
+      console.log(flat(a));
       console.log(flatten(a));
     </script>
   </body>
