@@ -2,42 +2,43 @@
  * @Description: 组件
  * @Author: 海象
  * @Date: 2021-04-21 22:24:08
- * @LastEditors: 海象
- * @LastEditTime: 2021-04-22 19:46:38
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-27 13:19:07
 -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>手写promise</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
+      let p1 = new Promise((resolve, reject) => {
+        resolve("解决");
+      });
+      let p2 = new Promise((resolve, reject) => {
+        reject("哈哈哈");
+      });
 
-        let p1 = new Promise(resolve => {
-            resolve('解决')
-        })
-        let p2 = new Promise(resolve => {
-            resolve('哈哈哈');
-        })
-
-        Promise.all([p1, p2]).then((result) => {
-            console.log(result);
+      Promise.all([p1, p2]).then(
+        (result) => {
+          console.log(result, "成功 all");
         },
-            reason => {
-                console.log(reason);
-            }
-        )
-        Promise.race([p1, p2]).then((res) => {
-            console.log(res);
-        }, reason => {
-            console.log(reason);
-        })
+        (reason) => {
+          console.log(reason, "reason all");
+        }
+      );
+      Promise.race([p1, p2]).then(
+        (res) => {
+          console.log(res, "成功 reace");
+        },
+        (reason) => {
+          console.log(reason, "reason reace");
+        }
+      );
     </script>
-</body>
-
+  </body>
 </html>

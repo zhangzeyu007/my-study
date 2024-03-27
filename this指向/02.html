@@ -1,39 +1,38 @@
 <!--
- * @Description: 组件
- * @Author: 海象
+ * @Description: 
+ * @Author: 张泽雨
  * @Date: 2021-04-13 17:00:47
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-06-15 15:21:34
+ * @LastEditTime: 2024-03-27 12:35:43
+ * @FilePath: \my-study\this指向\02.html
 -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-         // 箭头函数的 this 指向他所在的函数级作用域(默认情况指向window)
-        // 不可使用call()改变this的指向
-       // 没有参数不能使用arguments访问箭头函数参数 
-      // 箭头函数对象调用也指向全局window的原因是变量num是全局的,箭头函数的指向是不可以改变的 
-      
-        let num = () => {
-            console.log(this);
-        }
-        // 第一次调用
-        num();
-        let p = {
-            name: 'zzy',
-            num
-        }
-        // 第二次调用
-        p.num()
-    </script>
-</body>
+      // 箭头函数的 this 指向他所在的函数级作用域(默认情况指向window)
+      // 不可使用call()改变this的指向
+      // 没有参数不能使用arguments访问箭头函数参数
+      // 箭头函数对象调用也指向全局window的原因是变量num是全局的,箭头函数的指向是不可以改变的
 
+      let num = () => {
+        console.log(this);
+      };
+      // 第一次调用
+      num();
+      let p = {
+        name: "zzy",
+        num,
+      };
+      // 第二次调用
+      p.num();
+    </script>
+  </body>
 </html>
