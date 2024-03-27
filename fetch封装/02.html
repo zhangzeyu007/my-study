@@ -1,0 +1,44 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-26 20:23:09
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-26 20:33:55
+ * @FilePath: \my-study\fetch封装\02.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch封装</title>
+  </head>
+  <body>
+    <script>
+      function seriaPromiseExection(promiseArr) {
+        return promiseArr.reduce((chain, currentPromiseFn) => {
+          if (typeof currentPromiseFn === "function") {
+            throw new Error("all Promise function should be a function");
+          }
+          return chain.then((promiseResult) => {
+            console.log(promiseResult);
+            console.log(currentPromiseFn, "currentPromiseFn");
+          });
+          // return chain.then((promiseResult) =>
+          //   currentPromiseFn(promiseResult)
+          //   .catch((error) => {
+          //     throw error;
+          //   })
+          // );
+        }, Promise.resolve());
+      }
+
+      let p1 = Promise.resolve(1);
+      let p2 = Promise.resolve(2);
+      let promiseArr = [p1, p2];
+
+      seriaPromiseExection(promiseArr);
+    </script>
+  </body>
+</html>

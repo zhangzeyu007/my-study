@@ -37,9 +37,7 @@
             if (prop === "end") {
               return obj.value;
             }
-            console.log(window);
             if (typeof window[prop] === "function") {
-              console.log(window[prop](obj.value));
               obj.value = window[prop](obj.value);
               return proxy;
             }

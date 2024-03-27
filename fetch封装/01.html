@@ -1,0 +1,74 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-26 19:49:09
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-26 20:22:40
+ * @FilePath: \my-study\fetch封装\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fetch封装</title>
+  </head>
+  <body>
+    <script>
+      function getJWToken() {
+        return localStorage.getItem("jwToken");
+      }
+
+      function authWithFetch(url, options) {
+        const init = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${getJWToken()}`,
+          },
+          ...options,
+        };
+        return fetch(url, init)
+          .then((response) => {
+            if (!response.ok) {
+            } else if (response.code === 401) {
+            } else {
+              // ...
+            }
+            return response.json();
+          })
+          .catch((error) => {
+            throw error;
+          });
+      }
+      authWithFetch("/export/", {})
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      function seriaPromiseExection(promiseArr) {
+        return promiseArr.reduce((chain, currentPromiseFn) => {
+          console.log("currentPromiseFn", currentPromiseFn);
+          if (typeof currentPromiseFn === "function") {
+            throw new Error("Promise function should be a function");
+          }
+          return chain.then((promiseResult) =>
+            currentPromiseFn(promiseResult).catch((error) => {
+              throw error;
+            })
+          );
+        }, Promise.resolve());
+      }
+
+      let p1 = new Promise();
+      let p2 = new Promise();
+      let promiseArr = [p1, p2];
+
+      seriaPromiseExection(promiseArr);
+    </script>
+  </body>
+</html>
