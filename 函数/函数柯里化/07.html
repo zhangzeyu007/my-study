@@ -1,0 +1,44 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-27 19:51:50
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-27 20:02:47
+ * @FilePath: \my-study\函数\函数柯里化\07.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>柯里化</title>
+  </head>
+  <body>
+    <script>
+      function add(a, b, c) {
+        return a + b + c;
+      }
+
+      function curry(fn) {
+        // 1. 这个函数接受一个多参数函数作为输入
+        return function curried(...args) {
+          // 2. 返回一个新的函数,这个函数会收集传入的参数
+          if (args.length >= fn.length) {
+            // 3. 如果收集到的参数个数大于或等于原始函数需要的参数个数
+            return fn(...args);
+            // 4. 那么执行原始函数,并将收集到的参数传递给它
+          } else {
+            // 5. 否则,返回一个新的函数
+            return (...moreArgs) => curried(...args, ...moreArgs);
+            // 6. 这个新函数会接受更多的参数,
+            // 7. 并将之前收集到的参数和新的参数一起传递给 curried 函数
+          }
+        };
+      }
+      const curridAdd = curry(add);
+      console.log(curridAdd(1)(2)(3)); // 6
+    </script>
+  </body>
+</html>

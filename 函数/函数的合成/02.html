@@ -1,0 +1,29 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-27 19:46:51
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-27 19:48:23
+ * @FilePath: \my-study\函数\函数的合成\02.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数合成</title>
+  </head>
+
+  <body>
+    <script>
+      const add = (x) => x + 2;
+      const mul = (x) => x * 3;
+
+      function addTHeMul(x) {
+        return add(mul(x));
+      }
+      console.log(addTHeMul(2)); // 7
+    </script>
+  </body>
+</html>
