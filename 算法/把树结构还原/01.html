@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2024-03-26 11:08:41
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-03-26 11:28:02
+ * @LastEditTime: 2024-03-27 16:24:25
  * @FilePath: \my-study\算法\把树结构还原\01.html
 -->
 
@@ -37,6 +37,10 @@
         { id: "a16", name: "发消息", parent: "a13" },
         { id: "az", name: "插入节点", parent: "a2" },
       ];
+      // init node节点 起始
+      // 找到id相同子节点
+      // 返回 node
+      // dfs 遍历树
 
       function buildTree(node, list) {
         const children = list.filter((item) => item.parent === node.id);

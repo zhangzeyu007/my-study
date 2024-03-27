@@ -20,11 +20,21 @@
       });
 
       p.then((res) => {
-        console.log(res);
+        console.log(res); // 微任务
         console.log("3"); // 微任务
       }).catch((err) => {
         console.log(err);
       });
+
+      // const promise = new Promise((resolve, reject) => {
+      //   console.log(1);
+      //   resolve("success");
+      //   console.log(2);
+      // });
+      // promise.then(() => {
+      //   console.log(3);
+      // });
+      // console.log(4);
     </script>
   </body>
 </html>
