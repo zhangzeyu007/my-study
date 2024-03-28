@@ -1,0 +1,47 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-28 12:48:47
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-28 13:03:47
+ * @FilePath: \my-study\proxy\03.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用proxy</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      function createProxy(value = 0) {
+        return new Proxy(
+          {},
+          {
+            get(target, key) {
+              console.log("target", target);
+              console.log("value", value);
+              if (key === Symbol.toPrimitive) {
+                return () => value;
+              }
+              return createProxy(value + Number(key));
+            },
+          }
+        );
+      }
+      const add = createProxy();
+
+      const r1 = add[1][2][3] + 4;
+      const r2 = add[10][20][30] + 40;
+      const r3 = add[100][200][300] + 40;
+
+      console.log(r1);
+      console.log(r2);
+      console.log(r3);
+    </script>
+  </body>
+</html>
