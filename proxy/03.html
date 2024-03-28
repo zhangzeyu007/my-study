@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2024-03-28 12:48:47
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-03-28 13:03:47
+ * @LastEditTime: 2024-03-28 13:12:54
  * @FilePath: \my-study\proxy\03.html
 -->
 
@@ -24,7 +24,7 @@
           {
             get(target, key) {
               console.log("target", target);
-              console.log("value", value);
+              console.log("value", key);
               if (key === Symbol.toPrimitive) {
                 return () => value;
               }
