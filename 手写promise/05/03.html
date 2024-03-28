@@ -1,0 +1,30 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-03-28 09:30:10
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-03-28 09:34:53
+ * @FilePath: \my-study\手写promise\05\03.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>研究promise</title>
+  </head>
+  <body>
+    <script>
+      console.log(1);
+      let p = new Promise((resolve, reject) => {
+        resolve("success");
+        console.log(2);
+      });
+      p.then((res) => {
+        console.log(3);
+      });
+      console.log(4);
+    </script>
+  </body>
+</html>
