@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "strict": false, // 严格模式
+    "target": "ESNext",
+    "outDir": "types",
+    "module": "ESNext",
+    "lib": ["dom", "esnext"],
+    "noLib": false,
+    "useDefineForClassFields": true,
+    "verbatimModuleSyntax": false,
+    "baseUrl": ".",
+    "moduleResolution": "Node",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "typeRoots": ["./node_modules/@types/", "./types", "./node_modules"],
+    "paths": {
+      "@/*": ["src/*"],
+      "#/*": ["types/*"]
+    },
+    "resolveJsonModule": true,
+    "types": ["node", "vite/client"],
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": false,
+    "skipLibCheck": true,
+    "allowJs": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.vue",
+    "components.d.ts",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "mock/**/*.ts",
+    "vite.config.ts",
+    "vite-env.d.ts",
+    "types/vant.d.ts"
+  ], // 指定需要编译的文件或目录，这里是 src 目录下的所有文件
+  "exclude": ["node_modules", "dist", "**/*.js"] // 指定不需要编译的目录，这里是 node_modules 目录
+}
