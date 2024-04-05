@@ -1,0 +1,39 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-05 14:48:05
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-05 14:53:10
+ * @FilePath: \my-study\ES6内置对象\05.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>内置对象</title>
+  </head>
+  <style></style>
+  <body>
+    <script>
+      const o = {
+        name: "Ben",
+        get age() {
+          return "18";
+        },
+      };
+      console.log(o);
+      console.log(
+        Object.getOwnPropertyDescriptor(o, "name"),
+        "getOwnPropertyDescriptor"
+      );
+      console.log(
+        Object.getOwnPropertyDescriptors(o),
+        "getOwnPropertyDescriptors"
+      );
+      console.log(Object.getOwnPropertyNames(o), "getOwnPropertyNames");
+    </script>
+  </body>
+</html>
