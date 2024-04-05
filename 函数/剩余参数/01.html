@@ -1,0 +1,39 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-04 14:58:59
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-04 15:03:01
+ * @FilePath: \my-study\函数\剩余参数\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>剩余参数</title>
+  </head>
+  <body>
+    <script>
+      function add(...values) {
+        let sum = 0;
+        for (var val of values) {
+          sum += val;
+        }
+
+        return sum;
+      }
+
+      const res = add(2, 3, 5);
+      console.log(res);
+
+      function sortNmbers() {
+        return Array.prototype.slice.call(arguments).sort();
+      }
+
+      console.log(sortNmbers(5, 3, 1, 4, 2));
+    </script>
+  </body>
+</html>
