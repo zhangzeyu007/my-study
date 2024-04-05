@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2021-06-13 22:27:50
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-03-28 13:23:29
+ * @LastEditTime: 2024-04-05 11:49:06
  * @FilePath: \my-study\继承\06.html
 -->
 <!DOCTYPE html>
@@ -43,7 +43,11 @@
         console.log(this.hobby);
       };
 
-      console.log(new Bob());
+      Bob.prototype.constructor = Bob;
+      const p = new Bob();
+      console.log(p);
+      console.log(Bob.prototype);
+      console.log(p instanceof Bob);
     </script>
   </body>
 </html>

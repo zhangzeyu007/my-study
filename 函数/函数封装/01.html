@@ -1,0 +1,69 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-05 11:54:58
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-05 12:10:50
+ * @FilePath: \my-study\函数\函数封装\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数封装</title>
+  </head>
+  <body>
+    <script>
+      const users = [
+        {
+          name: "张三",
+          sex: "男",
+          age: 18,
+        },
+        {
+          name: "小明",
+          sex: "男",
+          age: 20,
+        },
+        {
+          name: "小明",
+          sex: "男",
+          age: 20,
+        },
+        {
+          name: "小花",
+          sex: "女",
+          age: 12,
+        },
+        {
+          name: "小刚",
+          sex: "男",
+          age: 10,
+        },
+        {
+          name: "小发",
+          sex: "男",
+          age: 10,
+        },
+      ];
+
+      function handleUser(users, generateKey) {
+        let result = [];
+        for (item of users) {
+          const key = generateKey(item);
+          if (result[key]) {
+            result[key]++;
+          } else {
+            result[key] = 1;
+          }
+        }
+        return result;
+      }
+
+      console.log(handleUser(users, (u) => u.age < 12));
+    </script>
+  </body>
+</html>
