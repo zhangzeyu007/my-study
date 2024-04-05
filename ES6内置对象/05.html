@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2024-04-05 14:48:05
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-04-05 14:53:10
+ * @LastEditTime: 2024-04-05 14:56:40
  * @FilePath: \my-study\ES6内置对象\05.html
 -->
 
@@ -27,13 +27,20 @@
       console.log(o);
       console.log(
         Object.getOwnPropertyDescriptor(o, "name"),
-        "getOwnPropertyDescriptor"
+        "getOwnPropertyDescriptor 方法可以获取对象自有 Property 的某个 Attribute"
       );
       console.log(
         Object.getOwnPropertyDescriptors(o),
-        "getOwnPropertyDescriptors"
+        "getOwnPropertyDescriptors 方法用于获取一个对象的所有自身 Property 的 Attributes"
       );
-      console.log(Object.getOwnPropertyNames(o), "getOwnPropertyNames");
+      console.log(
+        Object.getOwnPropertyNames(o),
+        "getOwnPropertyNames方法用于获取指定对象的所有自身 Property 的键名"
+      );
+      console.log(
+        Object.getPrototypeOf(o),
+        "getPrototypeOf方法用于获取指定对象的原型"
+      );
     </script>
   </body>
 </html>

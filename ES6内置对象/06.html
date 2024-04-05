@@ -1,0 +1,47 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-05 14:58:12
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-05 15:00:34
+ * @FilePath: \my-study\ES6内置对象\06.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>内置对象</title>
+  </head>
+  <style></style>
+  <body>
+    <script>
+      Object.is(undefined, undefined);
+      // true
+
+      Object.is(null, null);
+      // true
+
+      Object.is(true, true);
+      // true
+
+      Object.is(100, 100);
+      // true
+
+      Object.is("foo", "bar");
+      // false
+
+      Object.is([], []);
+      // false
+
+      Object.is(0, -0);
+      // false
+      Object.is(-0, -0);
+      // true
+      Object.is(NaN, 0 / 0);
+      // true
+    </script>
+  </body>
+</html>
