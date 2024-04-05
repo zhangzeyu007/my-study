@@ -1,0 +1,30 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-05 14:41:25
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-05 14:43:58
+ * @FilePath: \my-study\ES6\04.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>内置对象</title>
+  </head>
+  <style></style>
+  <body>
+    <script>
+      // 冻结对象
+      const obj = { a: 5, b: 7, c: 9 };
+      Object.freeze(obj);
+      obj.f = 21;
+
+      console.log(obj);
+      console.log(obj.a);
+    </script>
+  </body>
+</html>

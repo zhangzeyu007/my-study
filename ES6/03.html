@@ -1,0 +1,35 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-05 14:32:58
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-05 14:40:13
+ * @FilePath: \my-study\ES6\03.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>内置对象</title>
+  </head>
+  <style></style>
+  <body>
+    <script>
+      // 方法用于枚举指定对象并返回以键值对组成的数组为元素的二维数组
+      const a = { foo: 1, bar: 2 };
+      console.log(Object.entries(a));
+
+      const obj = { a: 5, b: 7, c: 9 };
+      for (const [key, value] of Object.entries(obj)) {
+        console.log(`${key} ${value}`);
+        // "a 5", "b 7", "c 9"
+      }
+      Object.entries(obj).forEach(([key, value]) => {
+        console.log(`${key} ${value}`); // "a 5", "b 7", "c 9"
+      });
+    </script>
+  </body>
+</html>
