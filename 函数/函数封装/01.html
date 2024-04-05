@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2024-04-05 11:54:58
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-04-05 12:10:50
+ * @LastEditTime: 2024-04-05 12:20:07
  * @FilePath: \my-study\函数\函数封装\01.html
 -->
 
@@ -49,8 +49,9 @@
           age: 10,
         },
       ];
-
+      // 统计个数 对key高阶函数优化
       function handleUser(users, generateKey) {
+        // 收集结果
         let result = [];
         for (item of users) {
           const key = generateKey(item);

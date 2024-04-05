@@ -1,0 +1,30 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-05 12:26:30
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-05 12:31:24
+ * @FilePath: \my-study\ES6\02.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>结构赋值</title>
+  </head>
+  <style></style>
+  <body>
+    <script>
+      Object.prototype[Symbol.iterator] = function () {
+        console.log(Object.values(this));
+        return Object.values(this)[Symbol.iterator]();
+      };
+      var [a, b] = { a: 1, b: 2 };
+      console.log(a); // 1
+      console.log(b);
+    </script>
+  </body>
+</html>
