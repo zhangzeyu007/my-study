@@ -1,0 +1,49 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-05 15:57:31
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-05 16:12:23
+ * @FilePath: \my-study\手写promise\手写promiseAll\04.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>手写PromiseAll</title>
+  </head>
+  <body>
+    <script>
+      Promise.myAll = function (promises) {
+        return new Promise((resolve, reject) => {
+          let i = 0;
+          let fulfuilledCount = 0;
+          const result = [];
+          for (const prom of promises) {
+            const index = i;
+            i++;
+            Promise.resolve(prom).then((data) => {
+              // 完成数据汇总最终结果
+              result[index] = data;
+              fulfuilledCount++;
+              // 判断是否全部完成
+              if (fulfuilledCount === i) {
+                resolve(result);
+              }
+              if (i === 0) {
+                resolve([]);
+              }
+            }, reject);
+          }
+        });
+      };
+
+      Promise.myAll([1, 2, 3, Promise.resolve(1234)]).then((res) => {
+        console.log(res);
+      });
+    </script>
+  </body>
+</html>

@@ -1,40 +1,36 @@
 <!--
- * @Description: 组件
- * @Author: 海象
+ * @Description: 
+ * @Author: 张泽雨
  * @Date: 2021-02-02 09:01:33
- * @LastEditors: 海象
- * @LastEditTime: 2021-02-02 09:08:19
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-05 15:40:18
+ * @FilePath: \my-study\继承\03.html
 -->
-
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>继承</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <script>
-        function createAnother(original) {
-            let clone = Object(original)
-            clone.sayHi = function () {
-                console.log('hi');
-            }
-            return clone
-        }
+      function createAnother(original) {
+        let clone = Object(original);
+        clone.sayHi = function () {
+          console.log("hi");
+        };
+        return clone;
+      }
 
-        let person = {
-            name: 'zhangzeyu'
-        }
-        
-        let person2 = createAnother(person)
+      let person = {
+        name: "zhangzeyu",
+      };
 
-        person2.sayHi()
+      let person2 = createAnother(person);
 
+      person2.sayHi();
     </script>
-</body>
-
+  </body>
 </html>
