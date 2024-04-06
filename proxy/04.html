@@ -1,0 +1,55 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-06 12:04:10
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-06 12:48:41
+ * @FilePath: \my-study\proxy\04.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>使用proxy</title>
+    <style></style>
+  </head>
+
+  <body>
+    <script>
+      const data = {
+        info: {
+          name: "Eason",
+          blogs: ["Webpack", "Babel", "React"],
+        },
+      };
+
+      const handler = {
+        get(target, key, receiver) {
+          console.log(target, "target");
+          console.log(key, "key");
+          console.log(receiver, "receiver");
+          // 如果是对象并且有值 返回新的proxy
+          if (typeof target[key] === "object" && target[key] !== null) {
+            return new Proxy(target[key], handler);
+          }
+          // 返回获取原始对象属性值 receiver 参数则是指向当前的代理对象
+          console.log(Reflect.get(target, key, receiver), "获取原始对象属性值");
+          return Reflect.get(target, key, receiver);
+        },
+        set(target, properkey, value, receiver) {
+          console.log(value, "value");
+          console.log(properkey, "properkey");
+          console.log(Reflect.set(target, properkey, value, receiver));
+          return Reflect.set(target, properkey, value, receiver);
+        },
+      };
+
+      const proxy = new Proxy(data, handler);
+      proxy.info.name = "泽雨";
+
+      console.log(proxy);
+      console.log(data);
+    </script>
+  </body>
+</html>
