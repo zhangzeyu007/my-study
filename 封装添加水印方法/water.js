@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2024-03-20 12:30:51
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-03-20 12:35:57
+ * @LastEditTime: 2024-04-07 16:44:08
  * @FilePath: \my-study\封装添加水印方法\water.js
  */
 
@@ -95,7 +95,6 @@ export function useWatermark(parentEl = bodyEl) {
       (watermarkEl.style.width = options.clientWidth + "px");
     options.clientHeight &&
       (watermarkEl.style.height = options.clientHeight + "px");
-    console.log(watermarkEl);
   };
 
   const createBase64 = () => {
@@ -153,6 +152,7 @@ export function useWatermark(parentEl = bodyEl) {
       }
     }
   };
+
   const removeListener = (kind) => {
     if (kind === "mutation" || kind === "all") {
       observer.watermarkElMutationObserver.disconnet();

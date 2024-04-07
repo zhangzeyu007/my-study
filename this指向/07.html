@@ -1,0 +1,33 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-07 22:04:02
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-07 22:10:24
+ * @FilePath: \my-study\this指向\07.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>this的指向问题</title>
+  </head>
+
+  <body>
+    <script>
+      window.a = 100;
+      const obj = function () {
+        return {
+          a: 2,
+          fn: () => {
+            console.log(this.a);
+          },
+        };
+      };
+
+      obj.call(obj()).fn();
+    </script>
+  </body>
+</html>
