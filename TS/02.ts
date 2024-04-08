@@ -4,11 +4,11 @@
  * @Author: 张泽雨
  * @Date: 2024-03-15 13:47:35
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-03-25 16:22:30
+ * @LastEditTime: 2024-04-08 11:44:51
  * @FilePath: \my-study\TS\02.ts
  */
 interface Person {
-	name: string;
+	name: string | number;
 	age?: number; // 可选属性
 	readonly id: number; // 只读属性
 	sayHi: () => string; // 定义方法

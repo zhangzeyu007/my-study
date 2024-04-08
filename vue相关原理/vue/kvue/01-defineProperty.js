@@ -24,7 +24,6 @@ function defineReactive(obj, key, val) {
         // 如果newval是一个对象, 也要做响应式处理
         observe(newVal);
         val = newVal;
-        console.log("set", key);
       }
     },
   });
