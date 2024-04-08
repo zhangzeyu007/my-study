@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2022-05-27 11:21:51
  * @LastEditors: 张泽雨
- * @LastEditTime: 2022-06-10 11:51:30
+ * @LastEditTime: 2024-04-08 12:41:28
  * @FilePath: \my-study\虚拟滚动组件\VirtualList.vue
 -->
 
@@ -97,6 +97,14 @@ export default {
       // 此时的结束索引
       this.end = this.start + this.visibleCount;
       // 此时的偏移量
+      /*
+      对齐行高度: 由于滚动位置的偏移量 scrollTop 可能不是行高度 this.rowHeight 的整数倍,
+       因此需要将其对行高度取余,以确保 startOffset 总是从一个完整的行的顶部开始。
+      这样可以保证每个渲染的列表项都是完整的,避免出现视觉上的断层。
+      精确定位: 如果不进行取模运算,而直接使用原始的 scrollTop 作为起始偏移量,
+      可能会导致第一个渲染的列表项出现在视窗中间或其他位置,而不是从视窗顶部开始渲染。
+      通过取模运算,我们可以确保第一个渲染的列表项总是从视窗顶部开始,提高了定位的精确性
+      */
       this.startOffset = scrollTop - (scrollTop % this.size);
     },
   },
