@@ -3,7 +3,7 @@
  * @Author: 张泽雨
  * @Date: 2024-04-08 10:45:22
  * @LastEditors: 张泽雨
- * @LastEditTime: 2024-04-08 11:15:11
+ * @LastEditTime: 2024-04-08 11:25:11
  * @FilePath: \my-study\TS\03.ts
  */
 
@@ -15,7 +15,6 @@ interface Person extends Emp {
 type Emp = {
 	id: string | number
 }
-
 type ID = string | number
 let p: Person = { name: 1, age: 1, id: '2' }
 
