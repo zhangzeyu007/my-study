@@ -1,0 +1,31 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-10 12:20:16
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-10 12:29:36
+ * @FilePath: \my-study\函数\惰性函数\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>惰性函数</title>
+  </head>
+  <body>
+    <script>
+      function addEvent(type, element, func) {
+        if (element.addEventListener) {
+          element.addEventListener(type, func, false);
+        } else if (element.attachEvent) {
+          element.attachEvent("on" + type, func);
+        } else {
+          element["on" + type] = func;
+        }
+      }
+    </script>
+  </body>
+</html>
