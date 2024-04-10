@@ -1,0 +1,42 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-10 12:10:24
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-10 12:15:06
+ * @FilePath: \my-study\函数\级联函数\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>级联函数</title>
+  </head>
+  <body>
+    <script>
+      function Person() {
+        this.name = "";
+        this.age = 10;
+      }
+
+      Person.prototype = {
+        setName: function (name) {
+          this.name = name;
+          return this;
+        },
+        setAge: function (age) {
+          this.age = age;
+          return this;
+        },
+      };
+
+      var uzi = new Person();
+      uzi.setName("Uzi").setAge(18);
+
+      console.log(uzi);
+    </script>
+  </body>
+</html>
