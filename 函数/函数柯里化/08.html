@@ -1,0 +1,31 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-10 13:49:26
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-10 13:54:20
+ * @FilePath: \my-study\函数\函数柯里化\08.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>柯里化</title>
+  </head>
+  <body>
+    <script>
+      Array.forEach = function () {
+        const fn = [].pop.call(arguments);
+        const arr = arguments.length > 1 ? arguments : arguments[0];
+        return [].forEach.call(arr, fn);
+      };
+
+      Array.forEach("123", function (i) {
+        console.log(i);
+      });
+    </script>
+  </body>
+</html>
