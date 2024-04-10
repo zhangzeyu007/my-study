@@ -1,0 +1,34 @@
+<!--
+ * @Description: 
+ * @Author: 张泽雨
+ * @Date: 2024-04-10 12:30:47
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-10 12:37:28
+ * @FilePath: \my-study\函数\回调函数\01.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>回调函数</title>
+  </head>
+  <body>
+    <script>
+      //同样对象可以作为参数传递给函数，因此函数也可以作为参数传递给另外一个函数，这个作为参数的函数就是回调函
+      function add(sum1, sum2, callback) {
+        const sum = sum1 + sum2;
+
+        callback(sum);
+      }
+
+      function print(sum) {
+        console.log(sum);
+      }
+
+      add(1, 2, print);
+    </script>
+  </body>
+</html>
