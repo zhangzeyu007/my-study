@@ -1,47 +1,45 @@
 <!--
- * @Description: 组件
- * @Author: 海象
+ * @Description: 
+ * @Author: 张泽雨
  * @Date: 2021-02-01 11:53:31
- * @LastEditors: 海象
- * @LastEditTime: 2021-02-01 12:08:16
+ * @LastEditors: 张泽雨
+ * @LastEditTime: 2024-04-11 18:10:24
+ * @FilePath: \my-study\继承\01.html
 -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>组合继承</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        function SuperType(name) {
-            this.name = name
-            this.colors = ['red', 'glob']
-        }
-        SuperType.prototype.sayName = function () {
-            console.log(this.name);
-        }
+      function SuperType(name) {
+        this.name = name;
+        this.colors = ["red", "glob"];
+      }
+      SuperType.prototype.sayName = function () {
+        console.log(this.name);
+      };
 
-        function SubType(name, age) {
-            // 继承属性
-            SuperType.call(this, name)
-            this.age = age
-        }
-        
-        // 继承方法
-        SubType.prototype = new SuperType()
-        SubType.prototype.sayAge = function () {
-            console.log(this.age);
-        }
+      function SubType(name, age) {
+        // 继承属性
+        SuperType.call(this, name);
+        this.age = age;
+      }
 
-        let instance = new SubType('张泽雨', 29)
-        console.log(instance);
-        instance.sayName()
-        instance.sayAge()
+      // 继承方法
+      SubType.prototype = new SuperType();
+      SubType.prototype.sayAge = function () {
+        console.log(this.age);
+      };
 
+      let instance = new SubType("张泽雨", 29);
+      console.log(instance);
+      instance.sayName();
+      instance.sayAge();
     </script>
-</body>
-
+  </body>
 </html>
